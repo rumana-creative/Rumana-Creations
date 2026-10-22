@@ -316,15 +316,21 @@ async function runTestSuite() {
   });
 
   // 12. Admin Authentication & Status Update
-  await assertTest('POST /api/admin/login rejects wrong password', async () => {
-    const res = await post('/api/admin/login', { password: 'wrongpassword' });
-    if (res.status !== 401) throw new Error(`Expected 401, got ${res.status}`);
+  await assertTest('POST /api/admin/login rejects wrong credentials or old default password', async () => {
+    const res1 = await post('/api/admin/login', { email: 'nawabrumana6@gmail.com', password: 'rumana2026' });
+    if (res1.status !== 401) throw new Error(`Expected 401 for old password, got ${res1.status}`);
+
+    const res2 = await post('/api/admin/login', { email: 'wrong@example.com', password: 'Rumana@nawab2026' });
+    if (res2.status !== 401) throw new Error(`Expected 401 for wrong email ID, got ${res2.status}`);
   });
 
   let adminCookie = '';
-  await assertTest('POST /api/admin/login accepts correct password (rumana2026)', async () => {
-    const res = await post('/api/admin/login', { password: 'rumana2026' });
-    if (res.status !== 200) throw new Error(`Expected 200, got ${res.status}`);
+  await assertTest('POST /api/admin/login accepts confirmed credentials (nawabrumana6@gmail.com / Rumana@nawab2026)', async () => {
+    const res = await post('/api/admin/login', { 
+      email: 'nawabrumana6@gmail.com', 
+      password: 'Rumana@nawab2026' 
+    });
+    if (res.status !== 200) throw new Error(`Expected 200, got ${res.status}: ${res.body}`);
     const setCookie = res.headers['set-cookie'];
     if (!setCookie || !setCookie.some((c) => c.includes('rc_admin_token'))) {
       throw new Error('Session cookie not issued');
