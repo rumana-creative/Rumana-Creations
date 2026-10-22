@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-cormorant: 'Cormorant Garamond', Georgia, serif;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bg-ivory: #FFFDF8;
+  --bg-cream: #F7F0E5;
+  --color-burgundy: #70152C;
+  --color-gold: #C49A45;
+  --color-charcoal: #393333;
+  --border-gold: #E8D9BD;
+}
+
+body {
+  background-color: var(--bg-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-inter);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: var(--font-cormorant);
+}
+
+/* Subtle boutique scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAF6EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E8D9BD;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C49A45;
+}
+
+/* Gold Gradient Shimmer */
+.gold-shimmer {
+  background: linear-gradient(135deg, #F2DFB3 0%, #D4AF37 40%, #C49A45 70%, #A37B2E 100%);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(135deg, #A37B2E 0%, #70152C 40%, #A37B2E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.burgundy-gradient {
+  background: linear-gradient(145deg, #8A1B38 0%, #70152C 60%, #4A0B1B 100%);
+}
+
+/* Refined button focus */
+button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid #C49A45;
+  outline-offset: 2px;
+}

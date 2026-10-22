@@ -1,0 +1,903 @@
+import fs from 'fs';
+import path from 'path';
+import { Product, Category, Order, StoreSettings, Coupon, Review } from '@/types';
+import { defaultStoreSettings } from '@/config/store';
+
+const DATA_DIR = path.join(process.cwd(), 'data');
+const DATA_FILE = path.join(DATA_DIR, 'store-data.json');
+
+interface DatabaseSchema {
+  settings: StoreSettings;
+  categories: Category[];
+  products: Product[];
+  orders: Order[];
+  coupons: Coupon[];
+  reviews: Review[];
+}
+
+const initialCategories: Category[] = [
+  {
+    id: 'cat-1',
+    slug: 'claw-clips',
+    name: 'Claw Clips',
+    description: 'Everyday hold with luxury aesthetics. Lightweight, non-slip, and chic.',
+    image: '/images/categories/claw-clips.svg',
+    displayOrder: 1,
+    isVisible: true,
+  },
+  {
+    id: 'cat-2',
+    slug: 'scrunchies-hair-ties',
+    name: 'Scrunchies & Hair Ties',
+    description: 'Anti-breakage mulberry silks, lavish organza, and plush velvet ties.',
+    image: '/images/categories/scrunchies.svg',
+    displayOrder: 2,
+    isVisible: true,
+  },
+  {
+    id: 'cat-3',
+    slug: 'headbands',
+    name: 'Headbands',
+    description: 'Padded velvet crowns, hand-beaded arches, and everyday pleated bands.',
+    image: '/images/categories/headbands.svg',
+    displayOrder: 3,
+    isVisible: true,
+  },
+  {
+    id: 'cat-4',
+    slug: 'kids-clips',
+    name: "Kids' Clips",
+    description: 'Gentle, snag-free mini clips, pastel bows, and adorable floral sets.',
+    image: '/images/categories/kids-clips.svg',
+    displayOrder: 4,
+    isVisible: true,
+  },
+  {
+    id: 'cat-5',
+    slug: 'pearl-pins-beads',
+    name: 'Pearl Pins & Bead Bands',
+    description: 'Intricately handcrafted pearl bobby pins, crystal vines, and beaded charms.',
+    image: '/images/categories/pearl-pins.svg',
+    displayOrder: 5,
+    isVisible: true,
+  },
+  {
+    id: 'cat-6',
+    slug: 'new-arrivals',
+    name: 'New Arrivals',
+    description: 'The latest seasonal curation of trending boutique hair accessories.',
+    image: '/images/categories/new-arrivals.svg',
+    displayOrder: 6,
+    isVisible: true,
+  },
+  {
+    id: 'cat-7',
+    slug: 'best-sellers',
+    name: 'Best Sellers',
+    description: 'Our most loved hair jewels and everyday staples, handpicked by you.',
+    image: '/images/categories/best-sellers.svg',
+    displayOrder: 7,
+    isVisible: true,
+  },
+];
+
+const initialProducts: Product[] = [
+  {
+    id: 'prod-1',
+    slug: 'french-tortoise-shell-claw-clip',
+    name: 'French Tortoise Shell Jumbo Claw Clip',
+    category: 'claw-clips',
+    categoryName: 'Claw Clips',
+    price: 349,
+    originalPrice: 499,
+    description: 'Handcrafted with premium cellulose acetate for exceptional durability and a sleek, glossy sheen. Features custom double-teeth interlocking grip that holds thick, medium, and fine hair effortlessly without snagging or pulling.',
+    details: [
+      'Material: Bio-acetate cellulose with gold-plated internal spring',
+      'Length: 10.5 cm (Jumbo size for full up-dos)',
+      'Finish: High-gloss tortoise shell pattern',
+      'Grip: Rounded teeth for painless all-day comfort',
+    ],
+    materials: 'High-grade cellulose acetate with reinforced steel coil spring.',
+    careInstructions: 'Wipe clean with a soft dry cloth. Keep away from direct high heat or harsh chemicals.',
+    images: ['/images/products/tortoise-claw-1.svg', '/images/products/tortoise-claw-2.svg'],
+    variants: [
+      { id: 'v1-1', name: 'Classic Amber Tortoise', colorCode: '#B87333', stock: 18, sku: 'RC-CC-01-AMB' },
+      { id: 'v1-2', name: 'Midnight Onyx & Cream', colorCode: '#3D3635', stock: 12, sku: 'RC-CC-01-ONX' },
+      { id: 'v1-3', name: 'Blonde Horn Marble', colorCode: '#D2B48C', stock: 8, sku: 'RC-CC-01-BLN' },
+    ],
+    stock: 38,
+    sku: 'RC-CC-01',
+    isFeatured: true,
+    isNewArrival: false,
+    isBestSeller: true,
+    rating: 4.9,
+    reviewCount: 34,
+    createdAt: '2026-09-15T10:00:00Z',
+  },
+  {
+    id: 'prod-2',
+    slug: 'gilded-gold-blossom-metal-claw',
+    name: 'Gilded Blossom Floral Metal Hair Claw',
+    category: 'claw-clips',
+    categoryName: 'Claw Clips',
+    price: 499,
+    originalPrice: 699,
+    description: 'Exquisitely sculpted in hollow-relief gold finish metal, inspired by vintage botanical motifs. Lightweight yet remarkably strong, adding a royal touch to festive festive wear and everyday buns alike.',
+    details: [
+      'Finish: Premium anti-tarnish champagne gold electroplating',
+      'Weight: 42 grams lightweight balanced alloy',
+      'Dimensions: 11 cm length × 5 cm height',
+      'Perfect for: Half-up styles, French twists, and festive occasions',
+    ],
+    materials: 'Zinc alloy core with anti-tarnish brushed gold plating.',
+    careInstructions: 'Store in moisture-free pouch. Avoid spraying hairspray or perfume directly on the clip.',
+    images: ['/images/products/gold-blossom-1.svg', '/images/products/gold-blossom-2.svg'],
+    variants: [
+      { id: 'v2-1', name: 'Champagne Gold', colorCode: '#C49A45', stock: 15, sku: 'RC-CC-02-GLD' },
+      { id: 'v2-2', name: 'Rose Gold', colorCode: '#B76E79', stock: 9, sku: 'RC-CC-02-RGD' },
+    ],
+    stock: 24,
+    sku: 'RC-CC-02',
+    isFeatured: true,
+    isNewArrival: true,
+    isBestSeller: true,
+    rating: 5.0,
+    reviewCount: 28,
+    createdAt: '2026-10-01T12:00:00Z',
+  },
+  {
+    id: 'prod-3',
+    slug: 'mulberry-silk-luxe-scrunchie-trio',
+    name: 'Pure Mulberry Silk Skinny Scrunchie Trio',
+    category: 'scrunchies-hair-ties',
+    categoryName: 'Scrunchies & Hair Ties',
+    price: 399,
+    originalPrice: 550,
+    description: 'Set of 3 slender scrunchies crafted from 100% pure 22-momme grade 6A mulberry silk. Eliminates ponytail ridges, prevents cuticle friction, and locks in natural hair hydration overnight and through busy work days.',
+    details: [
+      'Includes 3 shades: Champagne Cream, Dusty Rose, and Midnight Burgundy',
+      'Wide internal elastic core prevents stretching out over time',
+      'Zero hair breakage, zero tension headaches',
+    ],
+    materials: '100% Pure Mulberry Silk (22 Momme).',
+    careInstructions: 'Hand wash in cold water with mild shampoo or silk detergent. Air dry flat in shade.',
+    images: ['/images/products/silk-scrunchie-1.svg', '/images/products/silk-scrunchie-2.svg'],
+    variants: [
+      { id: 'v3-1', name: 'Heritage Boutique Trio (Burgundy/Cream/Rose)', colorCode: '#70152C', stock: 25, sku: 'RC-SC-01-TRIO' },
+      { id: 'v3-2', name: 'Pastel Garden Trio (Sage/Peach/Ivory)', colorCode: '#E8D9BD', stock: 14, sku: 'RC-SC-01-PST' },
+    ],
+    stock: 39,
+    sku: 'RC-SC-01',
+    isFeatured: true,
+    isNewArrival: false,
+    isBestSeller: true,
+    rating: 4.9,
+    reviewCount: 42,
+    createdAt: '2026-08-20T09:30:00Z',
+  },
+  {
+    id: 'prod-4',
+    slug: 'organza-cloud-oversized-scrunchie',
+    name: 'Organza Cloud Oversized Ruffle Scrunchie',
+    category: 'scrunchies-hair-ties',
+    categoryName: 'Scrunchies & Hair Ties',
+    price: 249,
+    originalPrice: 350,
+    description: 'Dreamy, ethereal oversized scrunchie made of gossamer-light textured organza with delicate pearl droplet accent. Creates instant drama and romantic volume on any ponytail or topknot.',
+    details: [
+      'Diameter: 16 cm puffed cloud diameter',
+      'Features a subtle dangling freshwater seed pearl charm',
+      'Holds comfortably without slipping',
+    ],
+    materials: 'Featherlight sheer organza and faux pearl pendant.',
+    careInstructions: 'Gently spot clean with cool damp cloth.',
+    images: ['/images/products/organza-cloud-1.svg'],
+    variants: [
+      { id: 'v4-1', name: 'Vanilla Cream', colorCode: '#FDFBF7', stock: 20, sku: 'RC-SC-02-VAN' },
+      { id: 'v4-2', name: 'Blush Petal Pink', colorCode: '#F3DDE1', stock: 15, sku: 'RC-SC-02-PNK' },
+      { id: 'v4-3', name: 'Royal Burgundy Wine', colorCode: '#70152C', stock: 10, sku: 'RC-SC-02-BUR' },
+    ],
+    stock: 45,
+    sku: 'RC-SC-02',
+    isFeatured: false,
+    isNewArrival: true,
+    isBestSeller: false,
+    rating: 4.8,
+    reviewCount: 19,
+    createdAt: '2026-10-10T14:15:00Z',
+  },
+  {
+    id: 'prod-5',
+    slug: 'padded-velvet-crown-headband',
+    name: 'Royal Padded Velvet Crown Headband',
+    category: 'headbands',
+    categoryName: 'Headbands',
+    price: 449,
+    originalPrice: 649,
+    description: 'Elevate your hair game with our signature padded headband wrapped in plush micro-velvet. Designed with flexible comfort-arch tips behind the ears for zero-pinch, all-day wearing pleasure.',
+    details: [
+      'Width: 3.5 cm padded arch tapering to 2 cm at base',
+      'Flexible lightweight inner band fits all head shapes comfortably',
+      'Seamless edges with grooved inner grip lining',
+    ],
+    materials: 'Micro-velvet fabric over soft foam padding and flexible resin core.',
+    careInstructions: 'Brush lightly with a velvet brush or lint roller. Do not immerse in water.',
+    images: ['/images/products/velvet-headband-1.svg'],
+    variants: [
+      { id: 'v5-1', name: 'Signature Deep Burgundy', colorCode: '#70152C', stock: 14, sku: 'RC-HB-01-BUR' },
+      { id: 'v5-2', name: 'Champagne Gold Sand', colorCode: '#C49A45', stock: 11, sku: 'RC-HB-01-GLD' },
+      { id: 'v5-3', name: 'Emerald Forest Green', colorCode: '#1A4D2E', stock: 6, sku: 'RC-HB-01-EMR' },
+    ],
+    stock: 31,
+    sku: 'RC-HB-01',
+    isFeatured: true,
+    isNewArrival: false,
+    isBestSeller: true,
+    rating: 4.9,
+    reviewCount: 31,
+    createdAt: '2026-09-01T08:00:00Z',
+  },
+  {
+    id: 'prod-6',
+    slug: 'pearl-arch-hand-embellished-band',
+    name: 'Baroque Pearl Embellished Arch Headband',
+    category: 'headbands',
+    categoryName: 'Headbands',
+    price: 599,
+    originalPrice: 899,
+    description: 'Lustrous multi-sized ivory baroque pearls individually wire-wound onto a woven gold ribbon band. Adds instant royal bridal elegance to lehengas, sarees, and cocktail dresses.',
+    details: [
+      'Hand-threaded graduated faux pearls with crystal seed accents',
+      'Satin-wrapped end comfort cushions for sensitive ears',
+      'Weight: 48g balanced comfort design',
+    ],
+    materials: 'Graduated baroque acrylic pearls, brass craft wire, satin ribbon.',
+    careInstructions: 'Store in protective jewelry box to avoid scratching pearls.',
+    images: ['/images/products/pearl-headband-1.svg'],
+    variants: [
+      { id: 'v6-1', name: 'Lustrous Ivory & Gold', colorCode: '#FAF6EE', stock: 8, sku: 'RC-HB-02-IVR' },
+    ],
+    stock: 8,
+    sku: 'RC-HB-02',
+    isFeatured: true,
+    isNewArrival: true,
+    isBestSeller: false,
+    rating: 5.0,
+    reviewCount: 16,
+    createdAt: '2026-10-12T16:00:00Z',
+  },
+  {
+    id: 'prod-7',
+    slug: 'freshwater-pearl-hair-pin-trio',
+    name: 'Handcrafted Pearl & Gold Hair Pin Trio',
+    category: 'pearl-pins-beads',
+    categoryName: 'Pearl Pins & Bead Bands',
+    price: 299,
+    originalPrice: 420,
+    description: 'A charming set of three complementary hairpin styles: single statement baroque pearl pin, branchlet crystal pin, and textured beaded cluster bobby pin. Perfect for tucking into messy buns or braids.',
+    details: [
+      'Set of 3 distinct matching hair pins',
+      'Sturdy 6.5 cm wave-grip bobby pin bases that stay firmly put',
+      'Hand-wired flexible branches can be shaped to suit your hair',
+    ],
+    materials: 'Faux glass pearls, faceted Czech crystals, gold-finished alloy pins.',
+    careInstructions: 'Keep dry. Wipe gently with jewelry cloth after wear.',
+    images: ['/images/products/pearl-pins-1.svg'],
+    variants: [
+      { id: 'v7-1', name: 'Warm Gold & Ivory Pearl', colorCode: '#C49A45', stock: 22, sku: 'RC-PP-01-GLD' },
+      { id: 'v7-2', name: 'Rose Gold & Blush Pearl', colorCode: '#F3DDE1', stock: 12, sku: 'RC-PP-01-ROS' },
+    ],
+    stock: 34,
+    sku: 'RC-PP-01',
+    isFeatured: false,
+    isNewArrival: true,
+    isBestSeller: true,
+    rating: 4.8,
+    reviewCount: 22,
+    createdAt: '2026-10-05T11:20:00Z',
+  },
+  {
+    id: 'prod-8',
+    slug: 'golden-leaf-crystal-bridal-hair-vine',
+    name: 'Gilded Leaf & Crystal Floral Hair Vine',
+    category: 'pearl-pins-beads',
+    categoryName: 'Pearl Pins & Bead Bands',
+    price: 649,
+    originalPrice: 950,
+    description: 'A 28cm flexible bridal hair vine adorned with hand-painted gold leaf filigree, pearlescent petals, and sparkling marquise crystals. Can be woven into bridal braids, wrapped around chignons, or pinned as a forehead tiara.',
+    details: [
+      'Length: 28 cm bendable wire vine with end pin-loops',
+      'Includes 2 gold bobby pins and ivory satin ribbon ties',
+      'Feather-light and customizable to any wedding or festive hairstyle',
+    ],
+    materials: 'Flexible tarnish-resistant jewelry wire, brass leaves, Austrian crystals.',
+    careInstructions: 'Store flat in original box.',
+    images: ['/images/products/hair-vine-1.svg'],
+    variants: [
+      { id: 'v8-1', name: 'Vintage Gold Leaf', colorCode: '#C49A45', stock: 5, sku: 'RC-PP-02-VGL' },
+    ],
+    stock: 5,
+    sku: 'RC-PP-02',
+    isFeatured: true,
+    isNewArrival: false,
+    isBestSeller: false,
+    rating: 4.9,
+    reviewCount: 14,
+    createdAt: '2026-09-25T15:00:00Z',
+  },
+  {
+    id: 'prod-9',
+    slug: 'pastel-blossom-kids-clip-set',
+    name: "Pastel Blossom Kids' Snap Clip Set (Pack of 6)",
+    category: 'kids-clips',
+    categoryName: "Kids' Clips",
+    price: 299,
+    originalPrice: 450,
+    description: 'Designed specially for delicate young hair. Six sweet grosgrain-wrapped snap clips featuring miniature daisy blossoms, soft gingham bows, and tiny pastel clouds. Gentle hold that does not pull baby hairs.',
+    details: [
+      'Pack of 6 assorted complementary clips',
+      'Fully fabric-encased clips for maximum scalp safety and comfort',
+      'Recommended for ages 1 to 10',
+    ],
+    materials: 'Lead-free metal core covered in 100% cotton fabric and felt blossoms.',
+    careInstructions: 'Hand wash surface lightly with damp sponge.',
+    images: ['/images/products/kids-clips-1.svg'],
+    variants: [
+      { id: 'v9-1', name: 'Floral Garden Palette (Pink/Yellow/Mint)', colorCode: '#F3DDE1', stock: 30, sku: 'RC-KC-01-GARD' },
+      { id: 'v9-2', name: 'Sunset Sorbet Palette (Peach/Lilac/Cream)', colorCode: '#F7F0E5', stock: 24, sku: 'RC-KC-01-SORB' },
+    ],
+    stock: 54,
+    sku: 'RC-KC-01',
+    isFeatured: true,
+    isNewArrival: false,
+    isBestSeller: true,
+    rating: 5.0,
+    reviewCount: 38,
+    createdAt: '2026-08-15T10:00:00Z',
+  },
+  {
+    id: 'prod-10',
+    slug: 'glitter-butterfly-kids-hairpins',
+    name: "Shimmer Butterfly Mini Barrettes (Set of 4)",
+    category: 'kids-clips',
+    categoryName: "Kids' Clips",
+    price: 229,
+    originalPrice: 320,
+    description: 'Four sparkling double-winged flutter butterfly clips in soft sugar-shimmer pastel tones. The wings gently flutter as little girls walk and play!',
+    details: [
+      'Set of 4 iridescent flutter clips',
+      'Alligator clip with silicone non-slip teeth grip',
+      'Glitter is sealed and does not shed on clothes or skin',
+    ],
+    materials: 'Laser-cut mesh organza with sealed eco-glitter on nickel-free alloy.',
+    careInstructions: 'Keep in dry case when not in use.',
+    images: ['/images/products/kids-butterfly-1.svg'],
+    variants: [
+      { id: 'v10-1', name: 'Pastel Rainbow Shimmer', colorCode: '#F3DDE1', stock: 20, sku: 'RC-KC-02-RNB' },
+    ],
+    stock: 20,
+    sku: 'RC-KC-02',
+    isFeatured: false,
+    isNewArrival: true,
+    isBestSeller: false,
+    rating: 4.8,
+    reviewCount: 15,
+    createdAt: '2026-10-15T11:00:00Z',
+  },
+  {
+    id: 'prod-11',
+    slug: 'matte-pastel-buttercup-claw-clip',
+    name: 'Matte Pastel Buttercup Medium Hair Claw',
+    category: 'claw-clips',
+    categoryName: 'Claw Clips',
+    price: 279,
+    originalPrice: 399,
+    description: 'Velvety soft-touch rubberized matte finish in calming cottagecore pastel hues. The medium 8.5 cm profile is ideal for everyday half-up buns and quick errands.',
+    details: [
+      'Length: 8.5 cm (Medium versatility)',
+      'Velveteen rubberized non-slip coating',
+      'Ultra-durable rust-free spring mechanism',
+    ],
+    materials: 'Shatter-resistant acrylic with soft matte rubberized finish.',
+    careInstructions: 'Rinse with clean water and pat dry.',
+    images: ['/images/products/matte-claw-1.svg'],
+    variants: [
+      { id: 'v11-1', name: 'Dusty Rose Pink', colorCode: '#E7BDC5', stock: 16, sku: 'RC-CC-03-PNK' },
+      { id: 'v11-2', name: 'Warm Cream Latte', colorCode: '#F7F0E5', stock: 18, sku: 'RC-CC-03-CRM' },
+      { id: 'v11-3', name: 'Sage Garden Green', colorCode: '#9CAF88', stock: 12, sku: 'RC-CC-03-SGE' },
+    ],
+    stock: 46,
+    sku: 'RC-CC-03',
+    isFeatured: false,
+    isNewArrival: true,
+    isBestSeller: false,
+    rating: 4.7,
+    reviewCount: 20,
+    createdAt: '2026-10-18T13:45:00Z',
+  },
+  {
+    id: 'prod-12',
+    slug: 'champagne-satin-bow-hair-tie',
+    name: 'Champagne Satin Tail Bow Hair Tie',
+    category: 'scrunchies-hair-ties',
+    categoryName: 'Scrunchies & Hair Ties',
+    price: 269,
+    originalPrice: 380,
+    description: 'A pre-tied graceful Parisian ribbon bow with flowing 18 cm drape tails, secured to a heavy-duty seamless elastic tie. Instantly transforms a simple low ponytail into effortless runway elegance.',
+    details: [
+      'Tail length: 18 cm flowing fluid drape',
+      'Double-sided satin with high-density weave that resists creasing',
+      'Reinforced center knot that never comes undone',
+    ],
+    materials: 'Heavyweight silk-satin blend.',
+    careInstructions: 'Steam lightly if folded during shipping. Hand wash cool.',
+    images: ['/images/products/satin-bow-1.svg'],
+    variants: [
+      { id: 'v12-1', name: 'Champagne Gold', colorCode: '#C49A45', stock: 14, sku: 'RC-SC-03-GLD' },
+      { id: 'v12-2', name: 'Deep Burgundy Wine', colorCode: '#70152C', stock: 16, sku: 'RC-SC-03-BUR' },
+      { id: 'v12-3', name: 'Midnight Black', colorCode: '#222222', stock: 10, sku: 'RC-SC-03-BLK' },
+    ],
+    stock: 40,
+    sku: 'RC-SC-03',
+    isFeatured: true,
+    isNewArrival: false,
+    isBestSeller: true,
+    rating: 4.9,
+    reviewCount: 27,
+    createdAt: '2026-09-10T12:00:00Z',
+  },
+];
+
+const initialCoupons: Coupon[] = [
+  {
+    code: 'WELCOME50',
+    discountType: 'fixed',
+    discountValue: 50,
+    minOrderValue: 399,
+    isActive: true,
+  },
+  {
+    code: 'RUMANA10',
+    discountType: 'percentage',
+    discountValue: 10,
+    minOrderValue: 0,
+    isActive: true,
+  },
+  {
+    code: 'FESTIVE15',
+    discountType: 'percentage',
+    discountValue: 15,
+    minOrderValue: 999,
+    isActive: true,
+  },
+];
+
+const initialReviews: Review[] = [
+  {
+    id: 'rev-1',
+    author: 'Ayesha M.',
+    location: 'Bengaluru',
+    rating: 5,
+    comment: 'The quality of the French Tortoise Shell claw is unbelievable! I have very thick, long hair that breaks normal plastic clips, but this clip holds my entire bun firmly all day with zero headaches. Truly boutique quality!',
+    productName: 'French Tortoise Shell Jumbo Claw Clip',
+    date: '2026-10-18',
+    verifiedPurchase: true,
+  },
+  {
+    id: 'rev-2',
+    author: 'Priyanka Sharma',
+    location: 'Mumbai',
+    rating: 5,
+    comment: 'I ordered the Gilded Blossom metal claw and the velvet padded headband for my sister’s engagement. The packaging was so thoughtfully done in cream and gold, and the shine on the metal is stunning. 10/10 recommendation!',
+    productName: 'Gilded Blossom Floral Metal Hair Claw',
+    date: '2026-10-14',
+    verifiedPurchase: true,
+  },
+  {
+    id: 'rev-3',
+    author: 'Sneha Patel',
+    location: 'Ahmedabad',
+    rating: 5,
+    comment: 'Bought the kids snap clips for my 4-year-old daughter. She normally hates hairpins, but these are so gentle and soft with fabric padding. Plus the floral pastel designs are so chic and sweet!',
+    productName: "Pastel Blossom Kids' Snap Clip Set",
+    date: '2026-10-10',
+    verifiedPurchase: true,
+  },
+  {
+    id: 'rev-4',
+    author: 'Fatima Z.',
+    location: 'Hyderabad',
+    rating: 5,
+    comment: 'The Mulberry Silk scrunchies are genuine silk! My hair has zero dents when I take it off in the morning. Fast delivery and the WhatsApp team was so helpful in helping me select shades.',
+    productName: 'Pure Mulberry Silk Skinny Scrunchie Trio',
+    date: '2026-10-02',
+    verifiedPurchase: true,
+  },
+];
+
+const initialOrders: Order[] = [
+  {
+    id: 'RC-2026-1082',
+    createdAt: '2026-10-21T14:32:00Z',
+    customer: {
+      fullName: 'Ananya Verma',
+      phone: '+91 98450 12345',
+      whatsappNumber: '+91 98450 12345',
+      email: 'ananya.v@gmail.com',
+      addressLine1: 'Flat 402, Magnolia Orchards',
+      addressLine2: 'Indiranagar 12th Main',
+      city: 'Bengaluru',
+      state: 'Karnataka',
+      pinCode: '560038',
+      deliveryInstructions: 'Please leave at security gate if not available',
+    },
+    items: [
+      {
+        productId: 'prod-1',
+        name: 'French Tortoise Shell Jumbo Claw Clip',
+        variantName: 'Classic Amber Tortoise',
+        price: 349,
+        quantity: 1,
+        subtotal: 349,
+        image: '/images/products/tortoise-claw-1.svg',
+      },
+      {
+        productId: 'prod-3',
+        name: 'Pure Mulberry Silk Skinny Scrunchie Trio',
+        variantName: 'Heritage Boutique Trio',
+        price: 399,
+        quantity: 1,
+        subtotal: 399,
+        image: '/images/products/silk-scrunchie-1.svg',
+      },
+    ],
+    subtotal: 748,
+    discount: 50,
+    couponCode: 'WELCOME50',
+    shippingFee: 60,
+    total: 758,
+    paymentMethod: 'cod',
+    paymentStatus: 'cod_pending',
+    orderStatus: 'confirmed',
+    trackingNumber: 'DTDC-BLR-892110',
+    notes: 'Customer confirmed on WhatsApp call.',
+  },
+  {
+    id: 'RC-2026-1081',
+    createdAt: '2026-10-20T11:15:00Z',
+    customer: {
+      fullName: 'Zoya Khan',
+      phone: '+91 91234 56789',
+      whatsappNumber: '+91 91234 56789',
+      email: 'zoya.k@outlook.com',
+      addressLine1: 'House No 18, Gulshan Avenue',
+      addressLine2: 'Banjara Hills Road No 3',
+      city: 'Hyderabad',
+      state: 'Telangana',
+      pinCode: '500034',
+    },
+    items: [
+      {
+        productId: 'prod-2',
+        name: 'Gilded Blossom Floral Metal Hair Claw',
+        variantName: 'Champagne Gold',
+        price: 499,
+        quantity: 1,
+        subtotal: 499,
+        image: '/images/products/gold-blossom-1.svg',
+      },
+      {
+        productId: 'prod-5',
+        name: 'Royal Padded Velvet Crown Headband',
+        variantName: 'Signature Deep Burgundy',
+        price: 449,
+        quantity: 1,
+        subtotal: 449,
+        image: '/images/products/velvet-headband-1.svg',
+      },
+    ],
+    subtotal: 948,
+    discount: 95,
+    couponCode: 'RUMANA10',
+    shippingFee: 0,
+    total: 853,
+    paymentMethod: 'whatsapp',
+    paymentStatus: 'paid',
+    orderStatus: 'shipped',
+    trackingNumber: 'DELHIVERY-HYD-54219',
+    notes: 'Paid via direct UPI verified on WhatsApp.',
+  },
+];
+
+// In-memory cache for fast response times and file persistence
+let cachedDb: DatabaseSchema | null = null;
+
+function ensureDataFile(): DatabaseSchema {
+  if (cachedDb) return cachedDb;
+
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+
+    if (fs.existsSync(DATA_FILE)) {
+      const content = fs.readFileSync(DATA_FILE, 'utf-8');
+      cachedDb = JSON.parse(content) as DatabaseSchema;
+      return cachedDb;
+    }
+  } catch (err) {
+    console.error('Error reading store data file, initializing defaults:', err);
+  }
+
+  // Initialize fresh database
+  cachedDb = {
+    settings: defaultStoreSettings,
+    categories: initialCategories,
+    products: initialProducts,
+    orders: initialOrders,
+    coupons: initialCoupons,
+    reviews: initialReviews,
+  };
+
+  saveDataFile(cachedDb);
+  return cachedDb;
+}
+
+function saveDataFile(data: DatabaseSchema) {
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    fs.writeFileSync(DATA_FILE, JSON.stringify(data, null, 2), 'utf-8');
+    cachedDb = data;
+  } catch (err) {
+    console.error('Error writing store data file:', err);
+  }
+}
+
+// ====================== PRODUCTS API ======================
+export function getAllProducts(): Product[] {
+  const db = ensureDataFile();
+  return db.products;
+}
+
+export function getProductBySlug(slug: string): Product | undefined {
+  const db = ensureDataFile();
+  return db.products.find((p) => p.slug === slug);
+}
+
+export function getProductById(id: string): Product | undefined {
+  const db = ensureDataFile();
+  return db.products.find((p) => p.id === id);
+}
+
+export function saveProduct(product: Partial<Product> & { name: string; price: number; category: string }): Product {
+  const db = ensureDataFile();
+  const slug = product.slug || product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const existingIdx = db.products.findIndex((p) => p.id === product.id);
+
+  // find category name
+  const cat = db.categories.find((c) => c.slug === product.category);
+  const categoryName = cat ? cat.name : product.category;
+
+  if (existingIdx >= 0) {
+    const updated: Product = {
+      ...db.products[existingIdx],
+      ...product,
+      slug,
+      categoryName,
+    };
+    db.products[existingIdx] = updated;
+    saveDataFile(db);
+    return updated;
+  } else {
+    const newProduct: Product = {
+      id: `prod-${Date.now()}`,
+      slug,
+      name: product.name,
+      category: product.category,
+      categoryName,
+      price: product.price,
+      originalPrice: product.originalPrice,
+      description: product.description || '',
+      details: product.details || [],
+      materials: product.materials || '',
+      careInstructions: product.careInstructions || '',
+      images: product.images && product.images.length > 0 ? product.images : ['/images/products/tortoise-claw-1.svg'],
+      variants: product.variants || [
+        { id: `v-${Date.now()}-1`, name: 'Standard', stock: product.stock || 10, sku: `RC-${Date.now().toString().slice(-4)}` }
+      ],
+      stock: product.stock !== undefined ? product.stock : 10,
+      sku: product.sku || `RC-${Date.now().toString().slice(-4)}`,
+      isFeatured: !!product.isFeatured,
+      isNewArrival: !!product.isNewArrival,
+      isBestSeller: !!product.isBestSeller,
+      rating: product.rating || 5.0,
+      reviewCount: product.reviewCount || 1,
+      createdAt: new Date().toISOString(),
+    };
+    db.products.unshift(newProduct);
+    saveDataFile(db);
+    return newProduct;
+  }
+}
+
+export function deleteProduct(id: string): boolean {
+  const db = ensureDataFile();
+  const initialLength = db.products.length;
+  db.products = db.products.filter((p) => p.id !== id);
+  if (db.products.length !== initialLength) {
+    saveDataFile(db);
+    return true;
+  }
+  return false;
+}
+
+// ====================== CATEGORIES API ======================
+export function getAllCategories(): Category[] {
+  const db = ensureDataFile();
+  return db.categories.filter((c) => c.isVisible !== false).sort((a, b) => a.displayOrder - b.displayOrder);
+}
+
+export function getAllCategoriesAdmin(): Category[] {
+  const db = ensureDataFile();
+  return db.categories.sort((a, b) => a.displayOrder - b.displayOrder);
+}
+
+export function saveCategory(category: Partial<Category> & { name: string }): Category {
+  const db = ensureDataFile();
+  const slug = category.slug || category.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+  const existingIdx = db.categories.findIndex((c) => c.id === category.id || c.slug === slug);
+
+  if (existingIdx >= 0) {
+    const updated: Category = {
+      ...db.categories[existingIdx],
+      ...category,
+      slug,
+    };
+    db.categories[existingIdx] = updated;
+    saveDataFile(db);
+    return updated;
+  } else {
+    const newCat: Category = {
+      id: `cat-${Date.now()}`,
+      slug,
+      name: category.name,
+      description: category.description || '',
+      image: category.image || '/images/categories/claw-clips.svg',
+      displayOrder: category.displayOrder || db.categories.length + 1,
+      isVisible: category.isVisible !== undefined ? category.isVisible : true,
+    };
+    db.categories.push(newCat);
+    saveDataFile(db);
+    return newCat;
+  }
+}
+
+export function deleteCategory(id: string): boolean {
+  const db = ensureDataFile();
+  const initialLength = db.categories.length;
+  db.categories = db.categories.filter((c) => c.id !== id);
+  if (db.categories.length !== initialLength) {
+    saveDataFile(db);
+    return true;
+  }
+  return false;
+}
+
+// ====================== ORDERS API ======================
+export function getAllOrders(): Order[] {
+  const db = ensureDataFile();
+  return db.orders.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+}
+
+export function getOrderById(id: string): Order | undefined {
+  const db = ensureDataFile();
+  return db.orders.find((o) => o.id.toUpperCase() === id.toUpperCase());
+}
+
+export function createOrder(orderData: Omit<Order, 'id' | 'createdAt'>): Order {
+  const db = ensureDataFile();
+  const orderId = `RC-2026-${Math.floor(1000 + Math.random() * 9000)}`;
+
+  // Deduct inventory
+  for (const item of orderData.items) {
+    const prod = db.products.find((p) => p.id === item.productId);
+    if (prod) {
+      prod.stock = Math.max(0, prod.stock - item.quantity);
+      if (item.variantName && prod.variants) {
+        const variant = prod.variants.find((v) => v.name === item.variantName);
+        if (variant) {
+          variant.stock = Math.max(0, variant.stock - item.quantity);
+        }
+      }
+    }
+  }
+
+  const newOrder: Order = {
+    ...orderData,
+    id: orderId,
+    createdAt: new Date().toISOString(),
+  };
+
+  db.orders.unshift(newOrder);
+  saveDataFile(db);
+  return newOrder;
+}
+
+export function updateOrderStatus(
+  orderId: string,
+  updates: {
+    orderStatus?: Order['orderStatus'];
+    paymentStatus?: Order['paymentStatus'];
+    trackingNumber?: string;
+    notes?: string;
+  }
+): Order | null {
+  const db = ensureDataFile();
+  const order = db.orders.find((o) => o.id === orderId);
+  if (!order) return null;
+
+  if (updates.orderStatus) order.orderStatus = updates.orderStatus;
+  if (updates.paymentStatus) order.paymentStatus = updates.paymentStatus;
+  if (updates.trackingNumber !== undefined) order.trackingNumber = updates.trackingNumber;
+  if (updates.notes !== undefined) order.notes = updates.notes;
+
+  saveDataFile(db);
+  return order;
+}
+
+// ====================== SETTINGS API ======================
+export function getStoreSettings(): StoreSettings {
+  const db = ensureDataFile();
+  return { ...defaultStoreSettings, ...db.settings };
+}
+
+export function updateStoreSettings(settings: Partial<StoreSettings>): StoreSettings {
+  const db = ensureDataFile();
+  db.settings = {
+    ...db.settings,
+    ...settings,
+  };
+  saveDataFile(db);
+  return db.settings;
+}
+
+// ====================== COUPONS API ======================
+export function validateCoupon(code: string, cartSubtotal: number): { isValid: boolean; discount: number; message: string; coupon?: Coupon } {
+  const db = ensureDataFile();
+  const cleanCode = code.trim().toUpperCase();
+  const coupon = db.coupons.find((c) => c.code.toUpperCase() === cleanCode && c.isActive);
+
+  if (!coupon) {
+    return { isValid: false, discount: 0, message: 'Invalid or expired coupon code' };
+  }
+
+  if (coupon.minOrderValue && cartSubtotal < coupon.minOrderValue) {
+    return {
+      isValid: false,
+      discount: 0,
+      message: `Minimum order value for ${coupon.code} is ₹${coupon.minOrderValue}`,
+    };
+  }
+
+  let discount = 0;
+  if (coupon.discountType === 'percentage') {
+    discount = Math.round((cartSubtotal * coupon.discountValue) / 100);
+  } else {
+    discount = Math.min(coupon.discountValue, cartSubtotal);
+  }
+
+  return {
+    isValid: true,
+    discount,
+    message: `Coupon ${coupon.code} applied successfully!`,
+    coupon,
+  };
+}
+
+// ====================== REVIEWS API ======================
+export function getAllReviews(): Review[] {
+  const db = ensureDataFile();
+  return db.reviews;
+}

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="60%" stop-color="#F9F3EA" />
+      <stop offset="100%" stop-color="#EFE4D2" />
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2DFB3" />
+      <stop offset="30%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#C49A45" />
+      <stop offset="100%" stop-color="#9A752A" />
+    </linearGradient>
+    <linearGradient id="burgundyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C2241" />
+      <stop offset="50%" stop-color="#70152C" />
+      <stop offset="100%" stop-color="#4A0B1B" />
+    </linearGradient>
+    <linearGradient id="pearlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#FFF9F0" />
+      <stop offset="80%" stop-color="#EBDBC8" />
+      <stop offset="100%" stop-color="#CBB59B" />
+    </linearGradient>
+    <filter id="boutiqueShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#70152C" flood-opacity="0.14" />
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#C49A45" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="800" fill="url(#bgGrad)" />
+
+  <!-- Subtle Boutique Border -->
+  <rect x="28" y="28" width="744" height="744" rx="16" fill="none" stroke="#E8D9BD" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.75" />
+  <rect x="36" y="36" width="728" height="728" rx="12" fill="none" stroke="#C49A45" stroke-width="0.75" opacity="0.4" />
+
+  <!-- Corner Flourishes -->
+  <path d="M 46 66 C 56 66 66 56 66 46" fill="none" stroke="#C49A45" stroke-width="1.5" />
+  <path d="M 754 66 C 744 66 734 56 734 46" fill="none" stroke="#C49A45" stroke-width="1.5" />
+  <path d="M 46 734 C 56 734 66 744 66 754" fill="none" stroke="#C49A45" stroke-width="1.5" />
+  <path d="M 754 734 C 744 734 734 744 734 754" fill="none" stroke="#C49A45" stroke-width="1.5" />
+
+  <!-- Central Graphic Subject -->
+  <g filter="url(#boutiqueShadow)">
+    
+    <!-- Matte Buttercup Hair Claw -->
+    <g transform="translate(400, 390)">
+      <rect x="-150" y="-70" width="300" height="135" rx="36" fill="#F3DDE1" stroke="#C49A45" stroke-width="3" />
+      <path d="M -110 65 L -100 135 L -75 65 L -50 135 L -25 65 L 0 135 L 25 65 L 50 135 L 75 65 L 100 135 L 110 65" fill="none" stroke="#70152C" stroke-width="10" stroke-linecap="round" />
+      <rect x="-30" y="-95" width="60" height="26" rx="6" fill="#70152C" />
+    </g>
+  
+  </g>
+
+  <!-- Label / Tag -->
+  
+  <g transform="translate(400, 710)">
+    <rect x="-140" y="-22" width="280" height="44" rx="22" fill="#FFFDF8" stroke="#E8D9BD" stroke-width="1.2" />
+    <text text-anchor="middle" y="6" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" fill="#70152C" letter-spacing="2">MATTE PASTEL BUTTERCUP CLAW</text>
+  </g>
+
+  
+</svg>
