@@ -393,7 +393,7 @@ export default function AdminPage() {
               Boutique Staff Sign In
             </h1>
             <p className="text-xs text-charcoal-muted">
-              Enter the administrator access key to manage orders, products, and store settings.
+              Enter your administrative credentials to manage orders, products, and store settings.
             </p>
           </div>
 
