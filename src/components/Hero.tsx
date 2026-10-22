@@ -26,7 +26,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cream-200/80 border border-gold-border shadow-xs">
               <span className="w-2 h-2 rounded-full bg-burgundy animate-ping" />
               <span className="text-xs font-semibold uppercase tracking-widest text-burgundy">
-                Handcrafted Hair Luxury • 2026 Collection
+                Handcrafted Hair Luxury & Fashion Jewellery • 2026 Collection
               </span>
             </div>
 
@@ -38,7 +38,7 @@ export default function Hero() {
 
             {/* Supporting Copy */}
             <p className="text-base sm:text-lg text-charcoal-light leading-relaxed max-w-xl mx-auto lg:mx-0">
-              Welcome to <strong className="text-burgundy font-semibold">Rumana Creations</strong>. Discover our meticulously curated collection of French cellulose claw clips, 100% pure mulberry silk scrunchies, royal velvet headbands, and artisanal pearl hair jewelry designed for effortless Indian elegance.
+              Welcome to <strong className="text-burgundy font-semibold">Rumana Creations</strong>. Discover our complete boutique collection: French cellulose claw clips, patterned barrettes, mulberry silk scrunchies, bridal velvet headbands, ethnic jhumkas, dainty chains, and festive artificial jewellery suites crafted for effortless Indian elegance.
             </p>
 
             {/* CTA Buttons */}

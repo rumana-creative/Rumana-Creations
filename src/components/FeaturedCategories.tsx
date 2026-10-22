@@ -23,7 +23,7 @@ export default function FeaturedCategories({ categories }: FeaturedCategoriesPro
             Shop By Category
           </h2>
           <p className="text-sm text-charcoal-light mt-2">
-            Explore hair jewelry and everyday essentials thoughtfully designed for every mood, hair texture, and occasion.
+            Explore handcrafted hair accessories, artificial fashion jewellery, and boutique craft essentials designed for every style and occasion.
           </p>
         </div>
 
