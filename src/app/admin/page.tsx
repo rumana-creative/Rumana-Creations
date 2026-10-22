@@ -41,7 +41,7 @@ export default function AdminPage() {
   const [passwordInput, setPasswordInput] = useState<string>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loginError, setLoginError] = useState<string | null>(null);
-  const [checkingAuth, setCheckingAuth] = useState<boolean>(true);
+  const [checkingAuth, setCheckingAuth] = useState<boolean>(false);
 
   // Data states
   const [activeTab, setActiveTab] = useState<'overview' | 'products' | 'categories' | 'orders' | 'settings'>('overview');
