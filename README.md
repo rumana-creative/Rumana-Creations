@@ -27,7 +27,7 @@ Designed in strict accordance with Rumana Creations' official branding guideline
 - **Announcement Bar:** Dynamic banner with free shipping threshold reminders (`₹799+`) and direct WhatsApp concierge support.
 - **Brand Header:** Official logo, focused 5-button boutique desktop navigation (`Home`, `Product`, `Best Seller`, `About`, `Contact`), live search trigger with `⌘K` keyboard shortcut, wishlist counter badge, interactive shopping bag drawer, and mobile slide-over navigation.
 - **Hero Section:** Editorial lifestyle composition with the headline *"Everyday Beauty, Beautifully Accessorised"*, direct action buttons, and trust metrics.
-- **Featured Categories Grid:** Direct visual pathways across all curated categories: Hair Accessories (Claw Clips, Scrunchies, Headbands, Kids' Clips, Pearl Pins) and Fashion Jewellery (Necklaces, Earrings, Rings, Bangles, Bracelets, Jewellery Sets, Craft Materials).
+- **Featured Categories Grid:** Direct visual pathways across all 16 curated categories: Hair Accessories (Claw Clips, Patterned Hair Clips, Scrunchies, Headbands, Kids' Clips, Pearl Pins) and Fashion Jewellery (Necklaces, Earrings, Rings, Bangles, Bracelets, Jewellery Sets, Craft Materials).
 - **New Arrivals & Best Sellers Showcases:** Interactive cards with hover angle transitions, discount badges, review ratings, wishlist toggling, and quick view.
 - **Promotional Welcome Banner:** High-contrast royal burgundy and gold banner featuring welcome coupons (`WELCOME50`, `RUMANA10`).
 - **"Find Your Everyday Style" Editorial Guide:** 3 curated lifestyle aesthetics (Minimalist Updo, Festive Velvet & Pearls, Playful Kids & Chic Jewellery).
@@ -39,7 +39,7 @@ Designed in strict accordance with Rumana Creations' official branding guideline
 
 ### 2. Comprehensive Shop & Category Filtering
 - **Dynamic Catalogue (`/shop`):**
-  - Instant Category switching across all 15 active categories.
+  - Instant Category switching across all 16 active categories.
   - Price Range filters (Under ₹300, ₹300–₹499, ₹500–₹799, ₹800+).
   - In-Stock only availability toggle.
   - Sorting: Featured, Newest, Price (Low to High), Price (High to Low), Popularity / Ratings.
@@ -47,9 +47,10 @@ Designed in strict accordance with Rumana Creations' official branding guideline
   - Active filter tags with "Clear all" control.
   - Empty search state with one-click reset.
   - Load-more pagination.
-- **Dedicated Category URLs (15 Active Categories):**
+- **Dedicated Category URLs (16 Active Categories):**
   - Hair Accessories:
     - `/category/claw-clips`
+    - `/category/patterned-hair-clips` (Safari leopard, cheetah, and marble snap barrettes)
     - `/category/scrunchies-hair-ties`
     - `/category/headbands`
     - `/category/kids-clips`
@@ -108,10 +109,10 @@ Designed in strict accordance with Rumana Creations' official branding guideline
 ### 7. Administrative Dashboard (`/admin`)
 - Secure dual-field authentication gate: Admin Email (`nawabrumana6@gmail.com`) and Password (`Rumana@nawab2026`).
 - Interactive eye toggle button (`Eye` / `EyeOff`) to inspect or conceal entered password. Zero plain-text identity leaks on the login page.
-- **Dashboard Overview:** Real metrics for Total Revenue, Total Orders, Active Catalog Count (27 products across 15 categories), and Low Stock Alerts.
+- **Dashboard Overview:** Real metrics for Total Revenue, Total Orders, Active Catalog Count (38 products across 16 categories), and Low Stock Alerts.
 - **Media Upload Manager (`/api/upload`):** Upload product images directly via the dashboard; supports local storage (`/public/uploads/`) and Supabase Storage bucket (`product-images`). Features image reordering and deletion.
 - **Product Management:** Add new accessories or jewellery items, edit existing products, update prices, manage inventory quantities, toggle Featured/New Arrival/Bestseller flags, set Published/Draft/Archived status, and customize SEO Titles & Descriptions.
-- **Category Management:** Create, edit, reorder display index, and toggle visibility on the storefront for all 15 categories.
+- **Category Management:** Create, edit, reorder display index, and toggle visibility on the storefront for all 16 categories.
 - **Order Fulfillment & Logistics:** View incoming orders, filter by fulfillment status (Pending, Confirmed, Processing, Shipped, Delivered, Cancelled) and payment status, assign logistics couriers (BlueDart, Delhivery, DTDC, India Post, Shadowfax) and tracking AWB numbers, and **Export Orders to CSV**.
 - **Store Settings:** Live editor for WhatsApp phone number, Instagram handle, Announcement banner text, Free delivery threshold, and Shipping fees.
 
@@ -130,6 +131,7 @@ Designed in strict accordance with Rumana Creations' official branding guideline
   - `supabase/migrations/01_initial_schema.sql` (Tables, indexes, and initial hair accessories)
   - `supabase/migrations/02_update_admin_credentials.sql` (Hardened admin authentication)
   - `supabase/migrations/03_jewellery_categories_and_products.sql` (Jewellery categories, fashion items & craft supplies)
+  - `supabase/migrations/04_poster_products_and_patterned_clips.sql` (Patterned hair clips & store poster catalogue)
 - **SEO & Metadata:** OpenGraph tags, dynamic sitemap (`/sitemap.xml`), robots (`/robots.txt`), and JSON-LD Structured Data
 
 ---
