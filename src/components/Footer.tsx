@@ -127,22 +127,25 @@ export default function Footer() {
             <h4 className="font-serif text-lg font-semibold text-burgundy mb-4">Shop Collections</h4>
             <ul className="space-y-2.5 text-sm text-charcoal-light">
               <li>
-                <Link href="/category/claw-clips" className="hover:text-burgundy transition">Claw Clips</Link>
+                <Link href="/category/claw-clips" className="hover:text-burgundy transition">Claw Clips & Barrettes</Link>
               </li>
               <li>
-                <Link href="/category/scrunchies-hair-ties" className="hover:text-burgundy transition">Scrunchies & Silk Ties</Link>
+                <Link href="/category/patterned-hair-clips" className="hover:text-burgundy transition">Patterned Hair Clips</Link>
               </li>
               <li>
-                <Link href="/category/headbands" className="hover:text-burgundy transition">Padded Velvet Headbands</Link>
+                <Link href="/category/necklaces" className="hover:text-burgundy transition">Necklaces & Chains</Link>
               </li>
               <li>
-                <Link href="/category/kids-clips" className="hover:text-burgundy transition">Kids’ Snag-Free Clips</Link>
+                <Link href="/category/earrings" className="hover:text-burgundy transition">Earrings & Jhumkas</Link>
               </li>
               <li>
-                <Link href="/category/pearl-pins-beads" className="hover:text-burgundy transition">Pearl Pins & Bridal Vines</Link>
+                <Link href="/category/jewellery-sets" className="hover:text-burgundy transition">Artificial Jewellery Sets</Link>
               </li>
               <li>
-                <Link href="/category/new-arrivals" className="hover:text-burgundy transition">New Arrivals</Link>
+                <Link href="/category/bangles" className="hover:text-burgundy transition">Bangles, Rings & Bracelets</Link>
+              </li>
+              <li>
+                <Link href="/category/jewellery-making-materials" className="hover:text-burgundy transition">Craft Materials & DIY Kits</Link>
               </li>
             </ul>
           </div>
