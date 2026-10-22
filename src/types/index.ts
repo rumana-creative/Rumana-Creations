@@ -6,6 +6,8 @@ export interface ProductVariant {
   sku: string;
 }
 
+export type ProductStatus = 'published' | 'draft' | 'archived';
+
 export interface Product {
   id: string;
   slug: string;
@@ -22,12 +24,16 @@ export interface Product {
   variants: ProductVariant[];
   stock: number; // total stock across variants
   sku: string;
+  status: ProductStatus;
   isFeatured?: boolean;
   isNewArrival?: boolean;
   isBestSeller?: boolean;
   rating?: number;
   reviewCount?: number;
+  seoTitle?: string;
+  seoDescription?: string;
   createdAt: string;
+  updatedAt?: string;
 }
 
 export interface Category {
@@ -95,7 +101,11 @@ export interface Order {
   paymentMethod: PaymentMethod;
   paymentStatus: PaymentStatus;
   orderStatus: OrderStatus;
+  razorpayOrderId?: string;
+  razorpayPaymentId?: string;
+  trackingCourier?: string;
   trackingNumber?: string;
+  trackingUrl?: string;
   notes?: string;
 }
 
@@ -103,10 +113,10 @@ export interface StoreSettings {
   storeName: string;
   tagline: string;
   logoUrl: string;
-  whatsappNumber: string; // E.g. "919876543210" (digits only)
-  whatsappDisplay: string; // E.g. "+91 98765 43210"
-  instagramHandle: string; // E.g. "rumana_creations"
-  instagramUrl: string; // E.g. "https://instagram.com/rumana_creations"
+  whatsappNumber: string; // "919152136209"
+  whatsappDisplay: string; // "+91 91521 36209"
+  instagramHandle: string; // "rumana.creations"
+  instagramUrl: string; // "https://www.instagram.com/rumana.creations/"
   email: string;
   currency: string;
   currencySymbol: string;
@@ -117,6 +127,9 @@ export interface StoreSettings {
   codEnabled: boolean;
   onlinePaymentEnabled: boolean;
   whatsappCheckoutEnabled: boolean;
+  deliveryEstimateMetro: string; // e.g. "2 to 4 business days"
+  deliveryEstimateStandard: string; // e.g. "4 to 7 business days"
+  serviceablePinCodes?: string[]; // optional list, empty = all valid Indian PINs
   addressCity: string;
   addressState: string;
   country: string;

@@ -3,29 +3,34 @@ import { StoreSettings } from '@/types';
 /**
  * Rumana Creations - Central Store Configuration
  * 
- * Update your WhatsApp number, Instagram handle, and store settings here.
- * Changes here take effect across the entire website.
+ * Confirmed Official Details:
+ * WhatsApp: +91 91521 36209 (https://wa.me/919152136209)
+ * Instagram: https://www.instagram.com/rumana.creations/
+ * Currency: INR (₹)
+ * Market: India-wide
  */
 export const defaultStoreSettings: StoreSettings = {
   storeName: "Rumana Creations",
   tagline: "Everyday Beauty, Beautifully Accessorised",
   logoUrl: "/rumana-logo.png",
-  // Format: digits only with country code, e.g. "919876543210" for India
-  // Note: Can be customized by store administrator in the Admin Settings panel
-  whatsappNumber: "919876543210",
-  whatsappDisplay: "+91 98765 43210",
-  instagramHandle: "rumana_creations",
-  instagramUrl: "https://www.instagram.com/rumana_creations",
+  // Official confirmed WhatsApp business line
+  whatsappNumber: "919152136209",
+  whatsappDisplay: "+91 91521 36209",
+  // Official confirmed Instagram profile
+  instagramHandle: "rumana.creations",
+  instagramUrl: "https://www.instagram.com/rumana.creations/",
   email: "care@rumanacreations.com",
   currency: "INR",
   currencySymbol: "₹",
   freeShippingThreshold: 799,
   standardShippingFee: 60,
-  announcementText: "✨ Handcrafted Elegance — Free Delivery Across India on Orders Above ₹799! ✨",
+  announcementText: "✨ Handcrafted Elegance — Free All-India Delivery on Orders Above ₹799! ✨",
   isAnnouncementActive: true,
   codEnabled: true,
-  onlinePaymentEnabled: false, // Set to true once Razorpay / Stripe credentials are configured
+  onlinePaymentEnabled: true, // Razorpay checkout ready
   whatsappCheckoutEnabled: true,
+  deliveryEstimateMetro: "2 to 4 business days",
+  deliveryEstimateStandard: "4 to 7 business days",
   addressCity: "Bengaluru",
   addressState: "Karnataka",
   country: "India",
@@ -43,10 +48,15 @@ export function getWhatsAppUrl(message?: string, customPhone?: string): string {
 }
 
 /**
- * Message generator for Product Chat
+ * Message generator for Product Inquiry
  */
-export function getProductWhatsAppMessage(productName: string, variantName?: string, price?: number, productUrl?: string): string {
-  let msg = `Hello Rumana Creations! 🌸\n\nI am interested in buying: *${productName}*`;
+export function getProductWhatsAppMessage(
+  productName: string, 
+  variantName?: string, 
+  price?: number, 
+  productUrl?: string
+): string {
+  let msg = `Hello Rumana Creations! 🌸\n\nI am interested in: *${productName}*`;
   if (variantName) {
     msg += `\n- *Selected Shade/Variant:* ${variantName}`;
   }
@@ -56,15 +66,18 @@ export function getProductWhatsAppMessage(productName: string, variantName?: str
   if (productUrl) {
     msg += `\n- *Link:* ${productUrl}`;
   }
-  msg += `\n\nIs this available in stock? Could you please share more details?`;
+  msg += `\n\nIs this available to dispatch? Please let me know how to proceed!`;
   return msg;
 }
 
 /**
  * Message generator for Cart Inquiry
  */
-export function getCartWhatsAppMessage(items: Array<{ name: string; variantName?: string; quantity: number; price: number }>, total: number): string {
-  let msg = `Hello Rumana Creations! 🌸\n\nI would like to place an order for the following items:\n`;
+export function getCartWhatsAppMessage(
+  items: Array<{ name: string; variantName?: string; quantity: number; price: number }>, 
+  total: number
+): string {
+  let msg = `Hello Rumana Creations! 🌸\n\nI would like to inquire about ordering the following items from my bag:\n`;
   items.forEach((item, idx) => {
     msg += `\n${idx + 1}. *${item.name}*`;
     if (item.variantName) {
@@ -73,7 +86,7 @@ export function getCartWhatsAppMessage(items: Array<{ name: string; variantName?
     msg += ` × ${item.quantity} = ${defaultStoreSettings.currencySymbol}${item.price * item.quantity}`;
   });
   msg += `\n\n*Estimated Total:* ${defaultStoreSettings.currencySymbol}${total}`;
-  msg += `\n\nPlease let me know how to proceed with payment and shipping address!`;
+  msg += `\n\nPlease let me know availability and delivery to my PIN code!`;
   return msg;
 }
 

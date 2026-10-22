@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
@@ -15,11 +15,19 @@ import {
   CheckCircle2, 
   AlertCircle,
   ChevronRight,
-  Info
+  Info,
+  Clock,
+  Check
 } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 import { defaultStoreSettings, getOrderWhatsAppMessage, getWhatsAppUrl } from '@/config/store';
 import { CustomerDetails, PaymentMethod } from '@/types';
+
+declare global {
+  interface Window {
+    Razorpay: any;
+  }
+}
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -43,6 +51,38 @@ export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
+  // PIN validation & Razorpay status
+  const [pinValidationStatus, setPinValidationStatus] = useState<{
+    checked: boolean;
+    isServiceable?: boolean;
+    message?: string;
+    estimatedDelivery?: string;
+  }>({ checked: false });
+
+  const [razorpayConfig, setRazorpayConfig] = useState<{
+    configured: boolean;
+    keyId: string | null;
+  }>({ configured: false, keyId: null });
+
+  // Load Razorpay config & SDK script
+  useEffect(() => {
+    fetch('/api/payments/razorpay/status')
+      .then((res) => res.json())
+      .then((data) => {
+        setRazorpayConfig({ configured: data.configured, keyId: data.keyId });
+      })
+      .catch((e) => console.error(e));
+
+    // Load checkout.js
+    if (!document.getElementById('razorpay-checkout-script')) {
+      const script = document.createElement('script');
+      script.id = 'razorpay-checkout-script';
+      script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+      script.async = true;
+      document.body.appendChild(script);
+    }
+  }, []);
+
   const indianStates = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Goa', 'Gujarat', 
     'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 
@@ -51,6 +91,35 @@ export default function CheckoutPage() {
     'Uttarakhand', 'West Bengal', 'Delhi NCR', 'Chandigarh', 'Jammu and Kashmir'
   ];
 
+  // Validate PIN code on blur / entry
+  const handlePinCheck = async (pin: string) => {
+    if (pin.length !== 6) return;
+    try {
+      const res = await fetch('/api/shipping/check-pin', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pinCode: pin }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setPinValidationStatus({
+          checked: true,
+          isServiceable: data.isServiceable,
+          message: data.message,
+          estimatedDelivery: data.estimatedDelivery,
+        });
+      } else {
+        setPinValidationStatus({
+          checked: true,
+          isServiceable: false,
+          message: data.error || 'Invalid Indian PIN code.',
+        });
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -58,6 +127,10 @@ export default function CheckoutPage() {
       [name]: value,
       ...(name === 'phone' && sameAsMobile ? { whatsappNumber: value } : {}),
     }));
+
+    if (name === 'pinCode' && value.length === 6) {
+      handlePinCheck(value);
+    }
   };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,23 +154,33 @@ export default function CheckoutPage() {
       return;
     }
 
-    // Phone format check (at least 10 digits)
     const cleanPhone = formData.phone.replace(/[^0-9]/g, '');
     if (cleanPhone.length < 10) {
-      setErrorMsg('Please enter a valid 10-digit mobile number.');
+      setErrorMsg('Please enter a valid 10-digit mobile phone number.');
       return;
     }
 
-    // Pin code format check (6 digits)
     const cleanPin = formData.pinCode.replace(/[^0-9]/g, '');
     if (cleanPin.length !== 6) {
       setErrorMsg('Please enter a valid 6-digit Indian PIN code.');
       return;
     }
 
+    if (pinValidationStatus.checked && pinValidationStatus.isServiceable === false) {
+      setErrorMsg(pinValidationStatus.message || 'Delivery is not available to this PIN code.');
+      return;
+    }
+
+    // If online payment chosen but not configured, advise customer
+    if (paymentMethod === 'online' && !razorpayConfig.configured) {
+      setErrorMsg('Direct Card/Netbanking gateway is currently awaiting merchant credential setup. Please choose Cash on Delivery or WhatsApp Concierge & UPI for immediate order placement.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
+      // 1. Create order record on the server
       const orderPayload = {
         customer: {
           ...formData,
@@ -124,21 +207,89 @@ export default function CheckoutPage() {
       });
 
       const data = await res.json();
-
       if (!res.ok || !data.success) {
         throw new Error(data.error || 'Failed to place order.');
       }
 
       const confirmedOrderId = data.orderId;
+
+      // 2. Handle Razorpay Standard Checkout Flow
+      if (paymentMethod === 'online') {
+        const rzpOrderRes = await fetch('/api/payments/razorpay/create-order', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId: confirmedOrderId }),
+        });
+        const rzpData = await rzpOrderRes.json();
+
+        if (!rzpOrderRes.ok || !rzpData.success) {
+          throw new Error(rzpData.error || 'Could not initialize Razorpay payment order.');
+        }
+
+        const options = {
+          key: rzpData.keyId,
+          amount: rzpData.amount,
+          currency: 'INR',
+          name: 'Rumana Creations',
+          description: `Order ${confirmedOrderId}`,
+          image: '/rumana-logo.png',
+          order_id: rzpData.razorpayOrderId,
+          handler: async function (response: any) {
+            // Verify signature on server
+            const verifyRes = await fetch('/api/payments/razorpay/verify', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                orderId: confirmedOrderId,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_signature: response.razorpay_signature,
+              }),
+            });
+            const verifyData = await verifyRes.json();
+            if (verifyRes.ok && verifyData.success) {
+              clearCart();
+              router.push(`/order-confirmation?orderId=${confirmedOrderId}`);
+            } else {
+              setErrorMsg(verifyData.error || 'Payment signature verification failed. Please contact support.');
+              setIsSubmitting(false);
+            }
+          },
+          prefill: {
+            name: formData.fullName,
+            email: formData.email || '',
+            contact: formData.phone,
+          },
+          theme: {
+            color: '#70152C',
+          },
+          modal: {
+            ondismiss: function () {
+              setIsSubmitting(false);
+              // Order remains recorded in database as pending
+              router.push(`/order-confirmation?orderId=${confirmedOrderId}`);
+            },
+          },
+        };
+
+        if (window.Razorpay) {
+          const rzp = new window.Razorpay(options);
+          rzp.open();
+          return;
+        } else {
+          throw new Error('Razorpay SDK failed to load. Please try again or choose WhatsApp UPI.');
+        }
+      }
+
+      // 3. Handle WhatsApp Concierge Checkout
       clearCart();
 
-      // If user chose WhatsApp Assisted Checkout, open WhatsApp with prefilled message
       if (paymentMethod === 'whatsapp') {
         const waMsg = getOrderWhatsAppMessage(confirmedOrderId, formData.fullName, total);
         window.open(getWhatsAppUrl(waMsg), '_blank');
       }
 
-      // Redirect to Confirmation Page
+      // 4. Redirect to Order Confirmation
       router.push(`/order-confirmation?orderId=${confirmedOrderId}`);
     } catch (err: any) {
       console.error('Checkout error:', err);
@@ -349,7 +500,7 @@ export default function CheckoutPage() {
                 {/* PIN Code */}
                 <div>
                   <label className="block text-xs font-semibold text-charcoal mb-1">
-                    6-Digit PIN Code *
+                    6-Digit Postal PIN Code *
                   </label>
                   <input
                     type="text"
@@ -358,9 +509,27 @@ export default function CheckoutPage() {
                     name="pinCode"
                     value={formData.pinCode}
                     onChange={handleInputChange}
+                    onBlur={(e) => handlePinCheck(e.target.value)}
                     placeholder="e.g. 560038"
-                    className="w-full px-3.5 py-2.5 bg-cream-50 border border-gold-border rounded-xl text-xs sm:text-sm focus:outline-none focus:border-burgundy"
+                    className="w-full px-3.5 py-2.5 bg-cream-50 border border-gold-border rounded-xl text-xs sm:text-sm focus:outline-none focus:border-burgundy font-mono"
                   />
+                  {pinValidationStatus.checked && (
+                    <p className={`text-[11px] mt-1 flex items-center gap-1 ${
+                      pinValidationStatus.isServiceable ? 'text-emerald-700' : 'text-rose-700'
+                    }`}>
+                      {pinValidationStatus.isServiceable ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 shrink-0" />
+                          <span>Delivery Available ({pinValidationStatus.estimatedDelivery})</span>
+                        </>
+                      ) : (
+                        <>
+                          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                          <span>{pinValidationStatus.message}</span>
+                        </>
+                      )}
+                    </p>
+                  )}
                 </div>
 
                 {/* Special Delivery Instructions */}
@@ -411,15 +580,47 @@ export default function CheckoutPage() {
                     <div className="flex items-center gap-2">
                       <Banknote className="w-4 h-4 text-burgundy" />
                       <span className="font-bold text-sm text-charcoal">Cash on Delivery (COD)</span>
-                      <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">POPULAR</span>
+                      <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">ALL INDIA</span>
                     </div>
                     <p className="text-xs text-charcoal-muted mt-1 leading-relaxed">
-                      Pay in cash or UPI QR scan directly to the delivery courier when your package arrives at your doorstep.
+                      Pay in cash or direct UPI QR scan to the courier representative when your parcel arrives at your doorstep.
                     </p>
                   </div>
                 </label>
 
-                {/* 2. WhatsApp Assisted Checkout */}
+                {/* 2. Online Payment (Razorpay Standard Checkout) */}
+                <label className={`flex items-start gap-3.5 p-4 rounded-2xl border-2 cursor-pointer transition ${
+                  paymentMethod === 'online'
+                    ? 'border-burgundy bg-cream-100/70 shadow-xs'
+                    : 'border-gold-border bg-white hover:bg-cream-50'
+                }`}>
+                  <input
+                    type="radio"
+                    name="paymentMethod"
+                    value="online"
+                    checked={paymentMethod === 'online'}
+                    onChange={() => setPaymentMethod('online')}
+                    className="mt-1 text-burgundy focus:ring-burgundy"
+                  />
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2">
+                      <CreditCard className="w-4 h-4 text-burgundy" />
+                      <span className="font-bold text-sm text-charcoal">Online Payment (UPI, Cards, Netbanking)</span>
+                      {razorpayConfig.configured ? (
+                        <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">ACTIVE</span>
+                      ) : (
+                        <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-2 py-0.5 rounded-full">MERCHANT SETUP</span>
+                      )}
+                    </div>
+                    <p className="text-xs text-charcoal-muted mt-1 leading-relaxed">
+                      {razorpayConfig.configured
+                        ? 'Pay securely via Google Pay, PhonePe, Paytm, Visa, Mastercard, RuPay, or Netbanking.'
+                        : 'Razorpay Gateway is ready for merchant keys. For immediate digital transfer, choose WhatsApp Concierge & UPI below.'}
+                    </p>
+                  </div>
+                </label>
+
+                {/* 3. WhatsApp Assisted Checkout */}
                 <label className={`flex items-start gap-3.5 p-4 rounded-2xl border-2 cursor-pointer transition ${
                   paymentMethod === 'whatsapp'
                     ? 'border-emerald-600 bg-emerald-50/50 shadow-xs'
@@ -436,26 +637,14 @@ export default function CheckoutPage() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <MessageCircle className="w-4 h-4 text-emerald-600" />
-                      <span className="font-bold text-sm text-charcoal">WhatsApp Concierge Checkout & UPI</span>
-                      <span className="text-[10px] bg-gold/20 text-gold-dark font-bold px-2 py-0.5 rounded-full">RECOMMENDED</span>
+                      <span className="font-bold text-sm text-charcoal">WhatsApp Concierge & Direct UPI</span>
+                      <span className="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded-full">ASSISTED</span>
                     </div>
                     <p className="text-xs text-charcoal-muted mt-1 leading-relaxed">
-                      Place your verified order and instantly receive direct Google Pay, PhonePe, or Paytm UPI QR code on WhatsApp with our store concierge.
+                      Place your verified order and receive direct UPI payment link / QR code on WhatsApp (+91 91521 36209) from our founder.
                     </p>
                   </div>
                 </label>
-
-                {/* 3. Online Gateway / Cards */}
-                <div className="p-4 rounded-2xl border border-gold-border bg-cream-50 space-y-2">
-                  <div className="flex items-center gap-2 text-charcoal-light">
-                    <CreditCard className="w-4 h-4 text-charcoal-muted" />
-                    <span className="font-semibold text-xs">Direct Card & Netbanking Gateway</span>
-                    <span className="text-[10px] bg-cream-200 text-charcoal-muted font-bold px-2 py-0.5 rounded">READY FOR CREDENTIALS</span>
-                  </div>
-                  <p className="text-[11px] text-charcoal-muted leading-relaxed">
-                    Razorpay/Stripe automated payment gateway can be activated in Store Admin by inserting merchant API keys. For immediate digital transfer, choose <strong>WhatsApp Concierge Checkout & UPI</strong> above.
-                  </p>
-                </div>
 
               </div>
 
@@ -519,6 +708,14 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
+              {/* Estimated Dispatch info */}
+              <div className="p-3 bg-cream-50 rounded-xl border border-gold-border text-xs text-charcoal-muted flex items-center gap-2">
+                <Clock className="w-4 h-4 text-gold-dark shrink-0" />
+                <span>
+                  Estimated Delivery: <strong>{pinValidationStatus.estimatedDelivery || defaultStoreSettings.deliveryEstimateMetro}</strong>
+                </span>
+              </div>
+
               {/* Place Order CTA */}
               <div className="pt-2">
                 <button
@@ -527,7 +724,7 @@ export default function CheckoutPage() {
                   className="w-full py-4 px-6 bg-burgundy hover:bg-burgundy-800 disabled:bg-cream-300 text-white rounded-full text-sm font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-boutique-hover transition duration-200 active:scale-98"
                 >
                   {isSubmitting ? (
-                    <span>Verifying & Placing Order...</span>
+                    <span>Processing Secure Order...</span>
                   ) : (
                     <>
                       <span>Confirm & Place Order (₹{total})</span>
@@ -540,7 +737,7 @@ export default function CheckoutPage() {
               <div className="text-center pt-2">
                 <span className="text-[11px] text-charcoal-muted flex items-center justify-center gap-1.5">
                   <ShieldCheck className="w-3.5 h-3.5 text-gold-dark" />
-                  <span>Your information is encrypted and strictly confidential.</span>
+                  <span>Encrypted 256-bit SSL transaction security</span>
                 </span>
               </div>
 
