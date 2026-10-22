@@ -130,9 +130,19 @@ async function runTestSuite() {
     '/category/pearl-pins-beads',
     '/category/new-arrivals',
     '/category/best-sellers',
+    '/category/necklaces',
+    '/category/earrings',
+    '/category/rings',
+    '/category/bangles',
+    '/category/bracelets',
+    '/category/jewellery-sets',
+    '/category/fashion-jewellery',
+    '/category/jewellery-making-materials',
     '/product/french-tortoise-shell-claw-clip',
     '/product/gilded-gold-blossom-metal-claw',
     '/product/padded-velvet-crown-headband',
+    '/product/royal-kundan-meenakari-choker-necklace',
+    '/product/diy-deluxe-jewellery-craft-kit-24-grid-box',
     '/cart',
     '/checkout',
     '/about',
@@ -167,12 +177,12 @@ async function runTestSuite() {
 
   // 3. API - Products
   let sampleProduct = null;
-  await assertTest('GET /api/products returns active published catalogue', async () => {
+  await assertTest('GET /api/products returns active published catalogue (27 items)', async () => {
     const res = await get('/api/products');
     if (res.status !== 200) throw new Error(`Status ${res.status}`);
     const json = JSON.parse(res.body);
-    if (!json.success || !Array.isArray(json.products) || json.products.length === 0) {
-      throw new Error('No products returned');
+    if (!json.success || !Array.isArray(json.products) || json.products.length < 27) {
+      throw new Error(`Expected at least 27 products, got ${json.products?.length}`);
     }
     // Verify none are drafts
     const drafts = json.products.filter((p) => p.status === 'draft' || p.status === 'archived');
@@ -183,15 +193,19 @@ async function runTestSuite() {
   });
 
   // 4. API - Categories
-  await assertTest('GET /api/categories returns category list with proper slugs', async () => {
+  await assertTest('GET /api/categories returns full category list (15 categories)', async () => {
     const res = await get('/api/categories');
     if (res.status !== 200) throw new Error(`Status ${res.status}`);
     const json = JSON.parse(res.body);
-    if (!json.success || !Array.isArray(json.categories) || json.categories.length === 0) {
-      throw new Error('No categories returned');
+    if (!json.success || !Array.isArray(json.categories) || json.categories.length < 15) {
+      throw new Error(`Expected at least 15 categories, got ${json.categories?.length}`);
     }
     const claw = json.categories.find((c) => c.slug === 'claw-clips');
     if (!claw) throw new Error('Claw Clips category not found');
+    const necklace = json.categories.find((c) => c.slug === 'necklaces');
+    if (!necklace) throw new Error('Necklaces category not found');
+    const materials = json.categories.find((c) => c.slug === 'jewellery-making-materials');
+    if (!materials) throw new Error('Jewellery-Making Materials category not found');
   });
 
   // 5. API - Confirmed Store Settings (WhatsApp & Instagram)

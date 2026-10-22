@@ -16,7 +16,18 @@ async function testPageIntegrity(urlPath) {
 }
 
 async function run() {
-  const pages = ['/', '/shop', '/category/claw-clips', '/product/french-tortoise-shell-claw-clip', '/cart', '/checkout', '/admin'];
+  const pages = [
+    '/',
+    '/shop',
+    '/category/claw-clips',
+    '/category/necklaces',
+    '/category/jewellery-making-materials',
+    '/product/french-tortoise-shell-claw-clip',
+    '/product/royal-kundan-meenakari-choker-necklace',
+    '/cart',
+    '/checkout',
+    '/admin'
+  ];
   for (const p of pages) {
     const res = await testPageIntegrity(p);
     console.log(`Verified ${p}: status=${res.status}, hasViewport=${res.hasViewport}, hasLogo=${res.hasLogo}, length=${res.length} bytes`);
