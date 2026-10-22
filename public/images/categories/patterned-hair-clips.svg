@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="60%" stop-color="#F9F3EA" />
+      <stop offset="100%" stop-color="#EFE4D2" />
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2DFB3" />
+      <stop offset="30%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#C49A45" />
+      <stop offset="100%" stop-color="#9A752A" />
+    </linearGradient>
+    <linearGradient id="burgundyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C2241" />
+      <stop offset="50%" stop-color="#70152C" />
+      <stop offset="100%" stop-color="#4A0B1B" />
+    </linearGradient>
+    <linearGradient id="pearlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#FFF9F0" />
+      <stop offset="80%" stop-color="#EBDBC8" />
+      <stop offset="100%" stop-color="#CBB59B" />
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F5F5" />
+      <stop offset="40%" stop-color="#DCDCDC" />
+      <stop offset="70%" stop-color="#B0B0B0" />
+      <stop offset="100%" stop-color="#6B6B6B" />
+    </linearGradient>
+    <linearGradient id="rubyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5277" />
+      <stop offset="50%" stop-color="#D81B60" />
+      <stop offset="100%" stop-color="#880E4F" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFCC80" />
+      <stop offset="50%" stop-color="#FB8C00" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB2C9" />
+      <stop offset="50%" stop-color="#F06292" />
+      <stop offset="100%" stop-color="#AD1457" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B2EBF2" />
+      <stop offset="50%" stop-color="#4DD0E1" />
+      <stop offset="100%" stop-color="#00838F" />
+    </linearGradient>
+    <linearGradient id="marigoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF59D" />
+      <stop offset="50%" stop-color="#FDD835" />
+      <stop offset="100%" stop-color="#F57F17" />
+    </linearGradient>
+    <filter id="boutiqueShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#70152C" flood-opacity="0.14" />
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#C49A45" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#bgGrad)" />
+  <rect x="28" y="28" width="744" height="744" rx="16" fill="none" stroke="#E8D9BD" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.75" />
+  <rect x="36" y="36" width="728" height="728" rx="12" fill="none" stroke="#C49A45" stroke-width="0.75" opacity="0.4" />
+
+  <g filter="url(#boutiqueShadow)">
+    
+  <!-- Ceramic display tray -->
+  <rect x="180" y="160" width="440" height="460" rx="36" fill="#F4EDE2" stroke="url(#goldGrad)" stroke-width="2" />
+  <rect x="195" y="175" width="410" height="430" rx="28" fill="#FFFDF9" stroke="#E8D9BD" stroke-width="1" />
+
+  <!-- 4 Distinct Patterned Hair Clips (inspired by store poster) -->
+  <!-- Clip 1: Classic Safari Leopard -->
+  <g transform="translate(260, 260) rotate(-15)">
+    <ellipse cx="0" cy="0" rx="35" ry="75" fill="#E6C894" stroke="#9A752A" stroke-width="1.5" />
+    <!-- Leopard spots -->
+    <path d="M-12,-40 C-8,-45 -4,-42 -6,-36 C-8,-30 -14,-34 -12,-40 Z" fill="#42250F" />
+    <path d="M8,-25 C14,-30 18,-24 16,-18 C14,-12 6,-16 8,-25 Z" fill="#42250F" />
+    <path d="M-18,-10 C-12,-16 -6,-10 -10,-4 C-14,2 -22,-4 -18,-10 Z" fill="#42250F" />
+    <path d="M4,10 C10,5 15,12 12,18 C9,24 2,18 4,10 Z" fill="#42250F" />
+    <path d="M-10,35 C-6,30 -2,36 -4,42 C-6,48 -14,44 -10,35 Z" fill="#42250F" />
+    <circle cx="0" cy="55" r="5" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Clip 2: Sky Blue Cheetah Spots -->
+  <g transform="translate(380, 240) rotate(5)">
+    <ellipse cx="0" cy="0" rx="35" ry="75" fill="#D4EAF7" stroke="#7BA4B8" stroke-width="1.5" />
+    <!-- Cheetah rosettes -->
+    <path d="M-10,-35 C-6,-40 -2,-36 -4,-30 C-6,-24 -14,-28 -10,-35 Z" fill="#1C3F5E" />
+    <path d="M10,-18 C15,-22 18,-16 15,-10 C12,-4 5,-10 10,-18 Z" fill="#1C3F5E" />
+    <path d="M-12,5 C-8,0 -2,6 -5,12 C-8,18 -16,14 -12,5 Z" fill="#1C3F5E" />
+    <path d="M6,28 C12,24 16,30 13,36 C10,42 3,36 6,28 Z" fill="#1C3F5E" />
+    <circle cx="0" cy="55" r="5" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Clip 3: Olive Safari Print -->
+  <g transform="translate(490, 280) rotate(25)">
+    <ellipse cx="0" cy="0" rx="35" ry="75" fill="#CCD5B8" stroke="#687352" stroke-width="1.5" />
+    <path d="M-12,-35 C-8,-40 -2,-35 -5,-28 C-8,-22 -16,-26 -12,-35 Z" fill="#2E381A" />
+    <path d="M8,-15 C14,-20 18,-14 15,-8 C12,-2 5,-8 8,-15 Z" fill="#2E381A" />
+    <path d="M-10,12 C-6,6 -1,12 -4,18 C-7,24 -15,20 -10,12 Z" fill="#2E381A" />
+    <circle cx="0" cy="55" r="5" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Clip 4: Charcoal & Pearl Marble Swirl -->
+  <g transform="translate(320, 440) rotate(-10)">
+    <ellipse cx="0" cy="0" rx="35" ry="75" fill="#E8ECEF" stroke="#9099A0" stroke-width="1.5" />
+    <path d="M-20,-40 Q0,-20 10,-45 Q5,-10 -15,10 Q10,30 -5,50" fill="none" stroke="#495057" stroke-width="5" stroke-linecap="round" opacity="0.6" />
+    <circle cx="0" cy="55" r="5" fill="url(#goldGrad)" />
+  </g>
+
+  <!-- Clip 5: Amber Tortoiseshell -->
+  <g transform="translate(440, 460) rotate(15)">
+    <ellipse cx="0" cy="0" rx="35" ry="75" fill="url(#amberGrad)" stroke="#B25900" stroke-width="1.5" opacity="0.95" />
+    <circle cx="-12" cy="-25" r="10" fill="#3E1A00" opacity="0.75" />
+    <circle cx="10" cy="-5" r="14" fill="#3E1A00" opacity="0.7" />
+    <circle cx="-6" cy="22" r="12" fill="#3E1A00" opacity="0.75" />
+    <circle cx="0" cy="55" r="5" fill="url(#goldGrad)" />
+  </g>
+
+  </g>
+
+  
+  <g transform="translate(670, 110)">
+    <circle r="44" fill="url(#burgundyGrad)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <text text-anchor="middle" dy="5" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" letter-spacing="1">POSTER</text>
+  </g>
+
+  
+  <g transform="translate(400, 715)">
+    <rect x="-190" y="-22" width="380" height="44" rx="22" fill="#FFFFFF" stroke="#E8D9BD" stroke-width="1.5" opacity="0.95" />
+    <text text-anchor="middle" dy="6" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#70152C" letter-spacing="2">PATTERNED HAIR CLIPS</text>
+  </g>
+</svg>

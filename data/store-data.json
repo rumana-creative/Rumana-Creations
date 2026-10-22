@@ -1,0 +1,2557 @@
+{
+  "settings": {
+    "storeName": "Rumana Creations",
+    "tagline": "Everyday Beauty, Beautifully Accessorised",
+    "logoUrl": "/rumana-logo.png",
+    "whatsappNumber": "919152136209",
+    "whatsappDisplay": "+91 91521 36209",
+    "instagramHandle": "rumana.creations",
+    "instagramUrl": "https://www.instagram.com/rumana.creations/",
+    "email": "care@rumanacreations.com",
+    "currency": "INR",
+    "currencySymbol": "₹",
+    "freeShippingThreshold": 799,
+    "standardShippingFee": 60,
+    "announcementText": "✨ Handcrafted Elegance — Free Delivery Across India on Orders Above ₹799! ✨",
+    "isAnnouncementActive": true,
+    "codEnabled": true,
+    "onlinePaymentEnabled": false,
+    "whatsappCheckoutEnabled": true,
+    "deliveryEstimateMetro": "2 to 4 business days",
+    "deliveryEstimateStandard": "4 to 7 business days",
+    "addressCity": "Bengaluru",
+    "addressState": "Karnataka",
+    "country": "India"
+  },
+  "categories": [
+    {
+      "id": "cat-1",
+      "slug": "claw-clips",
+      "name": "Claw Clips",
+      "description": "Everyday hold with luxury aesthetics. Lightweight, non-slip, and chic.",
+      "image": "/images/categories/claw-clips.svg",
+      "displayOrder": 1,
+      "isVisible": true
+    },
+    {
+      "id": "cat-2",
+      "slug": "scrunchies-hair-ties",
+      "name": "Scrunchies & Hair Ties",
+      "description": "Anti-breakage mulberry silks, lavish organza, and plush velvet ties.",
+      "image": "/images/categories/scrunchies.svg",
+      "displayOrder": 2,
+      "isVisible": true
+    },
+    {
+      "id": "cat-3",
+      "slug": "headbands",
+      "name": "Headbands",
+      "description": "Padded velvet crowns, hand-beaded arches, and everyday pleated bands.",
+      "image": "/images/categories/headbands.svg",
+      "displayOrder": 3,
+      "isVisible": true
+    },
+    {
+      "id": "cat-4",
+      "slug": "kids-clips",
+      "name": "Kids' Clips",
+      "description": "Gentle, snag-free mini clips, pastel bows, and adorable floral sets.",
+      "image": "/images/categories/kids-clips.svg",
+      "displayOrder": 4,
+      "isVisible": true
+    },
+    {
+      "id": "cat-5",
+      "slug": "pearl-pins-beads",
+      "name": "Pearl Pins & Bead Bands",
+      "description": "Intricately handcrafted pearl bobby pins, crystal vines, and beaded charms.",
+      "image": "/images/categories/pearl-pins.svg",
+      "displayOrder": 5,
+      "isVisible": true
+    },
+    {
+      "id": "cat-6",
+      "slug": "new-arrivals",
+      "name": "New Arrivals",
+      "description": "The latest seasonal curation of trending boutique hair accessories.",
+      "image": "/images/categories/new-arrivals.svg",
+      "displayOrder": 6,
+      "isVisible": true
+    },
+    {
+      "id": "cat-7",
+      "slug": "best-sellers",
+      "name": "Best Sellers",
+      "description": "Our most loved hair jewels and everyday staples, handpicked by you.",
+      "image": "/images/categories/best-sellers.svg",
+      "displayOrder": 7,
+      "isVisible": true
+    },
+    {
+      "id": "cat-8",
+      "slug": "necklaces",
+      "name": "Necklaces & Pendants",
+      "description": "Statement chokers, delicate layered pendants, and handcrafted ethnic necklaces.",
+      "image": "/images/categories/necklaces.svg",
+      "displayOrder": 8,
+      "isVisible": true
+    },
+    {
+      "id": "cat-9",
+      "slug": "earrings",
+      "name": "Earrings & Jhumkas",
+      "description": "Traditional Meenakari jhumkas, lightweight huggies, and crystal drops.",
+      "image": "/images/categories/earrings.svg",
+      "displayOrder": 9,
+      "isVisible": true
+    },
+    {
+      "id": "cat-10",
+      "slug": "rings",
+      "name": "Fashion Rings",
+      "description": "Adjustable Polki cocktail rings, stackable gold-tone bands, and statement accents.",
+      "image": "/images/categories/rings.svg",
+      "displayOrder": 10,
+      "isVisible": true
+    },
+    {
+      "id": "cat-11",
+      "slug": "bangles",
+      "name": "Bangles & Kadas",
+      "description": "Filigree brass kadas, bridal chooda accents, and velvet silk bangle sets.",
+      "image": "/images/categories/bangles.svg",
+      "displayOrder": 11,
+      "isVisible": true
+    },
+    {
+      "id": "cat-12",
+      "slug": "bracelets",
+      "name": "Bracelets & Charms",
+      "description": "Delicate tennis bracelets, evil-eye charms, and baroque pearl wristlets.",
+      "image": "/images/categories/bracelets.svg",
+      "displayOrder": 12,
+      "isVisible": true
+    },
+    {
+      "id": "cat-13",
+      "slug": "jewellery-sets",
+      "name": "Jewellery Sets",
+      "description": "Coordinated choker & earring suites, bridal combos, and festive party sets.",
+      "image": "/images/categories/jewellery-sets.svg",
+      "displayOrder": 13,
+      "isVisible": true
+    },
+    {
+      "id": "cat-14",
+      "slug": "fashion-jewellery",
+      "name": "Fashion & Costume Jewellery",
+      "description": "Curated everyday ethnic & contemporary artificial and costume jewellery.",
+      "image": "/images/categories/fashion-jewellery.svg",
+      "displayOrder": 14,
+      "isVisible": true
+    },
+    {
+      "id": "cat-15",
+      "slug": "jewellery-making-materials",
+      "name": "Jewellery-Making Materials",
+      "description": "High-grade glass beads, craft wires, jump rings, clasps, and DIY jewelry supplies.",
+      "image": "/images/categories/craft-materials.svg",
+      "displayOrder": 15,
+      "isVisible": true
+    },
+    {
+      "id": "cat-16",
+      "slug": "patterned-hair-clips",
+      "name": "Patterned Hair Clips",
+      "description": "Trending leopard, dalmatian, and marble-swirl oval snap clips and decorative barrettes.",
+      "image": "/images/categories/patterned-hair-clips.svg",
+      "displayOrder": 16,
+      "isVisible": true
+    }
+  ],
+  "products": [
+    {
+      "id": "prod-1",
+      "slug": "french-tortoise-shell-claw-clip",
+      "name": "French Tortoise Shell Jumbo Claw Clip",
+      "category": "claw-clips",
+      "categoryName": "Claw Clips",
+      "price": 349,
+      "originalPrice": 499,
+      "description": "Handcrafted with premium cellulose acetate for exceptional durability and a sleek, glossy sheen. Features custom double-teeth interlocking grip that holds thick, medium, and fine hair effortlessly without snagging or pulling.",
+      "details": [
+        "Material: Bio-acetate cellulose with gold-plated internal spring",
+        "Length: 10.5 cm (Jumbo size for full up-dos)",
+        "Finish: High-gloss tortoise shell pattern",
+        "Grip: Rounded teeth for painless all-day comfort"
+      ],
+      "materials": "High-grade cellulose acetate with reinforced steel coil spring.",
+      "careInstructions": "Wipe clean with a soft dry cloth. Keep away from direct high heat or harsh chemicals.",
+      "images": [
+        "/images/products/tortoise-claw-1.svg",
+        "/images/products/tortoise-claw-2.svg"
+      ],
+      "variants": [
+        {
+          "id": "v1-1",
+          "name": "Classic Amber Tortoise",
+          "colorCode": "#B87333",
+          "stock": 6,
+          "sku": "RC-CC-01-AMB"
+        },
+        {
+          "id": "v1-2",
+          "name": "Midnight Onyx & Cream",
+          "colorCode": "#3D3635",
+          "stock": 12,
+          "sku": "RC-CC-01-ONX"
+        },
+        {
+          "id": "v1-3",
+          "name": "Blonde Horn Marble",
+          "colorCode": "#D2B48C",
+          "stock": 8,
+          "sku": "RC-CC-01-BLN"
+        }
+      ],
+      "stock": 26,
+      "sku": "RC-CC-01",
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 34,
+      "createdAt": "2026-09-15T10:00:00Z",
+      "status": "published",
+      "updatedAt": "2026-10-22T20:36:41.161Z"
+    },
+    {
+      "id": "prod-2",
+      "slug": "gilded-gold-blossom-metal-claw",
+      "name": "Gilded Blossom Floral Metal Hair Claw",
+      "category": "claw-clips",
+      "categoryName": "Claw Clips",
+      "price": 499,
+      "originalPrice": 699,
+      "description": "Exquisitely sculpted in hollow-relief gold finish metal, inspired by vintage botanical motifs. Lightweight yet remarkably strong, adding a royal touch to festive festive wear and everyday buns alike.",
+      "details": [
+        "Finish: Premium anti-tarnish champagne gold electroplating",
+        "Weight: 42 grams lightweight balanced alloy",
+        "Dimensions: 11 cm length × 5 cm height",
+        "Perfect for: Half-up styles, French twists, and festive occasions"
+      ],
+      "materials": "Zinc alloy core with anti-tarnish brushed gold plating.",
+      "careInstructions": "Store in moisture-free pouch. Avoid spraying hairspray or perfume directly on the clip.",
+      "images": [
+        "/images/products/gold-blossom-1.svg",
+        "/images/products/gold-blossom-2.svg"
+      ],
+      "variants": [
+        {
+          "id": "v2-1",
+          "name": "Champagne Gold",
+          "colorCode": "#C49A45",
+          "stock": 15,
+          "sku": "RC-CC-02-GLD"
+        },
+        {
+          "id": "v2-2",
+          "name": "Rose Gold",
+          "colorCode": "#B76E79",
+          "stock": 9,
+          "sku": "RC-CC-02-RGD"
+        }
+      ],
+      "stock": 24,
+      "sku": "RC-CC-02",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 5,
+      "reviewCount": 28,
+      "createdAt": "2026-10-01T12:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-3",
+      "slug": "mulberry-silk-luxe-scrunchie-trio",
+      "name": "Pure Mulberry Silk Skinny Scrunchie Trio",
+      "category": "scrunchies-hair-ties",
+      "categoryName": "Scrunchies & Hair Ties",
+      "price": 399,
+      "originalPrice": 550,
+      "description": "Set of 3 slender scrunchies crafted from 100% pure 22-momme grade 6A mulberry silk. Eliminates ponytail ridges, prevents cuticle friction, and locks in natural hair hydration overnight and through busy work days.",
+      "details": [
+        "Includes 3 shades: Champagne Cream, Dusty Rose, and Midnight Burgundy",
+        "Wide internal elastic core prevents stretching out over time",
+        "Zero hair breakage, zero tension headaches"
+      ],
+      "materials": "100% Pure Mulberry Silk (22 Momme).",
+      "careInstructions": "Hand wash in cold water with mild shampoo or silk detergent. Air dry flat in shade.",
+      "images": [
+        "/images/products/silk-scrunchie-1.svg",
+        "/images/products/silk-scrunchie-2.svg"
+      ],
+      "variants": [
+        {
+          "id": "v3-1",
+          "name": "Heritage Boutique Trio (Burgundy/Cream/Rose)",
+          "colorCode": "#70152C",
+          "stock": 25,
+          "sku": "RC-SC-01-TRIO"
+        },
+        {
+          "id": "v3-2",
+          "name": "Pastel Garden Trio (Sage/Peach/Ivory)",
+          "colorCode": "#E8D9BD",
+          "stock": 14,
+          "sku": "RC-SC-01-PST"
+        }
+      ],
+      "stock": 39,
+      "sku": "RC-SC-01",
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 42,
+      "createdAt": "2026-08-20T09:30:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-4",
+      "slug": "organza-cloud-oversized-scrunchie",
+      "name": "Organza Cloud Oversized Ruffle Scrunchie",
+      "category": "scrunchies-hair-ties",
+      "categoryName": "Scrunchies & Hair Ties",
+      "price": 249,
+      "originalPrice": 350,
+      "description": "Dreamy, ethereal oversized scrunchie made of gossamer-light textured organza with delicate pearl droplet accent. Creates instant drama and romantic volume on any ponytail or topknot.",
+      "details": [
+        "Diameter: 16 cm puffed cloud diameter",
+        "Features a subtle dangling freshwater seed pearl charm",
+        "Holds comfortably without slipping"
+      ],
+      "materials": "Featherlight sheer organza and faux pearl pendant.",
+      "careInstructions": "Gently spot clean with cool damp cloth.",
+      "images": [
+        "/images/products/organza-cloud-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v4-1",
+          "name": "Vanilla Cream",
+          "colorCode": "#FDFBF7",
+          "stock": 20,
+          "sku": "RC-SC-02-VAN"
+        },
+        {
+          "id": "v4-2",
+          "name": "Blush Petal Pink",
+          "colorCode": "#F3DDE1",
+          "stock": 15,
+          "sku": "RC-SC-02-PNK"
+        },
+        {
+          "id": "v4-3",
+          "name": "Royal Burgundy Wine",
+          "colorCode": "#70152C",
+          "stock": 10,
+          "sku": "RC-SC-02-BUR"
+        }
+      ],
+      "stock": 45,
+      "sku": "RC-SC-02",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.8,
+      "reviewCount": 19,
+      "createdAt": "2026-10-10T14:15:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-5",
+      "slug": "padded-velvet-crown-headband",
+      "name": "Royal Padded Velvet Crown Headband",
+      "category": "headbands",
+      "categoryName": "Headbands",
+      "price": 449,
+      "originalPrice": 649,
+      "description": "Elevate your hair game with our signature padded headband wrapped in plush micro-velvet. Designed with flexible comfort-arch tips behind the ears for zero-pinch, all-day wearing pleasure.",
+      "details": [
+        "Width: 3.5 cm padded arch tapering to 2 cm at base",
+        "Flexible lightweight inner band fits all head shapes comfortably",
+        "Seamless edges with grooved inner grip lining"
+      ],
+      "materials": "Micro-velvet fabric over soft foam padding and flexible resin core.",
+      "careInstructions": "Brush lightly with a velvet brush or lint roller. Do not immerse in water.",
+      "images": [
+        "/images/products/velvet-headband-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v5-1",
+          "name": "Signature Deep Burgundy",
+          "colorCode": "#70152C",
+          "stock": 14,
+          "sku": "RC-HB-01-BUR"
+        },
+        {
+          "id": "v5-2",
+          "name": "Champagne Gold Sand",
+          "colorCode": "#C49A45",
+          "stock": 11,
+          "sku": "RC-HB-01-GLD"
+        },
+        {
+          "id": "v5-3",
+          "name": "Emerald Forest Green",
+          "colorCode": "#1A4D2E",
+          "stock": 6,
+          "sku": "RC-HB-01-EMR"
+        }
+      ],
+      "stock": 31,
+      "sku": "RC-HB-01",
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 31,
+      "createdAt": "2026-09-01T08:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-6",
+      "slug": "pearl-arch-hand-embellished-band",
+      "name": "Baroque Pearl Embellished Arch Headband",
+      "category": "headbands",
+      "categoryName": "Headbands",
+      "price": 599,
+      "originalPrice": 899,
+      "description": "Lustrous multi-sized ivory baroque pearls individually wire-wound onto a woven gold ribbon band. Adds instant royal bridal elegance to lehengas, sarees, and cocktail dresses.",
+      "details": [
+        "Hand-threaded graduated faux pearls with crystal seed accents",
+        "Satin-wrapped end comfort cushions for sensitive ears",
+        "Weight: 48g balanced comfort design"
+      ],
+      "materials": "Graduated baroque acrylic pearls, brass craft wire, satin ribbon.",
+      "careInstructions": "Store in protective jewelry box to avoid scratching pearls.",
+      "images": [
+        "/images/products/pearl-headband-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v6-1",
+          "name": "Lustrous Ivory & Gold",
+          "colorCode": "#FAF6EE",
+          "stock": 8,
+          "sku": "RC-HB-02-IVR"
+        }
+      ],
+      "stock": 8,
+      "sku": "RC-HB-02",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 5,
+      "reviewCount": 16,
+      "createdAt": "2026-10-12T16:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-7",
+      "slug": "freshwater-pearl-hair-pin-trio",
+      "name": "Handcrafted Pearl & Gold Hair Pin Trio",
+      "category": "pearl-pins-beads",
+      "categoryName": "Pearl Pins & Bead Bands",
+      "price": 299,
+      "originalPrice": 420,
+      "description": "A charming set of three complementary hairpin styles: single statement baroque pearl pin, branchlet crystal pin, and textured beaded cluster bobby pin. Perfect for tucking into messy buns or braids.",
+      "details": [
+        "Set of 3 distinct matching hair pins",
+        "Sturdy 6.5 cm wave-grip bobby pin bases that stay firmly put",
+        "Hand-wired flexible branches can be shaped to suit your hair"
+      ],
+      "materials": "Faux glass pearls, faceted Czech crystals, gold-finished alloy pins.",
+      "careInstructions": "Keep dry. Wipe gently with jewelry cloth after wear.",
+      "images": [
+        "/images/products/pearl-pins-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v7-1",
+          "name": "Warm Gold & Ivory Pearl",
+          "colorCode": "#C49A45",
+          "stock": 22,
+          "sku": "RC-PP-01-GLD"
+        },
+        {
+          "id": "v7-2",
+          "name": "Rose Gold & Blush Pearl",
+          "colorCode": "#F3DDE1",
+          "stock": 12,
+          "sku": "RC-PP-01-ROS"
+        }
+      ],
+      "stock": 34,
+      "sku": "RC-PP-01",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 4.8,
+      "reviewCount": 22,
+      "createdAt": "2026-10-05T11:20:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-8",
+      "slug": "golden-leaf-crystal-bridal-hair-vine",
+      "name": "Gilded Leaf & Crystal Floral Hair Vine",
+      "category": "pearl-pins-beads",
+      "categoryName": "Pearl Pins & Bead Bands",
+      "price": 649,
+      "originalPrice": 950,
+      "description": "A 28cm flexible bridal hair vine adorned with hand-painted gold leaf filigree, pearlescent petals, and sparkling marquise crystals. Can be woven into bridal braids, wrapped around chignons, or pinned as a forehead tiara.",
+      "details": [
+        "Length: 28 cm bendable wire vine with end pin-loops",
+        "Includes 2 gold bobby pins and ivory satin ribbon ties",
+        "Feather-light and customizable to any wedding or festive hairstyle"
+      ],
+      "materials": "Flexible tarnish-resistant jewelry wire, brass leaves, Austrian crystals.",
+      "careInstructions": "Store flat in original box.",
+      "images": [
+        "/images/products/hair-vine-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v8-1",
+          "name": "Vintage Gold Leaf",
+          "colorCode": "#C49A45",
+          "stock": 5,
+          "sku": "RC-PP-02-VGL"
+        }
+      ],
+      "stock": 5,
+      "sku": "RC-PP-02",
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": false,
+      "rating": 4.9,
+      "reviewCount": 14,
+      "createdAt": "2026-09-25T15:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-9",
+      "slug": "pastel-blossom-kids-clip-set",
+      "name": "Pastel Blossom Kids' Snap Clip Set (Pack of 6)",
+      "category": "kids-clips",
+      "categoryName": "Kids' Clips",
+      "price": 299,
+      "originalPrice": 450,
+      "description": "Designed specially for delicate young hair. Six sweet grosgrain-wrapped snap clips featuring miniature daisy blossoms, soft gingham bows, and tiny pastel clouds. Gentle hold that does not pull baby hairs.",
+      "details": [
+        "Pack of 6 assorted complementary clips",
+        "Fully fabric-encased clips for maximum scalp safety and comfort",
+        "Recommended for ages 1 to 10"
+      ],
+      "materials": "Lead-free metal core covered in 100% cotton fabric and felt blossoms.",
+      "careInstructions": "Hand wash surface lightly with damp sponge.",
+      "images": [
+        "/images/products/kids-clips-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v9-1",
+          "name": "Floral Garden Palette (Pink/Yellow/Mint)",
+          "colorCode": "#F3DDE1",
+          "stock": 30,
+          "sku": "RC-KC-01-GARD"
+        },
+        {
+          "id": "v9-2",
+          "name": "Sunset Sorbet Palette (Peach/Lilac/Cream)",
+          "colorCode": "#F7F0E5",
+          "stock": 24,
+          "sku": "RC-KC-01-SORB"
+        }
+      ],
+      "stock": 54,
+      "sku": "RC-KC-01",
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "rating": 5,
+      "reviewCount": 38,
+      "createdAt": "2026-08-15T10:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-10",
+      "slug": "glitter-butterfly-kids-hairpins",
+      "name": "Shimmer Butterfly Mini Barrettes (Set of 4)",
+      "category": "kids-clips",
+      "categoryName": "Kids' Clips",
+      "price": 229,
+      "originalPrice": 320,
+      "description": "Four sparkling double-winged flutter butterfly clips in soft sugar-shimmer pastel tones. The wings gently flutter as little girls walk and play!",
+      "details": [
+        "Set of 4 iridescent flutter clips",
+        "Alligator clip with silicone non-slip teeth grip",
+        "Glitter is sealed and does not shed on clothes or skin"
+      ],
+      "materials": "Laser-cut mesh organza with sealed eco-glitter on nickel-free alloy.",
+      "careInstructions": "Keep in dry case when not in use.",
+      "images": [
+        "/images/products/kids-butterfly-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v10-1",
+          "name": "Pastel Rainbow Shimmer",
+          "colorCode": "#F3DDE1",
+          "stock": 20,
+          "sku": "RC-KC-02-RNB"
+        }
+      ],
+      "stock": 20,
+      "sku": "RC-KC-02",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.8,
+      "reviewCount": 15,
+      "createdAt": "2026-10-15T11:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-11",
+      "slug": "matte-pastel-buttercup-claw-clip",
+      "name": "Matte Pastel Buttercup Medium Hair Claw",
+      "category": "claw-clips",
+      "categoryName": "Claw Clips",
+      "price": 279,
+      "originalPrice": 399,
+      "description": "Velvety soft-touch rubberized matte finish in calming cottagecore pastel hues. The medium 8.5 cm profile is ideal for everyday half-up buns and quick errands.",
+      "details": [
+        "Length: 8.5 cm (Medium versatility)",
+        "Velveteen rubberized non-slip coating",
+        "Ultra-durable rust-free spring mechanism"
+      ],
+      "materials": "Shatter-resistant acrylic with soft matte rubberized finish.",
+      "careInstructions": "Rinse with clean water and pat dry.",
+      "images": [
+        "/images/products/matte-claw-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v11-1",
+          "name": "Dusty Rose Pink",
+          "colorCode": "#E7BDC5",
+          "stock": 16,
+          "sku": "RC-CC-03-PNK"
+        },
+        {
+          "id": "v11-2",
+          "name": "Warm Cream Latte",
+          "colorCode": "#F7F0E5",
+          "stock": 18,
+          "sku": "RC-CC-03-CRM"
+        },
+        {
+          "id": "v11-3",
+          "name": "Sage Garden Green",
+          "colorCode": "#9CAF88",
+          "stock": 12,
+          "sku": "RC-CC-03-SGE"
+        }
+      ],
+      "stock": 46,
+      "sku": "RC-CC-03",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.7,
+      "reviewCount": 20,
+      "createdAt": "2026-10-18T13:45:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-12",
+      "slug": "champagne-satin-bow-hair-tie",
+      "name": "Champagne Satin Tail Bow Hair Tie",
+      "category": "scrunchies-hair-ties",
+      "categoryName": "Scrunchies & Hair Ties",
+      "price": 269,
+      "originalPrice": 380,
+      "description": "A pre-tied graceful Parisian ribbon bow with flowing 18 cm drape tails, secured to a heavy-duty seamless elastic tie. Instantly transforms a simple low ponytail into effortless runway elegance.",
+      "details": [
+        "Tail length: 18 cm flowing fluid drape",
+        "Double-sided satin with high-density weave that resists creasing",
+        "Reinforced center knot that never comes undone"
+      ],
+      "materials": "Heavyweight silk-satin blend.",
+      "careInstructions": "Steam lightly if folded during shipping. Hand wash cool.",
+      "images": [
+        "/images/products/satin-bow-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v12-1",
+          "name": "Champagne Gold",
+          "colorCode": "#C49A45",
+          "stock": 14,
+          "sku": "RC-SC-03-GLD"
+        },
+        {
+          "id": "v12-2",
+          "name": "Deep Burgundy Wine",
+          "colorCode": "#70152C",
+          "stock": 16,
+          "sku": "RC-SC-03-BUR"
+        },
+        {
+          "id": "v12-3",
+          "name": "Midnight Black",
+          "colorCode": "#222222",
+          "stock": 10,
+          "sku": "RC-SC-03-BLK"
+        }
+      ],
+      "stock": 40,
+      "sku": "RC-SC-03",
+      "isFeatured": true,
+      "isNewArrival": false,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 27,
+      "createdAt": "2026-09-10T12:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "prod-13",
+      "slug": "royal-kundan-meenakari-choker-necklace",
+      "name": "Royal Kundan Meenakari Choker Necklace",
+      "category": "necklaces",
+      "categoryName": "Necklaces & Pendants",
+      "price": 749,
+      "originalPrice": 1299,
+      "description": "Exquisite handcrafted bridal choker necklace featuring traditional Meenakari enamel artistry, luminous imitation glass pearls, and micro-plated antique gold finish. A timeless statement piece for weddings and festive evenings.",
+      "details": [
+        "Costume & Fashion Jewellery — Non-precious alloy with gold-tone finish",
+        "Traditional hand-enameled Meenakari reverse detailing",
+        "Adjustable soft zari drawstring closure fits all neck circumferences comfortably",
+        "Total necklace weight: 68g"
+      ],
+      "materials": "High-grade brass alloy with gold-toned lacquer plating, synthetic stones, imitation glass pearls, cotton-zari dori.",
+      "careInstructions": "Fashion jewellery: Store in an airtight container or zip lock bag. Avoid contact with perfumes, hairspray, and direct moisture.",
+      "images": [
+        "/images/products/choker-necklace-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v13-1",
+          "name": "Royal Pearl White",
+          "colorCode": "#FDFBF7",
+          "stock": 15,
+          "sku": "RC-NK-01-WHT"
+        },
+        {
+          "id": "v13-2",
+          "name": "Ruby Maroon",
+          "colorCode": "#70152C",
+          "stock": 12,
+          "sku": "RC-NK-01-RBY"
+        },
+        {
+          "id": "v13-3",
+          "name": "Emerald Green",
+          "colorCode": "#1B5E20",
+          "stock": 10,
+          "sku": "RC-NK-01-EMR"
+        }
+      ],
+      "stock": 37,
+      "sku": "RC-NK-01",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 4.95,
+      "reviewCount": 28,
+      "seoTitle": "Royal Kundan Meenakari Choker Necklace | Rumana Creations",
+      "seoDescription": "Handcrafted Kundan Meenakari choker necklace with pearls. Premium Indian costume jewellery.",
+      "createdAt": "2026-10-22T20:55:35.723Z"
+    },
+    {
+      "id": "prod-14",
+      "slug": "layered-dainty-pearl-coin-pendant-necklace",
+      "name": "Layered Dainty Pearl & Coin Pendant Necklace",
+      "category": "necklaces",
+      "categoryName": "Necklaces & Pendants",
+      "price": 399,
+      "originalPrice": 599,
+      "description": "Chic dual-strand everyday necklace featuring a polished coin medallion and delicate imitation freshwater seed pearls on an anti-tarnish gold-tone link chain.",
+      "details": [
+        "Contemporary Fashion Jewellery",
+        "Dual layered design: 16-inch + 18-inch chains with 2-inch extender",
+        "Lobster claw clasp with Rumana Creations charm",
+        "Weight: 14g"
+      ],
+      "materials": "Gold-tone plated alloy, imitation freshwater shell pearls.",
+      "careInstructions": "Wipe gently with a soft microfibre cloth after wear. Keep away from water and cosmetics.",
+      "images": [
+        "/images/products/layered-pendant-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v14-1",
+          "name": "Warm Polished Gold",
+          "colorCode": "#C49A45",
+          "stock": 25,
+          "sku": "RC-NK-02-GLD"
+        }
+      ],
+      "stock": 25,
+      "sku": "RC-NK-02",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.8,
+      "reviewCount": 16,
+      "seoTitle": "Layered Dainty Pearl & Coin Pendant Necklace | Rumana Creations",
+      "seoDescription": "Delicate dual-strand gold-tone necklace with imitation pearls. Everyday chic fashion jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-15",
+      "slug": "chandbali-pearl-drop-festive-jhumkas",
+      "name": "Chandbali Pearl Drop Festive Jhumkas",
+      "category": "earrings",
+      "categoryName": "Earrings & Jhumkas",
+      "price": 449,
+      "originalPrice": 799,
+      "description": "Majestic crescent Chandbali jhumka earrings adorned with floral filigree work, tiny dangling pearl bunches, and ruby-tinted stones. Feather-light for all-day celebrations.",
+      "details": [
+        "Traditional Indian Costume Jewellery",
+        "Push-back post with secure silicone stopper for comfortable wear",
+        "Length: 7.5 cm, Width: 4.5 cm",
+        "Weight: 24g per pair"
+      ],
+      "materials": "Lightweight brass alloy with antique gold finish, artificial faux pearls, synthetic stones.",
+      "careInstructions": "Clean with a dry lint-free cloth. Do not soak in water or liquid cleaners.",
+      "images": [
+        "/images/products/chandbali-earrings-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v15-1",
+          "name": "Antique Gold & Pearl",
+          "colorCode": "#D4AF37",
+          "stock": 20,
+          "sku": "RC-ER-01-GLD"
+        },
+        {
+          "id": "v15-2",
+          "name": "Gold & Ruby Red",
+          "colorCode": "#9C2241",
+          "stock": 16,
+          "sku": "RC-ER-01-RBY"
+        }
+      ],
+      "stock": 36,
+      "sku": "RC-ER-01",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 22,
+      "seoTitle": "Chandbali Pearl Drop Festive Jhumkas | Rumana Creations",
+      "seoDescription": "Handcrafted Chandbali earrings with dangling pearls. Lightweight festive costume jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-16",
+      "slug": "twisted-gold-tone-huggie-hoop-earrings",
+      "name": "Twisted Gold-Tone Huggie Hoop Earrings",
+      "category": "earrings",
+      "categoryName": "Earrings & Jhumkas",
+      "price": 299,
+      "originalPrice": 499,
+      "description": "Modern everyday chunky twist hoop earrings with a radiant warm gold finish. Lightweight, versatile, and effortlessly stylish from morning coffee to dinner parties.",
+      "details": [
+        "Everyday Modern Fashion Jewellery",
+        "Diameter: 22 mm, Thickness: 5 mm",
+        "Hinge click-top clasp closure",
+        "Weight: 8g per pair"
+      ],
+      "materials": "High-polished gold-tone alloy with anti-tarnish protective lacquer, stainless steel posts.",
+      "careInstructions": "Avoid contact with moisture and harsh soaps to maintain long-lasting shine.",
+      "images": [
+        "/images/products/huggie-hoops-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v16-1",
+          "name": "Classic Yellow Gold",
+          "colorCode": "#C49A45",
+          "stock": 30,
+          "sku": "RC-ER-02-YGL"
+        },
+        {
+          "id": "v16-2",
+          "name": "Rose Gold",
+          "colorCode": "#E5A99B",
+          "stock": 18,
+          "sku": "RC-ER-02-RGL"
+        }
+      ],
+      "stock": 48,
+      "sku": "RC-ER-02",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.85,
+      "reviewCount": 14,
+      "seoTitle": "Twisted Gold-Tone Huggie Hoop Earrings | Rumana Creations",
+      "seoDescription": "Chunky twist gold-tone huggie hoop earrings. Minimalist everyday fashion jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-17",
+      "slug": "vintage-floral-polki-adjustable-cocktail-ring",
+      "name": "Vintage Floral Polki Adjustable Cocktail Ring",
+      "category": "rings",
+      "categoryName": "Fashion Rings",
+      "price": 349,
+      "originalPrice": 599,
+      "description": "Statement blooming flower cocktail ring studded with shimmering uncut-style Polki stones and bordered with miniature faux pearls. Features a comfortable expandable back band.",
+      "details": [
+        "Ethnic Costume Jewellery Statement Piece",
+        "Free-size adjustable open back fits Indian ring sizes 12 to 20",
+        "Floral head diameter: 3.5 cm",
+        "Weight: 18g"
+      ],
+      "materials": "Brass base with gold-toned polish, glass polki stones, artificial seed pearls.",
+      "careInstructions": "Handle gently when adjusting band size. Keep away from water and lotions.",
+      "images": [
+        "/images/products/polki-ring-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v17-1",
+          "name": "Golden Ivory",
+          "colorCode": "#FFF9E6",
+          "stock": 22,
+          "sku": "RC-RG-01-IVR"
+        },
+        {
+          "id": "v17-2",
+          "name": "Rose Pink Accent",
+          "colorCode": "#F3DDE1",
+          "stock": 14,
+          "sku": "RC-RG-01-PNK"
+        }
+      ],
+      "stock": 36,
+      "sku": "RC-RG-01",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.9,
+      "reviewCount": 19,
+      "seoTitle": "Vintage Floral Polki Adjustable Cocktail Ring | Rumana Creations",
+      "seoDescription": "Statement adjustable Polki cocktail ring with faux pearls. Festive costume jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-18",
+      "slug": "stackable-minimalist-pave-band-trio",
+      "name": "Stackable Minimalist Pavé Band Trio (Set of 3)",
+      "category": "rings",
+      "categoryName": "Fashion Rings",
+      "price": 299,
+      "originalPrice": 499,
+      "description": "Set of three stackable slender rings featuring one micro-pavé crystal band, one twisted rope band, and one smooth gold-tone band. Wear together or individually.",
+      "details": [
+        "Contemporary Fashion Jewellery Set",
+        "Includes 3 complementary stacking rings",
+        "Available in Indian size 14 & 16",
+        "Band width: 1.5 mm each"
+      ],
+      "materials": "Gold-plated brass alloy, synthetic cubic zirconia crystals.",
+      "careInstructions": "Remove before hand washing or applying sanitisers to preserve gold tone.",
+      "images": [
+        "/images/products/stackable-rings-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v18-1",
+          "name": "Size 14 (Medium)",
+          "colorCode": "#C49A45",
+          "stock": 20,
+          "sku": "RC-RG-02-S14"
+        },
+        {
+          "id": "v18-2",
+          "name": "Size 16 (Large)",
+          "colorCode": "#C49A45",
+          "stock": 18,
+          "sku": "RC-RG-02-S16"
+        }
+      ],
+      "stock": 38,
+      "sku": "RC-RG-02",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.75,
+      "reviewCount": 11,
+      "seoTitle": "Stackable Minimalist Pavé Band Trio (3 pcs) | Rumana Creations",
+      "seoDescription": "Dainty stackable gold-tone rings with micro-pavé crystals. Everyday costume jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-19",
+      "slug": "embroidered-velvet-golden-zari-bangle-set",
+      "name": "Embroidered Velvet & Golden Zari Bangle Set (Set of 12)",
+      "category": "bangles",
+      "categoryName": "Bangles & Kadas",
+      "price": 599,
+      "originalPrice": 999,
+      "description": "Handcrafted festive bangle set combining plush velvet-wrapped metal bangles, delicate golden zari braiding, and sparkling crystal micro-borders. Perfect for Eid, Diwali, and sangeet parties.",
+      "details": [
+        "Ethnic Costume Jewellery Bangle Suite",
+        "Complete set of 12 coordinated bangles",
+        "Available in standard sizes: 2.6 (Medium) and 2.8 (Large)",
+        "Total set weight: 110g"
+      ],
+      "materials": "Metal alloy core, plush micro-velvet, metallic zari thread, glass rhinestones.",
+      "careInstructions": "Keep in padded bangle box. Keep completely dry to protect velvet texture.",
+      "images": [
+        "/images/products/velvet-bangles-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v19-1",
+          "name": "Royal Burgundy (Size 2.6)",
+          "colorCode": "#70152C",
+          "stock": 15,
+          "sku": "RC-BG-01-BUR26"
+        },
+        {
+          "id": "v19-2",
+          "name": "Royal Burgundy (Size 2.8)",
+          "colorCode": "#70152C",
+          "stock": 12,
+          "sku": "RC-BG-01-BUR28"
+        },
+        {
+          "id": "v19-3",
+          "name": "Emerald Green (Size 2.6)",
+          "colorCode": "#1B5E20",
+          "stock": 10,
+          "sku": "RC-BG-01-EMR26"
+        }
+      ],
+      "stock": 37,
+      "sku": "RC-BG-01",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 25,
+      "seoTitle": "Embroidered Velvet & Golden Zari Bangle Set | Rumana Creations",
+      "seoDescription": "Handcrafted velvet and golden zari bangle set of 12. Indian festive costume jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-20",
+      "slug": "openable-filigree-brass-antique-kada",
+      "name": "Openable Filigree Brass Antique Kada",
+      "category": "bangles",
+      "categoryName": "Bangles & Kadas",
+      "price": 499,
+      "originalPrice": 799,
+      "description": "Heritage temple-inspired cuff bracelet featuring intricate filigree jali work and floral embossed motifs with an easy-screw side clasp.",
+      "details": [
+        "Heritage Costume Jewellery Bracelet / Kada",
+        "Secure screw-pin side hinge opening for effortless wearing",
+        "Inner diameter: 60 mm (fits wrist sizes 2.4 to 2.8)",
+        "Kada width: 2.2 cm, Weight: 42g"
+      ],
+      "materials": "Brass alloy with antique matte gold finish and anti-tarnish coating.",
+      "careInstructions": "Clean with a soft dry cloth. Store separately from other jewellery to avoid friction.",
+      "images": [
+        "/images/products/antique-kada-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v20-1",
+          "name": "Matte Antique Gold",
+          "colorCode": "#C49A45",
+          "stock": 20,
+          "sku": "RC-BG-02-AGL"
+        }
+      ],
+      "stock": 20,
+      "sku": "RC-BG-02",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.85,
+      "reviewCount": 15,
+      "seoTitle": "Openable Filigree Brass Antique Kada | Rumana Creations",
+      "seoDescription": "Antique gold filigree openable kada bracelet. Traditional Indian costume jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-21",
+      "slug": "baroque-freshwater-pearl-heart-charm-bracelet",
+      "name": "Baroque Freshwater Pearl & Heart Charm Bracelet",
+      "category": "bracelets",
+      "categoryName": "Bracelets & Charms",
+      "price": 399,
+      "originalPrice": 699,
+      "description": "Asymmetrical modern bracelet strung with organic-shaped imitation baroque pearls and an engraved brushed gold heart charm with toggle bar closure.",
+      "details": [
+        "Boutique Fashion Jewellery",
+        "Unique imitation baroque pearl silhouette",
+        "Total length: 19 cm, fits most wrists",
+        "Custom T-bar toggle clasp"
+      ],
+      "materials": "Hand-selected imitation baroque pearls, gold-plated zinc alloy charm.",
+      "careInstructions": "Wipe with soft cloth. Avoid moisture and cosmetics.",
+      "images": [
+        "/images/products/baroque-bracelet-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v21-1",
+          "name": "Warm Gold & Pearl",
+          "colorCode": "#FFFDF8",
+          "stock": 22,
+          "sku": "RC-BR-01-PRL"
+        }
+      ],
+      "stock": 22,
+      "sku": "RC-BR-01",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.85,
+      "reviewCount": 17,
+      "seoTitle": "Baroque Freshwater Pearl & Heart Charm Bracelet | Rumana Creations",
+      "seoDescription": "Chic baroque pearl bracelet with heart pendant. Contemporary fashion jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-22",
+      "slug": "evil-eye-lucky-charm-paperclip-chain-bracelet",
+      "name": "Evil Eye Lucky Charm Paperclip Chain Bracelet",
+      "category": "bracelets",
+      "categoryName": "Bracelets & Charms",
+      "price": 329,
+      "originalPrice": 499,
+      "description": "Protective talisman bracelet featuring a double-sided blue enamel evil eye charm mounted on a trendy oblong paperclip link chain.",
+      "details": [
+        "Everyday Protection Fashion Jewellery",
+        "16 cm chain with 4 cm extender",
+        "Lobster claw closure with tear drop tag",
+        "Weight: 9g"
+      ],
+      "materials": "14k gold-tone plated brass, blue & white kiln-fired enamel.",
+      "careInstructions": "Keep away from perfumes and sanitizers.",
+      "images": [
+        "/images/products/evil-eye-bracelet-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v22-1",
+          "name": "Celestial Blue Eye",
+          "colorCode": "#0284C7",
+          "stock": 28,
+          "sku": "RC-BR-02-BLU"
+        }
+      ],
+      "stock": 28,
+      "sku": "RC-BR-02",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.9,
+      "reviewCount": 19,
+      "seoTitle": "Evil Eye Lucky Charm Paperclip Chain Bracelet | Rumana Creations",
+      "seoDescription": "Blue enamel evil eye paperclip bracelet. Protective fashion jewellery in gold tone.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-23",
+      "slug": "emerald-green-pearl-royal-choker-earring-set",
+      "name": "Emerald Green & Pearl Royal Choker & Earring Set",
+      "category": "jewellery-sets",
+      "categoryName": "Jewellery Sets",
+      "price": 1199,
+      "originalPrice": 1999,
+      "description": "A complete celebratory jewellery suite including an ornate Kundan choker necklace with cascading emerald-green beaded drops, paired with matching statement drop earrings.",
+      "details": [
+        "Complete Festive Costume Jewellery Set",
+        "Includes 1 Choker Necklace + 1 Pair Matching Drop Earrings",
+        "Necklace has adjustable zari cord; Earrings feature push-back post",
+        "Total suite weight: 115g"
+      ],
+      "materials": "Brass alloy with high-luster micro gold plating, synthetic emerald beads, glass stones, faux pearls.",
+      "careInstructions": "Store in moisture-proof velvet case. Clean with dry microfibre cloth.",
+      "images": [
+        "/images/products/royal-jewellery-set-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v23-1",
+          "name": "Emerald Green & Gold",
+          "colorCode": "#1B5E20",
+          "stock": 12,
+          "sku": "RC-JS-01-EMR"
+        },
+        {
+          "id": "v23-2",
+          "name": "Royal Ruby Maroon",
+          "colorCode": "#70152C",
+          "stock": 10,
+          "sku": "RC-JS-01-RBY"
+        }
+      ],
+      "stock": 22,
+      "sku": "RC-JS-01",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 4.95,
+      "reviewCount": 31,
+      "seoTitle": "Emerald Green & Pearl Royal Choker & Earring Set | Rumana Creations",
+      "seoDescription": "Kundan choker necklace with matching drop earrings. Complete wedding costume jewellery suite.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-24",
+      "slug": "dainty-pearl-solitaire-pendant-studs-daily-set",
+      "name": "Dainty Pearl Solitaire Pendant & Studs Daily Set",
+      "category": "jewellery-sets",
+      "categoryName": "Jewellery Sets",
+      "price": 549,
+      "originalPrice": 899,
+      "description": "Understated office and brunch elegance. Comprises a floating imitation South Sea pearl pendant necklace on a fine Singapore chain with matching pearl stud earrings.",
+      "details": [
+        "Everyday Fashion Jewellery Duo",
+        "Includes 18-inch necklace with 8mm pendant + 8mm matching stud earrings",
+        "Comfortable butterfly push back stoppers",
+        "Total set weight: 12g"
+      ],
+      "materials": "Gold-tone plated copper alloy, luminous imitation shell pearls.",
+      "careInstructions": "Wipe clean after use. Store away from moisture.",
+      "images": [
+        "/images/products/pearl-duo-set-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v24-1",
+          "name": "Warm Champagne Gold",
+          "colorCode": "#C49A45",
+          "stock": 24,
+          "sku": "RC-JS-02-CHP"
+        }
+      ],
+      "stock": 24,
+      "sku": "RC-JS-02",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.8,
+      "reviewCount": 12,
+      "seoTitle": "Dainty Pearl Solitaire Pendant & Studs Daily Set | Rumana Creations",
+      "seoDescription": "Minimalist pearl pendant necklace and matching studs. Everyday fashion jewellery duo.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-25",
+      "slug": "kundan-floral-matha-patti-maang-tikka",
+      "name": "Kundan Floral Matha Patti & Maang Tikka",
+      "category": "fashion-jewellery",
+      "categoryName": "Fashion & Costume Jewellery",
+      "price": 699,
+      "originalPrice": 1199,
+      "description": "Traditional bridal and festive hair-and-forehead adornment featuring floral Kundan centerpieces, delicate side pearl chains, and tiny jhumki drops.",
+      "details": [
+        "Traditional Indian Costume Jewellery & Hair Adornment",
+        "Attaches securely into hair with discreet bobby pin hooks",
+        "Center Tikka Length: 12 cm, Side chains: 18 cm each",
+        "Weight: 45g"
+      ],
+      "materials": "Lightweight brass alloy, glass kundan, faux seed pearls, metallic hair clips.",
+      "careInstructions": "Store flat in dry pouch to avoid tangling of chains.",
+      "images": [
+        "/images/products/matha-patti-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v25-1",
+          "name": "Antique Gold & Pearl",
+          "colorCode": "#D4AF37",
+          "stock": 16,
+          "sku": "RC-FJ-01-GLD"
+        }
+      ],
+      "stock": 16,
+      "sku": "RC-FJ-01",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.9,
+      "reviewCount": 20,
+      "seoTitle": "Kundan Floral Matha Patti & Maang Tikka | Rumana Creations",
+      "seoDescription": "Bridal Kundan matha patti and maang tikka. Traditional Indian hair costume jewellery.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-26",
+      "slug": "diy-deluxe-jewellery-craft-kit-24-grid-box",
+      "name": "DIY Deluxe Jewellery Craft Kit: 24-Grid Beads & Findings Box",
+      "category": "jewellery-making-materials",
+      "categoryName": "Jewellery-Making Materials",
+      "price": 599,
+      "originalPrice": 999,
+      "description": "All-in-one jewelry crafting starter set containing 2,000+ multi-colored glass seed beads, letter beads, 50 lobster clasps, 100 jump rings, jewelry scissors, and 2 rolls of 0.8mm crystal elastic stretch cord.",
+      "details": [
+        "Jewellery-Making Supplies & DIY Craft Materials",
+        "24-compartment reusable storage organizer box included",
+        "Over 2,000+ glass seed beads in curated pastel & vibrant shades",
+        "Complete with tools: safety scissors, elastic rolls, tweezers, and findings"
+      ],
+      "materials": "Glass seed beads, acrylic alphabet beads, zinc alloy findings, nylon elastic cord.",
+      "careInstructions": "Keep small parts away from children under 3 years. Store box horizontally.",
+      "images": [
+        "/images/products/diy-craft-kit-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v26-1",
+          "name": "Pastel Rainbow Palette",
+          "colorCode": "#F3DDE1",
+          "stock": 35,
+          "sku": "RC-MAT-01-PST"
+        },
+        {
+          "id": "v26-2",
+          "name": "Bohemian Earth Tones",
+          "colorCode": "#C49A45",
+          "stock": 25,
+          "sku": "RC-MAT-01-ETH"
+        }
+      ],
+      "stock": 60,
+      "sku": "RC-MAT-01",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 4.95,
+      "reviewCount": 38,
+      "seoTitle": "DIY Deluxe Jewellery Craft Kit (24-Grid Box) | Rumana Creations",
+      "seoDescription": "All-in-one jewelry making materials kit with 2000+ seed beads, findings, and elastic cord.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-27",
+      "slug": "golden-brass-jump-rings-headpins-craft-pack",
+      "name": "Golden Brass Jump Rings & Headpins Craft Essentials Pack (300 pcs)",
+      "category": "jewellery-making-materials",
+      "categoryName": "Jewellery-Making Materials",
+      "price": 249,
+      "originalPrice": 399,
+      "description": "Essential crafting findings bundle including 150 open jump rings (5mm & 7mm) and 150 ball headpins (40mm) in premium gold-tone finish for earrings, pendants, and charm making.",
+      "details": [
+        "Professional Jewellery-Making Findings",
+        "Pack includes: 150 open jump rings (75x 5mm, 75x 7mm) + 150 ball headpins (40mm)",
+        "Lead & Cadmium free craft supplies",
+        "Total count: 300 pieces"
+      ],
+      "materials": "Tarnish-resistant gold-toned brass wire.",
+      "careInstructions": "Keep in dry sealed polybag to avoid tarnishing over time.",
+      "images": [
+        "/images/products/jump-rings-pack-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "v27-1",
+          "name": "Warm Gold Finish",
+          "colorCode": "#D4AF37",
+          "stock": 40,
+          "sku": "RC-MAT-02-GLD"
+        },
+        {
+          "id": "v27-2",
+          "name": "Antique Bronze Finish",
+          "colorCode": "#8B5A2B",
+          "stock": 30,
+          "sku": "RC-MAT-02-BRZ"
+        }
+      ],
+      "stock": 70,
+      "sku": "RC-MAT-02",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "isBestSeller": false,
+      "rating": 4.85,
+      "reviewCount": 16,
+      "seoTitle": "Golden Brass Jump Rings & Headpins Pack (300 pcs) | Rumana Creations",
+      "seoDescription": "High quality jewelry making findings: 150 jump rings and 150 headpins in gold finish.",
+      "createdAt": "2026-10-22T20:55:35.731Z"
+    },
+    {
+      "id": "prod-28",
+      "slug": "safari-chic-patterned-oval-hair-clips-set",
+      "name": "Safari Chic Patterned Oval Hair Clips (Set of 6)",
+      "category": "patterned-hair-clips",
+      "categoryName": "Patterned Hair Clips",
+      "price": 299,
+      "originalPrice": 449,
+      "description": "Featured in our boutique showcase: Set of 6 high-gloss oval snap hair clips featuring signature safari prints—classic leopard, olive cheetah, sky blue spots, and dalmatian dots. Crafted with a snag-free metal snap mechanism that holds hair securely without pulling. Handcrafted artificial hair accessories.",
+      "details": [
+        "Set Includes: 6 assorted patterned oval hair clips (Length: 7 cm)",
+        "Patterns: Classic Leopard, Olive Safari, Sky Blue Cheetah, Dalmatian Spot, Marble Swirl, Tortoiseshell",
+        "Classification: Hair Accessories (Decorative Hair Clips - Not Nail Accessories)",
+        "Grip: Smooth snag-free metal snap clip backing",
+        "Finish: High-gloss, scratch-resistant acetate glaze"
+      ],
+      "materials": "Bio-cellulose acrylic resin with nickel-free gold-tone snap clip.",
+      "careInstructions": "Wipe clean with a soft dry cloth. Keep away from water, heat, and direct perfumes.",
+      "images": [
+        "/images/products/safari-patterned-clips-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-28-1",
+          "name": "Safari Leopard & Cheetah Mix (Set of 6)",
+          "colorCode": "#E8CDA0",
+          "stock": 25,
+          "sku": "RC-HC-PAT-01"
+        },
+        {
+          "id": "var-28-2",
+          "name": "Monochrome Dalmatian & Marble Mix (Set of 6)",
+          "colorCode": "#D0E8F2",
+          "stock": 18,
+          "sku": "RC-HC-PAT-02"
+        }
+      ],
+      "stock": 43,
+      "sku": "RC-HC-PAT",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 38,
+      "seoTitle": "Safari Chic Patterned Oval Hair Clips (Set of 6) | Rumana Creations",
+      "seoDescription": "Shop boutique safari animal print oval hair snap clips in leopard and cheetah patterns at Rumana Creations. Lightweight and snag-free.",
+      "createdAt": "2026-10-23T01:30:00.000Z"
+    },
+    {
+      "id": "prod-29",
+      "slug": "crystal-bloom-translucent-flower-hair-claw",
+      "name": "Crystal Bloom Translucent Flower Hair Claw",
+      "category": "claw-clips",
+      "categoryName": "Claw Clips",
+      "price": 249,
+      "originalPrice": 349,
+      "description": "Featured on our official store poster: Sculpted 5-petal crystal acrylic flower hair claw clip with a reinforced gold-tone spring. Features gemstone clarity with smooth interlocking teeth for non-slip hold in half-up and full up-do hairstyles.",
+      "details": [
+        "Design: 5-Petal sculpted blossom claw with faceted gemstone shine",
+        "Diameter: 7.5 cm (Ideal for medium to thick hair)",
+        "Spring: High-tension gold-tone stainless steel coil",
+        "Grip: Rounded teeth for painless, all-day comfortable grip"
+      ],
+      "materials": "Translucent high-clarity acrylic resin with gold-plated steel spring.",
+      "careInstructions": "Wipe clean with a microfibre cloth. Store flat when not in use.",
+      "images": [
+        "/images/products/crystal-flower-claw-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-29-1",
+          "name": "Ruby Pink",
+          "colorCode": "#F06292",
+          "stock": 20,
+          "sku": "RC-CC-BLM-01"
+        },
+        {
+          "id": "var-29-2",
+          "name": "Amethyst Violet",
+          "colorCode": "#BA68C8",
+          "stock": 15,
+          "sku": "RC-CC-BLM-02"
+        },
+        {
+          "id": "var-29-3",
+          "name": "Sunset Amber",
+          "colorCode": "#FFB74D",
+          "stock": 18,
+          "sku": "RC-CC-BLM-03"
+        },
+        {
+          "id": "var-29-4",
+          "name": "Emerald Green",
+          "colorCode": "#81C784",
+          "stock": 14,
+          "sku": "RC-CC-BLM-04"
+        }
+      ],
+      "stock": 67,
+      "sku": "RC-CC-BLM",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "rating": 4.8,
+      "reviewCount": 29,
+      "seoTitle": "Crystal Bloom Translucent Flower Hair Claw | Rumana Creations",
+      "seoDescription": "Shop floral translucent acrylic hair claw clips in ruby pink, violet, and amber at Rumana Creations India.",
+      "createdAt": "2026-10-23T01:31:00.000Z"
+    },
+    {
+      "id": "prod-30",
+      "slug": "pastel-wings-mini-butterfly-hair-clips-box",
+      "name": "Pastel Wings Mini Butterfly Hair Clips (Pack of 12 with Organizer Box)",
+      "category": "kids-clips",
+      "categoryName": "Kids' Clips",
+      "price": 279,
+      "originalPrice": 399,
+      "description": "Featured in our boutique organizer showcase: A set of 12 miniature butterfly hair claws in sweet candy pastel tones, packaged in a clear reusable 6-compartment storage box. Snag-free and gentle for kids, toddlers, and Y2K aesthetic hair styling.",
+      "details": [
+        "Includes: 12 mini butterfly claw clips + clear compartmental organizer box",
+        "Dimensions: 2 cm clip size",
+        "Shades: Strawberry pink, baby cyan, soft marigold yellow, and lilac",
+        "Safety: Snag-free rounded teeth safe for children's delicate hair"
+      ],
+      "materials": "BPA-free lightweight acrylic with gentle metal spring.",
+      "careInstructions": "Rinse with mild lukewarm water if needed and dry immediately.",
+      "images": [
+        "/images/products/mini-butterfly-box-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-30-1",
+          "name": "Pastel Candy Mix (12 Pcs + Box)",
+          "colorCode": "#FFB2C9",
+          "stock": 30,
+          "sku": "RC-KC-BTF-01"
+        }
+      ],
+      "stock": 30,
+      "sku": "RC-KC-BTF",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "rating": 4.9,
+      "reviewCount": 41,
+      "seoTitle": "Pastel Wings Mini Butterfly Clips (Pack of 12 + Box) | Rumana Creations",
+      "seoDescription": "Gentle mini pastel butterfly hair clips for kids and trendy half-up styling with clear storage box.",
+      "createdAt": "2026-10-23T01:32:00.000Z"
+    },
+    {
+      "id": "prod-31",
+      "slug": "geometric-square-translucent-acetate-hair-claw",
+      "name": "Geometric Square Translucent Acetate Hair Claw",
+      "category": "claw-clips",
+      "categoryName": "Claw Clips",
+      "price": 299,
+      "originalPrice": 429,
+      "description": "As seen in our store showcase tray: Modernist hollow square geometric hair claw crafted from thick, translucent bio-acetate. Features rounded interlocking teeth for headache-free, non-slip all-day hold.",
+      "details": [
+        "Design: Hollow square geometric silhouette",
+        "Dimensions: 8 cm x 5 cm",
+        "Finish: Glossy translucent jewel tones",
+        "Hold: Extra-strong grip for thick, wavy, and textured hair"
+      ],
+      "materials": "Heavy-duty cellulose acetate with reinforced steel coil.",
+      "careInstructions": "Wipe with a soft dry cloth. Avoid high heat.",
+      "images": [
+        "/images/products/geometric-square-claw-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-31-1",
+          "name": "Honey Amber Tortoise",
+          "colorCode": "#FFB74D",
+          "stock": 22,
+          "sku": "RC-CC-SQR-01"
+        },
+        {
+          "id": "var-31-2",
+          "name": "Bubblegum Pink",
+          "colorCode": "#F48FB1",
+          "stock": 16,
+          "sku": "RC-CC-SQR-02"
+        },
+        {
+          "id": "var-31-3",
+          "name": "Sky Blue",
+          "colorCode": "#4FC3F7",
+          "stock": 14,
+          "sku": "RC-CC-SQR-03"
+        },
+        {
+          "id": "var-31-4",
+          "name": "Crimson Red",
+          "colorCode": "#E53935",
+          "stock": 12,
+          "sku": "RC-CC-SQR-04"
+        }
+      ],
+      "stock": 64,
+      "sku": "RC-CC-SQR",
+      "status": "published",
+      "isFeatured": true,
+      "isBestSeller": true,
+      "rating": 4.8,
+      "reviewCount": 35,
+      "seoTitle": "Geometric Square Translucent Acetate Hair Claw | Rumana Creations",
+      "seoDescription": "Chunky square geometric acetate hair claws in amber tortoise and pastel colors.",
+      "createdAt": "2026-10-23T01:33:00.000Z"
+    },
+    {
+      "id": "prod-32",
+      "slug": "heritage-oxidised-silver-ruby-temple-jhumkas",
+      "name": "Heritage Oxidised Silver & Ruby Crystal Temple Jhumkas",
+      "category": "earrings",
+      "categoryName": "Earrings & Jhumkas",
+      "price": 449,
+      "originalPrice": 649,
+      "description": "Featured on our store poster: Intricately embossed dual-tier oxidised silver dome jhumkas adorned with ruby crystal floral studs and cascading pearl droplets. Traditional elegance with lightweight comfort. Artificial / costume jewellery crafted for ethnic and festive occasions.",
+      "details": [
+        "Classification: Artificial Jewellery / Fashion Earrings (Non-precious)",
+        "Plating: Antique oxidised silver finish on durable brass base",
+        "Embellishments: Synthetic ruby crystal gemstones & faux glass pearls",
+        "Closure: Push-back post with secure silicone stopper",
+        "Weight: 28g per pair (Ergonomically balanced for comfortable wear)"
+      ],
+      "materials": "Base brass alloy with antique silver-look plating, synthetic crystals, and faux pearls. (Not genuine silver).",
+      "careInstructions": "Store in an airtight ziplock pouch away from moisture and direct perfumes.",
+      "images": [
+        "/images/products/oxidised-ruby-jhumkas-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-32-1",
+          "name": "Ruby Crystal & Pearl Drop",
+          "colorCode": "#D81B60",
+          "stock": 18,
+          "sku": "RC-ER-OX-01"
+        },
+        {
+          "id": "var-32-2",
+          "name": "Emerald Green & Pearl Drop",
+          "colorCode": "#2E7D32",
+          "stock": 14,
+          "sku": "RC-ER-OX-02"
+        }
+      ],
+      "stock": 32,
+      "sku": "RC-ER-OX",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 52,
+      "seoTitle": "Heritage Oxidised Silver Ruby Temple Jhumkas | Rumana Creations",
+      "seoDescription": "Ethnic oxidised silver dome jhumkas with ruby crystal studs and pearl droplets. Fashion jewellery by Rumana Creations.",
+      "createdAt": "2026-10-23T01:34:00.000Z"
+    },
+    {
+      "id": "prod-33",
+      "slug": "meenakari-marigold-sunburst-enamel-jhumkas",
+      "name": "Meenakari Marigold Sunburst Floral Enamel Jhumkas",
+      "category": "earrings",
+      "categoryName": "Earrings & Jhumkas",
+      "price": 399,
+      "originalPrice": 599,
+      "description": "Featured on our store poster: Radiant sunburst floral jhumkas hand-painted with vibrant yellow enamel meenakari work, golden filigree detailing, and tiny hanging ghungroo beads. Artificial jewellery designed to brighten Haldi, Mehendi, and festive celebrations.",
+      "details": [
+        "Classification: Artificial Jewellery / Fashion Accessories (Non-precious)",
+        "Technique: Artisan hand-enamelled Meenakari work",
+        "Plating: Rich 18k gold-tone flash plating on copper-brass alloy",
+        "Accents: Filigree bell dome with tiny golden hanging bead fringe",
+        "Occasions: Haldi, Sangeet, festive family gatherings"
+      ],
+      "materials": "High-grade copper-brass alloy with baked enamel finish. (Non-precious).",
+      "careInstructions": "Avoid contact with water and harsh cosmetics. Clean gently with a dry cotton swab.",
+      "images": [
+        "/images/products/marigold-enamel-jhumkas-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-33-1",
+          "name": "Marigold Yellow & Gold",
+          "colorCode": "#FDD835",
+          "stock": 19,
+          "sku": "RC-ER-MNK-01"
+        },
+        {
+          "id": "var-33-2",
+          "name": "Crimson Red & Gold",
+          "colorCode": "#C62828",
+          "stock": 12,
+          "sku": "RC-ER-MNK-02"
+        }
+      ],
+      "stock": 31,
+      "sku": "RC-ER-MNK",
+      "status": "published",
+      "isFeatured": true,
+      "rating": 4.7,
+      "reviewCount": 24,
+      "seoTitle": "Meenakari Marigold Sunburst Enamel Jhumkas | Rumana Creations",
+      "seoDescription": "Handcrafted yellow meenakari floral jhumkas for festive and Haldi ceremonies.",
+      "createdAt": "2026-10-23T01:35:00.000Z"
+    },
+    {
+      "id": "prod-34",
+      "slug": "dainty-floral-black-bead-station-chain-necklace",
+      "name": "Dainty Floral Charm Black Bead Station Chain Necklace",
+      "category": "necklaces",
+      "categoryName": "Necklaces & Pendants",
+      "price": 349,
+      "originalPrice": 499,
+      "description": "Showcased on our store poster: Contemporary mangalsutra-inspired daily wear necklace featuring micro black beads, a dainty gold-tone chain, and a central floral charm with a delicate pearl drop. Fashion jewellery that combines modern minimalist styling with cultural grace.",
+      "details": [
+        "Classification: Artificial Jewellery / Daily Wear Necklace (Non-precious)",
+        "Length: 16 inches + 2-inch extender chain with lobster clasp",
+        "Plating: 18k micro gold-tone polish on skin-friendly brass base",
+        "Beads: High-luster black glass micro beads",
+        "Centerpiece: Floral motif with synthetic stone and drop"
+      ],
+      "materials": "Gold-tone brass alloy, glass micro beads, synthetic crystal. (Not genuine gold).",
+      "careInstructions": "Remove before bathing or exercising. Store in a dry pouch.",
+      "images": [
+        "/images/products/black-bead-floral-chain-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-34-1",
+          "name": "Golden Daisy Charm & Pearl Drop",
+          "colorCode": "#D4AF37",
+          "stock": 26,
+          "sku": "RC-NK-BLK-01"
+        },
+        {
+          "id": "var-34-2",
+          "name": "Crescent Filigree Charm",
+          "colorCode": "#C49A45",
+          "stock": 18,
+          "sku": "RC-NK-BLK-02"
+        }
+      ],
+      "stock": 44,
+      "sku": "RC-NK-BLK",
+      "status": "published",
+      "isFeatured": true,
+      "isBestSeller": true,
+      "rating": 4.9,
+      "reviewCount": 63,
+      "seoTitle": "Dainty Floral Black Bead Daily Chain Necklace | Rumana Creations",
+      "seoDescription": "Minimalist black bead floral chain necklace for everyday elegance. Artificial fashion jewellery.",
+      "createdAt": "2026-10-23T01:36:00.000Z"
+    },
+    {
+      "id": "prod-35",
+      "slug": "starlet-cz-crystal-solitaire-station-tennis-chain",
+      "name": "Starlet CZ Crystal Solitaire Station Chain Necklace",
+      "category": "necklaces",
+      "categoryName": "Necklaces & Pendants",
+      "price": 499,
+      "originalPrice": 749,
+      "description": "Featured on our store poster: Sparkling station chain necklace featuring brilliant round-cut cubic zirconia crystals and dainty floral cluster stations. Delivers the breathtaking radiance of fine diamonds in everyday artificial jewellery.",
+      "details": [
+        "Classification: Artificial Jewellery / Fashion Chain (Non-precious)",
+        "Stones: AAA Grade Cubic Zirconia (CZ) simulated crystals",
+        "Plating: High-polish rhodium silver plating on copper alloy",
+        "Length: 15 inches + 2-inch extension chain",
+        "Clasp: Secure lobster claw closure"
+      ],
+      "materials": "Rhodium-plated copper alloy with cubic zirconia stones. (Not real diamond/platinum).",
+      "careInstructions": "Gently polish with a dry lint-free cloth. Avoid swimming or harsh chemicals.",
+      "images": [
+        "/images/products/cz-solitaire-chain-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-35-1",
+          "name": "Rhodium Silver",
+          "colorCode": "#DCDCDC",
+          "stock": 20,
+          "sku": "RC-NK-CZ-01"
+        },
+        {
+          "id": "var-35-2",
+          "name": "Warm Champagne Gold",
+          "colorCode": "#E6CA65",
+          "stock": 15,
+          "sku": "RC-NK-CZ-02"
+        }
+      ],
+      "stock": 35,
+      "sku": "RC-NK-CZ",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "rating": 4.8,
+      "reviewCount": 19,
+      "seoTitle": "Starlet CZ Solitaire Station Tennis Chain | Rumana Creations",
+      "seoDescription": "Sparkling CZ solitaire station tennis necklace in rhodium silver by Rumana Creations.",
+      "createdAt": "2026-10-23T01:37:00.000Z"
+    },
+    {
+      "id": "prod-36",
+      "slug": "festive-rani-pink-kundan-cluster-pearl-choker-set",
+      "name": "Festive Rani Pink Kundan & Cluster Pearl Choker Set",
+      "category": "jewellery-sets",
+      "categoryName": "Jewellery Sets",
+      "price": 899,
+      "originalPrice": 1299,
+      "description": "Featured as our store poster highlight: Exquisite festive choker suite featuring round kundan flower motifs set in warm antique gold plating, accented by vibrant magenta rani pink stones and hanging pearl clusters. Complete with matching round floral stud earrings.",
+      "details": [
+        "Set Includes: 1 Floral Choker Necklace + 1 Pair of Matching Round Stud Earrings",
+        "Classification: Costume / Artificial Jewellery Suite (Non-precious)",
+        "Plating: Antique gold finish on durable metal alloy base",
+        "Stones: Synthetic kundan glass stones & faux pearl bead drops",
+        "Necklace Closure: Traditional adjustable zari thread dori (fits all neck sizes)",
+        "Occasion: Bridal trousseau, weddings, Diwali, Eid, and festive parties"
+      ],
+      "materials": "Antique gold-plated alloy, synthetic glass kundan, faux pearls, zari dori. (Non-precious).",
+      "careInstructions": "Wipe with a soft cotton cloth after wear. Keep in the provided velvet card/box.",
+      "images": [
+        "/images/products/festive-rani-pink-choker-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-36-1",
+          "name": "Rani Pink & Antique Gold (Full Set)",
+          "colorCode": "#D81B60",
+          "stock": 14,
+          "sku": "RC-JS-RNI-01"
+        },
+        {
+          "id": "var-36-2",
+          "name": "Royal Emerald Green & Antique Gold",
+          "colorCode": "#2E7D32",
+          "stock": 10,
+          "sku": "RC-JS-RNI-02"
+        }
+      ],
+      "stock": 24,
+      "sku": "RC-JS-RNI",
+      "status": "published",
+      "isFeatured": true,
+      "isBestSeller": true,
+      "rating": 5,
+      "reviewCount": 48,
+      "seoTitle": "Festive Rani Pink Kundan Choker & Studs Set | Rumana Creations",
+      "seoDescription": "Traditional magenta rani pink kundan choker necklace and earrings set. Premium costume jewellery.",
+      "createdAt": "2026-10-23T01:38:00.000Z"
+    },
+    {
+      "id": "prod-37",
+      "slug": "tribal-oxidised-silver-floral-choker-earrings-suite",
+      "name": "Tribal Oxidised Silver Floral Choker & Earrings Suite",
+      "category": "jewellery-sets",
+      "categoryName": "Jewellery Sets",
+      "price": 799,
+      "originalPrice": 1199,
+      "description": "Featured on our store poster: Statement tribal-inspired oxidised silver choker necklace with intricate floral repoussé links and hanging cluster droplets. Comes paired with matching ornate tiered chandelier jhumkas.",
+      "details": [
+        "Set Includes: 1 Flexible Link Floral Choker + 1 Pair of Tiered Chandelier Earrings",
+        "Classification: Artificial Jewellery / Ethnic Costume Set (Non-precious)",
+        "Finish: Blackened antique oxidised silver patina",
+        "Design: Traditional Rajasthani tribal repoussé craftsmanship",
+        "Earring Closure: Push back with broad comfort disk"
+      ],
+      "materials": "Lead-free and nickel-free white metal alloy with antique oxidised finish. (Not genuine silver).",
+      "careInstructions": "Avoid water, lotions, and soaps. Store in a cool dry place.",
+      "images": [
+        "/images/products/tribal-silver-choker-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-37-1",
+          "name": "Antique Oxidised Silver (Full Suite)",
+          "colorCode": "#9E9E9E",
+          "stock": 16,
+          "sku": "RC-JS-TRB-01"
+        }
+      ],
+      "stock": 16,
+      "sku": "RC-JS-TRB",
+      "status": "published",
+      "isFeatured": true,
+      "isNewArrival": true,
+      "rating": 4.9,
+      "reviewCount": 37,
+      "seoTitle": "Tribal Oxidised Silver Floral Choker Suite | Rumana Creations",
+      "seoDescription": "Vintage tribal oxidised silver choker and matching jhumka earrings suite by Rumana Creations.",
+      "createdAt": "2026-10-23T01:39:00.000Z"
+    },
+    {
+      "id": "prod-38",
+      "slug": "pastel-minimalist-rectangular-midi-claw-pack",
+      "name": "Pastel Minimalist Rectangular Midi Claw Clip Set (Pack of 4)",
+      "category": "claw-clips",
+      "categoryName": "Claw Clips",
+      "price": 329,
+      "originalPrice": 479,
+      "description": "As seen in our store showcase tray: Set of 4 tinted rectangular midi claw clips in curated neutral tones. Perfect for half-up twists, fine to medium hair, and effortless everyday work styles.",
+      "details": [
+        "Pack Contents: 4 midi claw clips (Length: 6.5 cm)",
+        "Colors: Rose Quartz, Sage Green, Smoke Grey, Frosted Clear",
+        "Spring: Rust-proof gold-tone steel coil",
+        "Texture: Soft-touch frosted acrylic finish with non-slip teeth"
+      ],
+      "materials": "Bio-acetate acrylic with gold-plated spring mechanism.",
+      "careInstructions": "Wipe with a damp cloth if needed. Air dry away from direct heat.",
+      "images": [
+        "/images/products/rectangular-midi-claw-1.svg"
+      ],
+      "variants": [
+        {
+          "id": "var-38-1",
+          "name": "Boutique Pastel Quad (Set of 4)",
+          "colorCode": "#E0F2F1",
+          "stock": 25,
+          "sku": "RC-CC-MID-01"
+        }
+      ],
+      "stock": 25,
+      "sku": "RC-CC-MID",
+      "status": "published",
+      "isFeatured": false,
+      "isNewArrival": true,
+      "rating": 4.8,
+      "reviewCount": 21,
+      "seoTitle": "Pastel Minimalist Rectangular Midi Claw Clips (Set of 4) | Rumana Creations",
+      "seoDescription": "Four pack of pastel tinted rectangular midi hair claw clips for effortless everyday hair styling.",
+      "createdAt": "2026-10-23T01:40:00.000Z"
+    }
+  ],
+  "orders": [
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-9311",
+      "createdAt": "2026-10-22T21:22:40.593Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-6468",
+      "createdAt": "2026-10-22T21:21:59.386Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-8930",
+      "createdAt": "2026-10-22T21:12:45.568Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-4931",
+      "createdAt": "2026-10-22T20:58:38.162Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-1693",
+      "createdAt": "2026-10-22T20:43:24.848Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-4943",
+      "createdAt": "2026-10-22T20:36:39.526Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-6442",
+      "createdAt": "2026-10-22T20:31:44.911Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-4894",
+      "createdAt": "2026-10-22T20:29:03.158Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-1324",
+      "createdAt": "2026-10-22T20:24:17.458Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-7942",
+      "createdAt": "2026-10-22T20:23:07.249Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-2092",
+      "createdAt": "2026-10-22T20:22:49.871Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9876543210",
+        "whatsappNumber": "9876543210",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pinCode": "560001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-1259",
+      "createdAt": "2026-10-22T20:11:43.879Z",
+      "trackingNumber": "BLUEDART-TEST-9921"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9876543210",
+        "whatsappNumber": "9876543210",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pinCode": "560001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-6741",
+      "createdAt": "2026-10-22T20:10:20.734Z",
+      "trackingNumber": "BLUEDART-TEST-9921"
+    },
+    {
+      "id": "RC-2026-1082",
+      "createdAt": "2026-10-21T14:32:00Z",
+      "customer": {
+        "fullName": "Ananya Verma",
+        "phone": "+91 98450 12345",
+        "whatsappNumber": "+91 98450 12345",
+        "email": "ananya.v@gmail.com",
+        "addressLine1": "Flat 402, Magnolia Orchards",
+        "addressLine2": "Indiranagar 12th Main",
+        "city": "Bengaluru",
+        "state": "Karnataka",
+        "pinCode": "560038",
+        "deliveryInstructions": "Please leave at security gate if not available"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        },
+        {
+          "productId": "prod-3",
+          "name": "Pure Mulberry Silk Skinny Scrunchie Trio",
+          "variantName": "Heritage Boutique Trio",
+          "price": 399,
+          "quantity": 1,
+          "subtotal": 399,
+          "image": "/images/products/silk-scrunchie-1.svg"
+        }
+      ],
+      "subtotal": 748,
+      "discount": 50,
+      "couponCode": "WELCOME50",
+      "shippingFee": 60,
+      "total": 758,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "confirmed",
+      "trackingNumber": "DTDC-BLR-892110",
+      "notes": "Customer confirmed on WhatsApp call."
+    },
+    {
+      "id": "RC-2026-1081",
+      "createdAt": "2026-10-20T11:15:00Z",
+      "customer": {
+        "fullName": "Zoya Khan",
+        "phone": "+91 91234 56789",
+        "whatsappNumber": "+91 91234 56789",
+        "email": "zoya.k@outlook.com",
+        "addressLine1": "House No 18, Gulshan Avenue",
+        "addressLine2": "Banjara Hills Road No 3",
+        "city": "Hyderabad",
+        "state": "Telangana",
+        "pinCode": "500034"
+      },
+      "items": [
+        {
+          "productId": "prod-2",
+          "name": "Gilded Blossom Floral Metal Hair Claw",
+          "variantName": "Champagne Gold",
+          "price": 499,
+          "quantity": 1,
+          "subtotal": 499,
+          "image": "/images/products/gold-blossom-1.svg"
+        },
+        {
+          "productId": "prod-5",
+          "name": "Royal Padded Velvet Crown Headband",
+          "variantName": "Signature Deep Burgundy",
+          "price": 449,
+          "quantity": 1,
+          "subtotal": 449,
+          "image": "/images/products/velvet-headband-1.svg"
+        }
+      ],
+      "subtotal": 948,
+      "discount": 95,
+      "couponCode": "RUMANA10",
+      "shippingFee": 0,
+      "total": 853,
+      "paymentMethod": "whatsapp",
+      "paymentStatus": "paid",
+      "orderStatus": "shipped",
+      "trackingNumber": "DELHIVERY-HYD-54219",
+      "notes": "Paid via direct UPI verified on WhatsApp."
+    }
+  ],
+  "coupons": [
+    {
+      "code": "WELCOME50",
+      "discountType": "fixed",
+      "discountValue": 50,
+      "minOrderValue": 399,
+      "isActive": true
+    },
+    {
+      "code": "RUMANA10",
+      "discountType": "percentage",
+      "discountValue": 10,
+      "minOrderValue": 0,
+      "isActive": true
+    },
+    {
+      "code": "FESTIVE15",
+      "discountType": "percentage",
+      "discountValue": 15,
+      "minOrderValue": 999,
+      "isActive": true
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev-1",
+      "author": "Ayesha M.",
+      "location": "Bengaluru",
+      "rating": 5,
+      "comment": "The quality of the French Tortoise Shell claw is unbelievable! I have very thick, long hair that breaks normal plastic clips, but this clip holds my entire bun firmly all day with zero headaches. Truly boutique quality!",
+      "productName": "French Tortoise Shell Jumbo Claw Clip",
+      "date": "2026-10-18",
+      "verifiedPurchase": true
+    },
+    {
+      "id": "rev-2",
+      "author": "Priyanka Sharma",
+      "location": "Mumbai",
+      "rating": 5,
+      "comment": "I ordered the Gilded Blossom metal claw and the velvet padded headband for my sister’s engagement. The packaging was so thoughtfully done in cream and gold, and the shine on the metal is stunning. 10/10 recommendation!",
+      "productName": "Gilded Blossom Floral Metal Hair Claw",
+      "date": "2026-10-14",
+      "verifiedPurchase": true
+    },
+    {
+      "id": "rev-3",
+      "author": "Sneha Patel",
+      "location": "Ahmedabad",
+      "rating": 5,
+      "comment": "Bought the kids snap clips for my 4-year-old daughter. She normally hates hairpins, but these are so gentle and soft with fabric padding. Plus the floral pastel designs are so chic and sweet!",
+      "productName": "Pastel Blossom Kids' Snap Clip Set",
+      "date": "2026-10-10",
+      "verifiedPurchase": true
+    },
+    {
+      "id": "rev-4",
+      "author": "Fatima Z.",
+      "location": "Hyderabad",
+      "rating": 5,
+      "comment": "The Mulberry Silk scrunchies are genuine silk! My hair has zero dents when I take it off in the morning. Fast delivery and the WhatsApp team was so helpful in helping me select shades.",
+      "productName": "Pure Mulberry Silk Skinny Scrunchie Trio",
+      "date": "2026-10-02",
+      "verifiedPurchase": true
+    }
+  ]
+}
