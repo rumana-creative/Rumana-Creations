@@ -20,10 +20,13 @@ async function run() {
     '/',
     '/shop',
     '/category/claw-clips',
+    '/category/patterned-hair-clips',
     '/category/necklaces',
     '/category/jewellery-making-materials',
     '/product/french-tortoise-shell-claw-clip',
+    '/product/safari-chic-patterned-oval-hair-clips-set',
     '/product/royal-kundan-meenakari-choker-necklace',
+    '/product/festive-rani-pink-kundan-cluster-pearl-choker-set',
     '/cart',
     '/checkout',
     '/admin'
