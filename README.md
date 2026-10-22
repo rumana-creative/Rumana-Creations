@@ -201,7 +201,7 @@ c:\Rumana Creations\
    npm.cmd run dev
    ```
 4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-5. To access the Admin Dashboard, visit [http://localhost:3000/admin](http://localhost:3000/admin) (Default password: `rumana2026`).
+5. To access the Admin Dashboard, visit [http://localhost:3000/admin](http://localhost:3000/admin) (Requires confirmed Administrator ID and Password).
 
 ### Running the Production Build
 ```bash
@@ -224,7 +224,7 @@ node scripts/test-platform.js
 | **Official WhatsApp** | ✅ Centralized config (`+91 91521 36209`) | Pre-configured across PDP, Bag, Checkout, Order Confirmation, Footer, and Floating Concierge. |
 | **Official Instagram** | ✅ Centralized config (`https://www.instagram.com/rumana.creations/`) | Integrated in header, footer, lookbook, and concierge links. |
 | **Catalog & Products** | ✅ Live admin upload & inventory control | Upload actual inventory photos and set quantities via `/admin`. |
-| **Admin Authentication** | ✅ Secure session cookie (`rumana2026`) | Change `ADMIN_PASSWORD` in `.env.local` or Vercel before public launch. |
+| **Admin Authentication** | ✅ Dual ID & Password (`nawabrumana6@gmail.com` / `Rumana@nawab2026`) | Eye toggle button implemented. All credential hints and default text completely hidden. |
 | **Cash on Delivery (COD)** | ✅ Fully working with stock deduction & PIN validation | Ready out-of-the-box. |
 | **WhatsApp-Assisted Checkout** | ✅ Generates order ID and launches WhatsApp concierge | Ready out-of-the-box. |
 | **Razorpay Payment Gateway** | ⚡ Gateway architecture ready with HMAC verification | Add `RAZORPAY_KEY_ID` & `RAZORPAY_KEY_SECRET` to `.env.local` to activate card/UPI checkout. |
