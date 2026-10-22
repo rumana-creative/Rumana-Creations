@@ -138,11 +138,23 @@ async function runTestSuite() {
     '/category/jewellery-sets',
     '/category/fashion-jewellery',
     '/category/jewellery-making-materials',
+    '/category/patterned-hair-clips',
     '/product/french-tortoise-shell-claw-clip',
     '/product/gilded-gold-blossom-metal-claw',
     '/product/padded-velvet-crown-headband',
     '/product/royal-kundan-meenakari-choker-necklace',
     '/product/diy-deluxe-jewellery-craft-kit-24-grid-box',
+    '/product/safari-chic-patterned-oval-hair-clips-set',
+    '/product/crystal-bloom-translucent-flower-hair-claw',
+    '/product/pastel-wings-mini-butterfly-hair-clips-box',
+    '/product/geometric-square-translucent-acetate-hair-claw',
+    '/product/heritage-oxidised-silver-ruby-temple-jhumkas',
+    '/product/meenakari-marigold-sunburst-enamel-jhumkas',
+    '/product/dainty-floral-black-bead-station-chain-necklace',
+    '/product/starlet-cz-crystal-solitaire-station-tennis-chain',
+    '/product/festive-rani-pink-kundan-cluster-pearl-choker-set',
+    '/product/tribal-oxidised-silver-floral-choker-earrings-suite',
+    '/product/pastel-minimalist-rectangular-midi-claw-pack',
     '/cart',
     '/checkout',
     '/about',
@@ -177,12 +189,12 @@ async function runTestSuite() {
 
   // 3. API - Products
   let sampleProduct = null;
-  await assertTest('GET /api/products returns active published catalogue (27 items)', async () => {
+  await assertTest('GET /api/products returns active published catalogue (38 items)', async () => {
     const res = await get('/api/products');
     if (res.status !== 200) throw new Error(`Status ${res.status}`);
     const json = JSON.parse(res.body);
-    if (!json.success || !Array.isArray(json.products) || json.products.length < 27) {
-      throw new Error(`Expected at least 27 products, got ${json.products?.length}`);
+    if (!json.success || !Array.isArray(json.products) || json.products.length < 38) {
+      throw new Error(`Expected at least 38 products, got ${json.products?.length}`);
     }
     // Verify none are drafts
     const drafts = json.products.filter((p) => p.status === 'draft' || p.status === 'archived');
@@ -193,19 +205,56 @@ async function runTestSuite() {
   });
 
   // 4. API - Categories
-  await assertTest('GET /api/categories returns full category list (15 categories)', async () => {
+  await assertTest('GET /api/categories returns full category list (16 categories including Patterned Hair Clips)', async () => {
     const res = await get('/api/categories');
     if (res.status !== 200) throw new Error(`Status ${res.status}`);
     const json = JSON.parse(res.body);
-    if (!json.success || !Array.isArray(json.categories) || json.categories.length < 15) {
-      throw new Error(`Expected at least 15 categories, got ${json.categories?.length}`);
+    if (!json.success || !Array.isArray(json.categories) || json.categories.length < 16) {
+      throw new Error(`Expected at least 16 categories, got ${json.categories?.length}`);
     }
     const claw = json.categories.find((c) => c.slug === 'claw-clips');
     if (!claw) throw new Error('Claw Clips category not found');
+    const patterned = json.categories.find((c) => c.slug === 'patterned-hair-clips');
+    if (!patterned) throw new Error('Patterned Hair Clips category not found');
     const necklace = json.categories.find((c) => c.slug === 'necklaces');
     if (!necklace) throw new Error('Necklaces category not found');
     const materials = json.categories.find((c) => c.slug === 'jewellery-making-materials');
     if (!materials) throw new Error('Jewellery-Making Materials category not found');
+  });
+
+  // 4b. Classification Validation: Patterned Hair Clips & Non-Precious Disclosures
+  await assertTest('Patterned Hair Clips are correctly classified under hair accessories and NOT as nail accessories', async () => {
+    const res = await get('/api/categories');
+    const json = JSON.parse(res.body);
+    const nailCat = json.categories.find((c) => c.slug.includes('nail') || c.name.toLowerCase().includes('nail'));
+    if (nailCat) {
+      throw new Error(`Forbidden 'nail' category found: ${nailCat.name}`);
+    }
+    const patCat = json.categories.find((c) => c.slug === 'patterned-hair-clips');
+    if (!patCat || !patCat.name.includes('Hair Clips')) {
+      throw new Error('Patterned Hair Clips not properly named');
+    }
+  });
+
+  await assertTest('All jewellery products are correctly classified as Artificial / Costume Jewellery with non-precious metals', async () => {
+    const res = await get('/api/products');
+    const json = JSON.parse(res.body);
+    const jewelleryCats = ['necklaces', 'earrings', 'rings', 'bangles', 'bracelets', 'jewellery-sets', 'fashion-jewellery'];
+    const jewelleryProds = json.products.filter((p) => jewelleryCats.includes(p.category));
+    for (const prod of jewelleryProds) {
+      const text = (prod.description + ' ' + (prod.details || []).join(' ') + ' ' + (prod.materials || '')).toLowerCase();
+      const hasArtificialDisclosure =
+        text.includes('artificial') ||
+        text.includes('costume') ||
+        text.includes('fashion') ||
+        text.includes('non-precious') ||
+        text.includes('alloy') ||
+        text.includes('brass') ||
+        text.includes('copper');
+      if (!hasArtificialDisclosure) {
+        throw new Error(`Product ${prod.name} missing artificial/costume/non-precious disclosure`);
+      }
+    }
   });
 
   // 5. API - Confirmed Store Settings (WhatsApp & Instagram)
