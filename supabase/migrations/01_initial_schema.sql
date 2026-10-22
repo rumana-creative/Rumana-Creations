@@ -7,20 +7,22 @@ CREATE TABLE IF NOT EXISTS store_settings (
   store_name TEXT NOT NULL DEFAULT 'Rumana Creations',
   tagline TEXT DEFAULT 'Everyday Beauty, Beautifully Accessorised',
   logo_url TEXT DEFAULT '/rumana-logo.png',
-  whatsapp_number TEXT NOT NULL DEFAULT '919876543210',
-  whatsapp_display TEXT DEFAULT '+91 98765 43210',
-  instagram_handle TEXT DEFAULT 'rumana_creations',
-  instagram_url TEXT DEFAULT 'https://www.instagram.com/rumana_creations',
+  whatsapp_number TEXT NOT NULL DEFAULT '919152136209',
+  whatsapp_display TEXT DEFAULT '+91 91521 36209',
+  instagram_handle TEXT DEFAULT 'rumana.creations',
+  instagram_url TEXT DEFAULT 'https://www.instagram.com/rumana.creations/',
   email TEXT DEFAULT 'care@rumanacreations.com',
   currency TEXT DEFAULT 'INR',
   currency_symbol TEXT DEFAULT '₹',
   free_shipping_threshold NUMERIC(10, 2) DEFAULT 799.00,
   standard_shipping_fee NUMERIC(10, 2) DEFAULT 60.00,
-  announcement_text TEXT DEFAULT '✨ Handcrafted Elegance — Free Delivery Across India on Orders Above ₹799! ✨',
+  announcement_text TEXT DEFAULT '✨ Handcrafted Elegance — Free All-India Delivery on Orders Above ₹799! ✨',
   is_announcement_active BOOLEAN DEFAULT true,
   cod_enabled BOOLEAN DEFAULT true,
-  online_payment_enabled BOOLEAN DEFAULT false,
+  online_payment_enabled BOOLEAN DEFAULT true,
   whatsapp_checkout_enabled BOOLEAN DEFAULT true,
+  delivery_estimate_metro TEXT DEFAULT '2 to 4 business days',
+  delivery_estimate_standard TEXT DEFAULT '4 to 7 business days',
   updated_at TIMESTAMPTZ DEFAULT NOW()
 );
 
@@ -55,6 +57,9 @@ CREATE TABLE IF NOT EXISTS products (
   is_featured BOOLEAN DEFAULT false,
   is_new_arrival BOOLEAN DEFAULT false,
   is_best_seller BOOLEAN DEFAULT false,
+  status TEXT DEFAULT 'published', -- 'published', 'draft', 'archived'
+  seo_title TEXT,
+  seo_description TEXT,
   rating NUMERIC(3, 2) DEFAULT 5.0,
   review_count INT DEFAULT 0,
   created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -91,9 +96,13 @@ CREATE TABLE IF NOT EXISTS orders (
   shipping_fee NUMERIC(10, 2) DEFAULT 0,
   total NUMERIC(10, 2) NOT NULL,
   payment_method TEXT NOT NULL, -- 'cod', 'online', 'whatsapp'
-  payment_status TEXT NOT NULL DEFAULT 'pending', -- 'pending', 'paid', 'cod_pending', 'refunded'
-  order_status TEXT NOT NULL DEFAULT 'pending', -- 'pending', 'confirmed', 'shipped', 'delivered', 'cancelled'
+  payment_status TEXT NOT NULL DEFAULT 'pending', -- 'pending', 'paid', 'cod_pending', 'failed', 'refunded'
+  order_status TEXT NOT NULL DEFAULT 'pending', -- 'pending', 'confirmed', 'processing', 'shipped', 'delivered', 'cancelled'
+  tracking_courier TEXT DEFAULT 'BlueDart',
   tracking_number TEXT,
+  razorpay_order_id TEXT,
+  razorpay_payment_id TEXT,
+  razorpay_signature TEXT,
   notes TEXT
 );
 
