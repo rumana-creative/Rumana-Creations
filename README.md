@@ -1,6 +1,6 @@
 # 🌸 Rumana Creations — Handcrafted Boutique E-Commerce Platform
 
-A production-ready, human-designed Indian boutique e-commerce web application built for **Rumana Creations**, featuring fashionable hair accessories, French cellulose claw clips, 100% mulberry silk scrunchies, royal padded velvet headbands, kids' snag-free clips, and bridal pearl pins.
+A production-ready, human-designed Indian boutique e-commerce web application built for **Rumana Creations**, featuring fashionable hair accessories, French cellulose claw clips, 100% mulberry silk scrunchies, royal padded velvet headbands, kids' snag-free clips, bridal pearl pins, and an expanded collection of **necklaces, earrings, rings, bangles, bracelets, jewellery sets, fashion jewellery, and jewellery-making craft materials**.
 
 ---
 
@@ -17,6 +17,7 @@ Designed in strict accordance with Rumana Creations' official branding guideline
 - **Official Brand Logo:** Exactly preserved from official source (`/public/rumana-logo.png`)
 - **Official WhatsApp:** `+91 91521 36209` (`https://wa.me/919152136209`)
 - **Official Instagram:** `https://www.instagram.com/rumana.creations/`
+- **Product Categorization Note:** All jewellery lines are strictly designated as **Artificial, Costume, and Fashion Jewellery** or **Jewellery-Making Materials**, handcrafted with non-precious metal alloys, brass, synthetic kundan, faux glass pearls, and crystal embellishments.
 
 ---
 
@@ -24,12 +25,12 @@ Designed in strict accordance with Rumana Creations' official branding guideline
 
 ### 1. Storefront Experience
 - **Announcement Bar:** Dynamic banner with free shipping threshold reminders (`₹799+`) and direct WhatsApp concierge support.
-- **Brand Header:** Official logo, desktop navigation, live search trigger with `⌘K` keyboard shortcut, wishlist counter badge, interactive shopping bag drawer, and mobile slide-over navigation.
+- **Brand Header:** Official logo, focused 5-button boutique desktop navigation (`Home`, `Product`, `Best Seller`, `About`, `Contact`), live search trigger with `⌘K` keyboard shortcut, wishlist counter badge, interactive shopping bag drawer, and mobile slide-over navigation.
 - **Hero Section:** Editorial lifestyle composition with the headline *"Everyday Beauty, Beautifully Accessorised"*, direct action buttons, and trust metrics.
-- **Featured Categories Grid:** Direct visual pathways to Claw Clips, Scrunchies & Ties, Headbands, Kids' Clips, Pearl Pins, New Arrivals, and Best Sellers.
+- **Featured Categories Grid:** Direct visual pathways across all curated categories: Hair Accessories (Claw Clips, Scrunchies, Headbands, Kids' Clips, Pearl Pins) and Fashion Jewellery (Necklaces, Earrings, Rings, Bangles, Bracelets, Jewellery Sets, Craft Materials).
 - **New Arrivals & Best Sellers Showcases:** Interactive cards with hover angle transitions, discount badges, review ratings, wishlist toggling, and quick view.
 - **Promotional Welcome Banner:** High-contrast royal burgundy and gold banner featuring welcome coupons (`WELCOME50`, `RUMANA10`).
-- **"Find Your Everyday Style" Editorial Guide:** 3 curated lifestyle hair aesthetics (Minimalist Updo, Festive Velvet & Pearls, Playful Kids).
+- **"Find Your Everyday Style" Editorial Guide:** 3 curated lifestyle aesthetics (Minimalist Updo, Festive Velvet & Pearls, Playful Kids & Chic Jewellery).
 - **Instagram-Inspired Visual Gallery:** `@rumana.creations` 6-post responsive boutique lookbook linking directly to the official profile (`https://www.instagram.com/rumana.creations/`).
 - **WhatsApp Concierge Shopping Section:** Dedicated founder styling assistance card linking directly to `+91 91521 36209`.
 - **Customer Reviews:** Verified buyer reviews with location and item references.
@@ -38,7 +39,7 @@ Designed in strict accordance with Rumana Creations' official branding guideline
 
 ### 2. Comprehensive Shop & Category Filtering
 - **Dynamic Catalogue (`/shop`):**
-  - Instant Category switching.
+  - Instant Category switching across all 15 active categories.
   - Price Range filters (Under ₹300, ₹300–₹499, ₹500–₹799, ₹800+).
   - In-Stock only availability toggle.
   - Sorting: Featured, Newest, Price (Low to High), Price (High to Low), Popularity / Ratings.
@@ -46,19 +47,31 @@ Designed in strict accordance with Rumana Creations' official branding guideline
   - Active filter tags with "Clear all" control.
   - Empty search state with one-click reset.
   - Load-more pagination.
-- **Dedicated Category URLs:**
-  - `/category/claw-clips`
-  - `/category/scrunchies-hair-ties`
-  - `/category/headbands`
-  - `/category/kids-clips`
-  - `/category/pearl-pins-beads`
-  - `/category/new-arrivals`
-  - `/category/best-sellers`
+- **Dedicated Category URLs (15 Active Categories):**
+  - Hair Accessories:
+    - `/category/claw-clips`
+    - `/category/scrunchies-hair-ties`
+    - `/category/headbands`
+    - `/category/kids-clips`
+    - `/category/pearl-pins-beads`
+  - Fashion Jewellery & Craft Supplies:
+    - `/category/necklaces`
+    - `/category/earrings`
+    - `/category/rings`
+    - `/category/bangles`
+    - `/category/bracelets`
+    - `/category/jewellery-sets`
+    - `/category/fashion-jewellery`
+    - `/category/jewellery-making-materials`
+  - Curated Collections:
+    - `/category/new-arrivals`
+    - `/category/best-sellers`
 
 ### 3. Product Detail Page (`/product/[slug]`)
 - Multi-image gallery with thumbnail switcher.
 - Dynamic price, crossed-out original price, and savings badge in INR (₹).
 - Interactive shade/colour variant selector with visual swatches.
+- Clear disclosure of artificial / costume jewellery materials (brass, copper alloy, glass beads, synthetic pearls, zari cords).
 - Real-time stock status badge with available unit limits.
 - Quantity selector clamped to available inventory.
 - **Add to Bag** (with animated notification toast) and **Buy Now** (instant redirect to checkout).
@@ -93,11 +106,12 @@ Designed in strict accordance with Rumana Creations' official branding guideline
 - Direct **Contact Store on WhatsApp** button with pre-filled Order ID.
 
 ### 7. Administrative Dashboard (`/admin`)
-- Secure password authentication gate (`rumana2026`).
-- **Dashboard Overview:** Real metrics for Total Revenue, Total Orders, Active Catalog Count, and Low Stock Alerts.
+- Secure dual-field authentication gate: Admin Email (`nawabrumana6@gmail.com`) and Password (`Rumana@nawab2026`).
+- Interactive eye toggle button (`Eye` / `EyeOff`) to inspect or conceal entered password. Zero plain-text identity leaks on the login page.
+- **Dashboard Overview:** Real metrics for Total Revenue, Total Orders, Active Catalog Count (27 products across 15 categories), and Low Stock Alerts.
 - **Media Upload Manager (`/api/upload`):** Upload product images directly via the dashboard; supports local storage (`/public/uploads/`) and Supabase Storage bucket (`product-images`). Features image reordering and deletion.
-- **Product Management:** Add new accessories, edit existing products, update prices, manage inventory quantities, toggle Featured/New Arrival/Bestseller flags, set Published/Draft/Archived status, and customize SEO Titles & Descriptions.
-- **Category Management:** Create, edit, reorder display index, and toggle visibility on the storefront.
+- **Product Management:** Add new accessories or jewellery items, edit existing products, update prices, manage inventory quantities, toggle Featured/New Arrival/Bestseller flags, set Published/Draft/Archived status, and customize SEO Titles & Descriptions.
+- **Category Management:** Create, edit, reorder display index, and toggle visibility on the storefront for all 15 categories.
 - **Order Fulfillment & Logistics:** View incoming orders, filter by fulfillment status (Pending, Confirmed, Processing, Shipped, Delivered, Cancelled) and payment status, assign logistics couriers (BlueDart, Delhivery, DTDC, India Post, Shadowfax) and tracking AWB numbers, and **Export Orders to CSV**.
 - **Store Settings:** Live editor for WhatsApp phone number, Instagram handle, Announcement banner text, Free delivery threshold, and Shipping fees.
 
