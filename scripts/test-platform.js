@@ -215,17 +215,17 @@ async function runTestSuite() {
     const res = await post('/api/shipping/check-pin', { pinCode: '400001' });
     if (res.status !== 200) throw new Error(`Status ${res.status}: ${res.body}`);
     const json = JSON.parse(res.body);
-    if (!json.serviceable || !json.codAvailable || json.city !== 'Mumbai') {
+    if (!json.isServiceable || !json.codAvailable || !json.isMetro) {
       throw new Error(`PIN validation unexpected response: ${res.body}`);
     }
   });
 
-  await assertTest('POST /api/shipping/check-pin rejects invalid 3-digit PIN format', async () => {
+  await assertTest('POST /api/shipping/check-pin rejects invalid 3-digit PIN format with HTTP 400', async () => {
     const res = await post('/api/shipping/check-pin', { pinCode: '123' });
-    if (res.status !== 200) throw new Error(`Status ${res.status}`);
+    if (res.status !== 400) throw new Error(`Expected HTTP 400, got ${res.status}`);
     const json = JSON.parse(res.body);
-    if (json.serviceable !== false) {
-      throw new Error(`Invalid PIN was marked serviceable: ${res.body}`);
+    if (json.isServiceable !== false) {
+      throw new Error(`Invalid PIN was not marked unserviceable: ${res.body}`);
     }
   });
 
