@@ -178,6 +178,21 @@ async function runTestSuite() {
     });
   }
 
+  // 1b. Admin Login Privacy & Autofill Prevention Verification
+  await assertTest('Admin login screen (/admin) has NO prefilled or autofilled ID or Password in initial markup', async () => {
+    const res = await get('/admin');
+    if (res.status !== 200) throw new Error(`Status ${res.status}`);
+    if (res.body.includes('value="nawabrumana6@gmail.com"') || res.body.includes('nawabrumana6@gmail.com')) {
+      throw new Error('Found prefilled email on admin login page markup!');
+    }
+    if (res.body.includes('Rumana@nawab2026')) {
+      throw new Error('Found prefilled password on admin login page markup!');
+    }
+    if (!res.body.includes('autoComplete="off"') && !res.body.includes('autocomplete="off"')) {
+      throw new Error('Admin form missing autocomplete="off"');
+    }
+  });
+
   // 2. Official Logo Asset
   await assertTest('Official Brand Logo is served correctly at /rumana-logo.png', async () => {
     const res = await get('/rumana-logo.png');

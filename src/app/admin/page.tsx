@@ -37,7 +37,7 @@ import { defaultStoreSettings } from '@/config/store';
 export default function AdminPage() {
   // Auth state
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [emailInput, setEmailInput] = useState<string>('nawabrumana6@gmail.com');
+  const [emailInput, setEmailInput] = useState<string>('');
   const [passwordInput, setPasswordInput] = useState<string>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loginError, setLoginError] = useState<string | null>(null);
@@ -404,18 +404,31 @@ export default function AdminPage() {
             </div>
           )}
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-4" autoComplete="off" noValidate>
+            {/* Hidden honeypot inputs to trap browser password-manager auto-fillers */}
+            <input type="text" style={{ display: 'none' }} tabIndex={-1} aria-hidden="true" readOnly />
+            <input type="password" style={{ display: 'none' }} tabIndex={-1} aria-hidden="true" readOnly />
+
             <div>
               <label className="block text-xs font-semibold text-charcoal mb-1">
                 Admin ID / Email
               </label>
               <input
-                type="email"
+                type="text"
+                name="admin_manual_id"
+                id="admin_manual_id"
                 required
-                autoComplete="username"
+                autoComplete="off"
+                autoCorrect="off"
+                autoCapitalize="none"
+                spellCheck={false}
+                data-lpignore="true"
+                data-1p-ignore="true"
+                data-bwignore="true"
+                data-form-type="other"
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
-                placeholder="Enter admin email"
+                placeholder="Enter admin ID or email"
                 className="w-full px-3.5 py-2.5 bg-cream-50 border border-gold-border rounded-xl text-xs sm:text-sm text-charcoal focus:outline-none focus:border-burgundy"
               />
             </div>
@@ -447,11 +460,20 @@ export default function AdminPage() {
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
+                  name="admin_manual_pass"
+                  id="admin_manual_pass"
                   required
-                  autoComplete="current-password"
+                  autoComplete="new-password"
+                  autoCorrect="off"
+                  autoCapitalize="none"
+                  spellCheck={false}
+                  data-lpignore="true"
+                  data-1p-ignore="true"
+                  data-bwignore="true"
+                  data-form-type="other"
                   value={passwordInput}
                   onChange={(e) => setPasswordInput(e.target.value)}
-                  placeholder="••••••••••••"
+                  placeholder="Enter admin password"
                   className="w-full px-3.5 py-2.5 pr-10 bg-cream-50 border border-gold-border rounded-xl text-xs sm:text-sm text-charcoal focus:outline-none focus:border-burgundy font-mono tracking-wider"
                 />
                 <button

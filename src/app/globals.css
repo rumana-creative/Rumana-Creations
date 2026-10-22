@@ -66,3 +66,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
   outline: 2px solid #C49A45;
   outline-offset: 2px;
 }
+
+/* Suppress browser autofill styling and enforce clean ivory theme */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 40px #FFFDF8 inset !important;
+  -webkit-text-fill-color: #393333 !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
