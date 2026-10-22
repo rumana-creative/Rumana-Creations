@@ -17,6 +17,8 @@
     "codEnabled": true,
     "onlinePaymentEnabled": false,
     "whatsappCheckoutEnabled": true,
+    "deliveryEstimateMetro": "2 to 4 business days",
+    "deliveryEstimateStandard": "4 to 7 business days",
     "addressCity": "Bengaluru",
     "addressState": "Karnataka",
     "country": "India"
@@ -113,7 +115,7 @@
           "id": "v1-1",
           "name": "Classic Amber Tortoise",
           "colorCode": "#B87333",
-          "stock": 16,
+          "stock": 14,
           "sku": "RC-CC-01-AMB"
         },
         {
@@ -131,7 +133,7 @@
           "sku": "RC-CC-01-BLN"
         }
       ],
-      "stock": 36,
+      "stock": 34,
       "sku": "RC-CC-01",
       "isFeatured": true,
       "isNewArrival": false,
@@ -648,6 +650,74 @@
     }
   ],
   "orders": [
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-7942",
+      "createdAt": "2026-10-22T20:23:07.249Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
+    {
+      "customer": {
+        "fullName": "Zainab Ahmed",
+        "phone": "9152136209",
+        "whatsappNumber": "9152136209",
+        "email": "zainab@example.com",
+        "addressLine1": "Flat 101, Rosewood Manor",
+        "city": "Mumbai",
+        "state": "Maharashtra",
+        "pinCode": "400001"
+      },
+      "items": [
+        {
+          "productId": "prod-1",
+          "name": "French Tortoise Shell Jumbo Claw Clip",
+          "variantName": "Classic Amber Tortoise",
+          "price": 349,
+          "quantity": 1,
+          "subtotal": 349,
+          "image": "/images/products/tortoise-claw-1.svg"
+        }
+      ],
+      "subtotal": 349,
+      "discount": 0,
+      "shippingFee": 60,
+      "total": 409,
+      "paymentMethod": "cod",
+      "paymentStatus": "cod_pending",
+      "orderStatus": "shipped",
+      "id": "RC-2026-2092",
+      "createdAt": "2026-10-22T20:22:49.871Z",
+      "trackingCourier": "BlueDart",
+      "trackingNumber": "BLUEDART-88910245"
+    },
     {
       "customer": {
         "fullName": "Zainab Ahmed",
