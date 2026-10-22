@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="60%" stop-color="#F9F3EA" />
+      <stop offset="100%" stop-color="#EFE4D2" />
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2DFB3" />
+      <stop offset="30%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#C49A45" />
+      <stop offset="100%" stop-color="#9A752A" />
+    </linearGradient>
+    <linearGradient id="burgundyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C2241" />
+      <stop offset="50%" stop-color="#70152C" />
+      <stop offset="100%" stop-color="#4A0B1B" />
+    </linearGradient>
+    <linearGradient id="pearlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#FFF9F0" />
+      <stop offset="80%" stop-color="#EBDBC8" />
+      <stop offset="100%" stop-color="#CBB59B" />
+    </linearGradient>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B5E20" />
+      <stop offset="50%" stop-color="#2E7D32" />
+      <stop offset="100%" stop-color="#0F3813" />
+    </linearGradient>
+    <filter id="boutiqueShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#70152C" flood-opacity="0.14" />
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#C49A45" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#bgGrad)" />
+  <rect x="28" y="28" width="744" height="744" rx="16" fill="none" stroke="#E8D9BD" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.75" />
+  <rect x="36" y="36" width="728" height="728" rx="12" fill="none" stroke="#C49A45" stroke-width="0.75" opacity="0.4" />
+
+  <g filter="url(#boutiqueShadow)">
+    
+    <g transform="translate(400, 380)">
+      <circle cx="-80" cy="0" r="70" fill="none" stroke="url(#goldGrad)" stroke-width="24" />
+      <circle cx="80" cy="0" r="70" fill="none" stroke="url(#goldGrad)" stroke-width="24" />
+    </g>
+  
+  </g>
+
+  
+  <g transform="translate(670, 110)">
+    <circle r="44" fill="url(#burgundyGrad)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <text text-anchor="middle" dy="5" font-family="'Inter', sans-serif" font-size="13" font-weight="800" fill="#FFFDF8" letter-spacing="1">MINIMAL</text>
+  </g>
+
+  
+  <g transform="translate(400, 715)">
+    <rect x="-180" y="-22" width="360" height="44" rx="22" fill="#FFFFFF" stroke="#E8D9BD" stroke-width="1.5" opacity="0.95" />
+    <text text-anchor="middle" dy="6" font-family="'Playfair Display', serif" font-size="17" font-weight="700" fill="#70152C" letter-spacing="2">CHUNKY HUGGIE HOOPS</text>
+  </g>
+</svg>
