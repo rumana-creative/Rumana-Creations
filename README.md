@@ -126,7 +126,10 @@ Designed in strict accordance with Rumana Creations' official branding guideline
 - **Payments:** Razorpay SDK (`razorpay`) with server-side HMAC verification and webhooks
 - **Cloud Storage:** Supabase SDK (`@supabase/supabase-js`) with automatic local fallback
 - **Data Layer:** File-backed persistent database (`data/store-data.json`) with atomic write safety
-- **Production SQL Migration:** `supabase/migrations/01_initial_schema.sql` (PostgreSQL / Supabase compatible)
+- **Production SQL Migrations:**
+  - `supabase/migrations/01_initial_schema.sql` (Tables, indexes, and initial hair accessories)
+  - `supabase/migrations/02_update_admin_credentials.sql` (Hardened admin authentication)
+  - `supabase/migrations/03_jewellery_categories_and_products.sql` (Jewellery categories, fashion items & craft supplies)
 - **SEO & Metadata:** OpenGraph tags, dynamic sitemap (`/sitemap.xml`), robots (`/robots.txt`), and JSON-LD Structured Data
 
 ---
