@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#FFFDF9" />
+      <stop offset="60%" stop-color="#F9F3EA" />
+      <stop offset="100%" stop-color="#EFE4D2" />
+    </radialGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2DFB3" />
+      <stop offset="30%" stop-color="#D4AF37" />
+      <stop offset="70%" stop-color="#C49A45" />
+      <stop offset="100%" stop-color="#9A752A" />
+    </linearGradient>
+    <linearGradient id="burgundyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9C2241" />
+      <stop offset="50%" stop-color="#70152C" />
+      <stop offset="100%" stop-color="#4A0B1B" />
+    </linearGradient>
+    <linearGradient id="pearlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="40%" stop-color="#FFF9F0" />
+      <stop offset="80%" stop-color="#EBDBC8" />
+      <stop offset="100%" stop-color="#CBB59B" />
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F5F5" />
+      <stop offset="40%" stop-color="#DCDCDC" />
+      <stop offset="70%" stop-color="#B0B0B0" />
+      <stop offset="100%" stop-color="#6B6B6B" />
+    </linearGradient>
+    <linearGradient id="rubyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF5277" />
+      <stop offset="50%" stop-color="#D81B60" />
+      <stop offset="100%" stop-color="#880E4F" />
+    </linearGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFCC80" />
+      <stop offset="50%" stop-color="#FB8C00" />
+      <stop offset="100%" stop-color="#E65100" />
+    </linearGradient>
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB2C9" />
+      <stop offset="50%" stop-color="#F06292" />
+      <stop offset="100%" stop-color="#AD1457" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B2EBF2" />
+      <stop offset="50%" stop-color="#4DD0E1" />
+      <stop offset="100%" stop-color="#00838F" />
+    </linearGradient>
+    <linearGradient id="marigoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF59D" />
+      <stop offset="50%" stop-color="#FDD835" />
+      <stop offset="100%" stop-color="#F57F17" />
+    </linearGradient>
+    <filter id="boutiqueShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#70152C" flood-opacity="0.14" />
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#C49A45" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <rect width="800" height="800" fill="url(#bgGrad)" />
+  <rect x="28" y="28" width="744" height="744" rx="16" fill="none" stroke="#E8D9BD" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.75" />
+  <rect x="36" y="36" width="728" height="728" rx="12" fill="none" stroke="#C49A45" stroke-width="0.75" opacity="0.4" />
+
+  <g filter="url(#boutiqueShadow)">
+    
+    <!-- Rhodium Silver Delicate Tennis Station Chain -->
+    <path d="M260,200 Q400,430 540,200" fill="none" stroke="url(#silverGrad)" stroke-width="3" />
+    
+    <!-- Shimmering CZ round stones -->
+    <g transform="translate(400, 370)">
+      <!-- Central Solitaire Drop -->
+      <circle cx="0" cy="0" r="16" fill="#FFFFFF" stroke="url(#silverGrad)" stroke-width="2" />
+      <!-- Diamond Facet Star -->
+      <polygon points="0,-12 4,-4 12,0 4,4 0,12 -4,4 -12,0 -4,-4" fill="#E1F5FE" opacity="0.8" />
+      <circle cx="0" cy="24" r="8" fill="#FFFFFF" stroke="url(#silverGrad)" stroke-width="1.5" />
+    </g>
+
+    <!-- Flanking Floral Stations -->
+    <g transform="translate(350, 340)">
+      <circle cx="0" cy="0" r="10" fill="#FFFFFF" stroke="url(#silverGrad)" stroke-width="1.5" />
+      <polygon points="0,-8 3,-3 8,0 3,3 0,8 -3,3 -8,0 -3,-3" fill="#E1F5FE" opacity="0.75" />
+    </g>
+    <g transform="translate(450, 340)">
+      <circle cx="0" cy="0" r="10" fill="#FFFFFF" stroke="url(#silverGrad)" stroke-width="1.5" />
+      <polygon points="0,-8 3,-3 8,0 3,3 0,8 -3,3 -8,0 -3,-3" fill="#E1F5FE" opacity="0.75" />
+    </g>
+    <g transform="translate(305, 290)">
+      <circle cx="0" cy="0" r="8" fill="#FFFFFF" stroke="url(#silverGrad)" stroke-width="1.5" />
+    </g>
+    <g transform="translate(495, 290)">
+      <circle cx="0" cy="0" r="8" fill="#FFFFFF" stroke="url(#silverGrad)" stroke-width="1.5" />
+    </g>
+  
+  </g>
+
+  
+  <g transform="translate(670, 110)">
+    <circle r="44" fill="url(#burgundyGrad)" stroke="url(#goldGrad)" stroke-width="2.5" />
+    <text text-anchor="middle" dy="5" font-family="'Inter', sans-serif" font-size="12" font-weight="800" fill="#FFFDF8" letter-spacing="1">RHODIUM</text>
+  </g>
+
+  
+  <g transform="translate(400, 715)">
+    <rect x="-190" y="-22" width="380" height="44" rx="22" fill="#FFFFFF" stroke="#E8D9BD" stroke-width="1.5" opacity="0.95" />
+    <text text-anchor="middle" dy="6" font-family="'Playfair Display', serif" font-size="16" font-weight="700" fill="#70152C" letter-spacing="2">STARLET CZ STATION TENNIS CHAIN</text>
+  </g>
+</svg>
