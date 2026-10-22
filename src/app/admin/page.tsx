@@ -23,6 +23,7 @@ import {
   Phone,
   Instagram,
   Eye,
+  EyeOff,
   RefreshCw,
   Upload,
   CreditCard,
@@ -36,7 +37,9 @@ import { defaultStoreSettings } from '@/config/store';
 export default function AdminPage() {
   // Auth state
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const [emailInput, setEmailInput] = useState<string>('nawabrumana6@gmail.com');
   const [passwordInput, setPasswordInput] = useState<string>('');
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const [loginError, setLoginError] = useState<string | null>(null);
   const [checkingAuth, setCheckingAuth] = useState<boolean>(true);
 
@@ -121,13 +124,16 @@ export default function AdminPage() {
       const res = await fetch('/api/admin/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ password: passwordInput }),
+        body: JSON.stringify({ 
+          email: emailInput,
+          password: passwordInput 
+        }),
       });
       const data = await res.json();
       if (res.ok && data.success) {
         setIsAuthenticated(true);
       } else {
-        setLoginError(data.error || 'Invalid password.');
+        setLoginError(data.error || 'Invalid administrator credentials.');
       }
     } catch (err: any) {
       setLoginError(err.message || 'Login failed.');
@@ -401,16 +407,66 @@ export default function AdminPage() {
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="block text-xs font-semibold text-charcoal mb-1">
-                Admin Password
+                Admin ID / Email
               </label>
               <input
-                type="password"
+                type="email"
                 required
-                value={passwordInput}
-                onChange={(e) => setPasswordInput(e.target.value)}
-                placeholder="Enter password (default: rumana2026)"
-                className="w-full px-3.5 py-2.5 bg-cream-50 border border-gold-border rounded-xl text-xs sm:text-sm focus:outline-none focus:border-burgundy"
+                autoComplete="username"
+                value={emailInput}
+                onChange={(e) => setEmailInput(e.target.value)}
+                placeholder="Enter admin email"
+                className="w-full px-3.5 py-2.5 bg-cream-50 border border-gold-border rounded-xl text-xs sm:text-sm text-charcoal focus:outline-none focus:border-burgundy"
               />
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-semibold text-charcoal">
+                  Admin Password
+                </label>
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="text-xs text-burgundy hover:text-gold-dark inline-flex items-center gap-1 transition-colors"
+                  tabIndex={-1}
+                >
+                  {showPassword ? (
+                    <>
+                      <EyeOff className="w-3.5 h-3.5" />
+                      <span>Hide</span>
+                    </>
+                  ) : (
+                    <>
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>Show</span>
+                    </>
+                  )}
+                </button>
+              </div>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  required
+                  autoComplete="current-password"
+                  value={passwordInput}
+                  onChange={(e) => setPasswordInput(e.target.value)}
+                  placeholder="••••••••••••"
+                  className="w-full px-3.5 py-2.5 pr-10 bg-cream-50 border border-gold-border rounded-xl text-xs sm:text-sm text-charcoal focus:outline-none focus:border-burgundy font-mono tracking-wider"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-charcoal-muted hover:text-burgundy transition-colors p-1"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? (
+                    <EyeOff className="w-4 h-4 text-burgundy" />
+                  ) : (
+                    <Eye className="w-4 h-4 text-charcoal-muted" />
+                  )}
+                </button>
+              </div>
             </div>
 
             <button
