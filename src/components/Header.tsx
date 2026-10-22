@@ -46,7 +46,7 @@ export default function Header({ onOpenSearch }: HeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-ivory-50/95 backdrop-blur-md border-b border-gold-border transition-all">
+    <header className="sticky top-0 z-40 w-full bg-ivory-50/98 backdrop-blur-md border-b border-gold-border shadow-xs transition-all">
       {/* 1. Top Announcement Bar */}
       {defaultStoreSettings.isAnnouncementActive && (
         <div className="bg-burgundy text-ivory-50 px-4 py-2 text-xs md:text-sm font-medium tracking-wide">
@@ -74,11 +74,11 @@ export default function Header({ onOpenSearch }: HeaderProps) {
         </div>
       )}
 
-      {/* 2. Main Navigation Bar */}
+      {/* 2. Main Brand & Action Header */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 sm:h-24">
+        <div className="flex items-center justify-between h-20">
           
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu & Search Buttons */}
           <div className="flex items-center lg:hidden">
             <button
               type="button"
@@ -100,13 +100,13 @@ export default function Header({ onOpenSearch }: HeaderProps) {
 
           {/* Official Brand Logo */}
           <div className="flex-1 lg:flex-none flex justify-center lg:justify-start">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-14 h-14 sm:w-16 sm:h-16 transition-transform duration-300 group-hover:scale-105">
+            <Link href="/" className="flex items-center gap-3 group shrink-0">
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src={defaultStoreSettings.logoUrl}
                   alt="Rumana Creations Official Logo"
                   fill
-                  sizes="64px"
+                  sizes="56px"
                   priority
                   className="object-contain"
                 />
@@ -122,39 +122,39 @@ export default function Header({ onOpenSearch }: HeaderProps) {
             </Link>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7 text-sm font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`relative py-1 transition-colors ${
-                  isActive(link.href)
-                    ? 'text-burgundy font-semibold'
-                    : 'text-charcoal-light hover:text-burgundy'
-                }`}
-              >
-                {link.name}
-                {isActive(link.href) && (
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold rounded-full" />
-                )}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Header Action Icons */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            {/* Search Trigger */}
+          {/* Search Trigger Bar (Desktop) */}
+          <div className="hidden lg:flex flex-1 max-w-md mx-8">
             <button
               type="button"
               onClick={onOpenSearch}
-              className="hidden lg:flex items-center gap-2 px-3 py-1.5 text-xs text-charcoal-muted bg-cream-100 hover:bg-cream-200 border border-gold-border rounded-full transition"
+              className="w-full flex items-center justify-between px-4 py-2 text-xs text-charcoal-muted bg-cream-100/80 hover:bg-cream-200/80 border border-gold-border rounded-full transition shadow-2xs group"
               aria-label="Search catalogue"
             >
-              <Search className="w-3.5 h-3.5 text-charcoal" />
-              <span>Search accessories...</span>
-              <kbd className="text-[10px] bg-white px-1.5 py-0.5 rounded border border-gold-border text-charcoal-muted">⌘K</kbd>
+              <span className="flex items-center gap-2.5">
+                <Search className="w-3.5 h-3.5 text-gold-dark group-hover:text-burgundy transition-colors" />
+                <span className="text-charcoal-muted group-hover:text-charcoal transition-colors">
+                  Search luxury clips, silk scrunchies, pearl pins...
+                </span>
+              </span>
+              <kbd className="text-[10px] bg-white px-2 py-0.5 rounded-md border border-gold-border text-charcoal-muted font-mono font-bold shadow-2xs">
+                ⌘K
+              </kbd>
             </button>
+          </div>
+
+          {/* Header Action Icons */}
+          <div className="flex items-center space-x-2 sm:space-x-4">
+            {/* WhatsApp Concierge Quick Pill */}
+            <a
+              href={getWhatsAppUrl("Hello Rumana Creations! 🌸 I would like styling assistance.")}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-burgundy bg-gold/10 hover:bg-gold/20 border border-gold-border rounded-full transition shadow-2xs"
+              title="Chat with our founder styling concierge"
+            >
+              <Phone className="w-3.5 h-3.5 text-gold-dark" />
+              <span>WhatsApp Concierge</span>
+            </a>
 
             {/* Wishlist Link */}
             <Link
@@ -162,9 +162,9 @@ export default function Header({ onOpenSearch }: HeaderProps) {
               className="relative p-2 text-charcoal hover:text-burgundy transition"
               aria-label="Wishlist"
             >
-              <Heart className="w-6 h-6" />
+              <Heart className="w-5 h-5 sm:w-6 sm:h-6" />
               {wishlistCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full flex items-center justify-center">
+                <span className="absolute top-1 right-1 w-4 h-4 bg-burgundy text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-xs">
                   {wishlistCount}
                 </span>
               )}
@@ -177,9 +177,9 @@ export default function Header({ onOpenSearch }: HeaderProps) {
               className="relative p-2 text-charcoal hover:text-burgundy transition"
               aria-label="Shopping Cart"
             >
-              <ShoppingBag className="w-6 h-6" />
+              <ShoppingBag className="w-5 h-5 sm:w-6 sm:h-6" />
               {itemCount > 0 && (
-                <span className="absolute top-1 right-1 w-4 h-4 bg-gold text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-sm">
+                <span className="absolute top-1 right-1 w-4 h-4 bg-gold text-white text-[10px] font-bold rounded-full flex items-center justify-center shadow-xs">
                   {itemCount}
                 </span>
               )}
@@ -189,7 +189,31 @@ export default function Header({ onOpenSearch }: HeaderProps) {
         </div>
       </div>
 
-      {/* 3. Mobile Navigation Drawer */}
+      {/* 3. Dedicated Category Navigation Bar (Desktop) */}
+      <div className="hidden lg:block bg-cream-50/90 border-t border-gold-border/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav className="flex items-center justify-center space-x-6 xl:space-x-9 h-11 text-xs xl:text-sm font-medium tracking-wide">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`relative py-2.5 whitespace-nowrap transition-colors uppercase tracking-wider text-[11px] xl:text-xs font-semibold ${
+                  isActive(link.href)
+                    ? 'text-burgundy font-bold'
+                    : 'text-charcoal-light hover:text-burgundy'
+                }`}
+              >
+                {link.name}
+                {isActive(link.href) && (
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gold rounded-full" />
+                )}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* 4. Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           {/* Backdrop */}
