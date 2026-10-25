@@ -961,7 +961,8 @@ export default function AdminPage() {
             </div>
 
             <div className="bg-white rounded-3xl border border-gold-border overflow-hidden shadow-subtle">
-              <table className="w-full text-left text-xs">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs">
                 <thead>
                   <tr className="border-b border-gold-border bg-cream-100/60 text-charcoal-muted font-bold uppercase text-[10px]">
                     <th className="p-4">Order</th>
@@ -1007,6 +1008,7 @@ export default function AdminPage() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           </div>
         )}
@@ -1054,7 +1056,8 @@ export default function AdminPage() {
             </div>
 
             <div className="bg-white rounded-3xl border border-gold-border overflow-hidden shadow-subtle">
-              <table className="w-full text-left text-xs">
+              <div className="overflow-x-auto">
+                <table className="w-full text-left text-xs">
                 <thead>
                   <tr className="border-b border-gold-border bg-cream-100/60 text-charcoal-muted font-bold uppercase text-[10px]">
                     <th className="p-4">Order ID</th>
@@ -1109,6 +1112,7 @@ export default function AdminPage() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
 
           </div>
