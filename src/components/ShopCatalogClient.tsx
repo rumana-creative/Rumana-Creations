@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { 
   Filter, 
   Search, 
@@ -37,6 +37,24 @@ export default function ShopCatalogClient({
   const [isFilterDrawerOpen, setIsFilterDrawerOpen] = useState<boolean>(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
   const [displayCount, setDisplayCount] = useState<number>(8);
+
+  // Lock body scroll and handle Escape key when mobile filter drawer is open
+  useEffect(() => {
+    if (isFilterDrawerOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') setIsFilterDrawerOpen(false);
+      };
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isFilterDrawerOpen]);
 
   const priceRanges = [
     { id: 'all', label: 'All Prices' },
@@ -382,16 +400,27 @@ export default function ShopCatalogClient({
 
       {/* Mobile Filter Drawer */}
       {isFilterDrawerOpen && (
-        <div className="fixed inset-0 z-50 lg:hidden">
+        <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label="Filter Catalog"
+          className="fixed inset-0 z-50 lg:hidden flex justify-end"
+        >
           <div
-            className="fixed inset-0 bg-charcoal/50 backdrop-blur-xs"
+            className="fixed inset-0 bg-charcoal/50 backdrop-blur-xs transition-opacity duration-300"
             onClick={() => setIsFilterDrawerOpen(false)}
+            aria-hidden="true"
           />
-          <div className="fixed inset-y-0 right-0 w-full max-w-xs bg-white p-6 shadow-2xl flex flex-col z-10 overflow-y-auto">
-            <div className="flex items-center justify-between pb-4 border-b border-gold-border">
+          <div className="relative w-full max-w-xs bg-white p-6 shadow-2xl flex flex-col z-10 overflow-y-auto h-full h-[100dvh]">
+            <div className="flex items-center justify-between pb-4 border-b border-gold-border shrink-0">
               <h3 className="font-serif text-lg font-bold text-burgundy">Filter Catalog</h3>
-              <button type="button" onClick={() => setIsFilterDrawerOpen(false)}>
-                <X className="w-5 h-5 text-charcoal" />
+              <button 
+                type="button" 
+                onClick={() => setIsFilterDrawerOpen(false)}
+                className="p-1 rounded-lg text-charcoal hover:text-burgundy"
+                aria-label="Close filters"
+              >
+                <X className="w-5 h-5" />
               </button>
             </div>
 

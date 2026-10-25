@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { X, Heart, ShoppingBag, Phone, Star, Check, Sparkles } from 'lucide-react';
@@ -21,6 +21,24 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState(0);
 
+  // Lock body scroll and handle Escape key when QuickView is open
+  useEffect(() => {
+    if (product) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') onClose();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [product, onClose]);
+
   if (!product) return null;
 
   const isWishlisted = isInWishlist(product.id);
@@ -35,15 +53,21 @@ export default function QuickViewModal({ product, onClose }: QuickViewModalProps
   const images = product.images && product.images.length > 0 ? product.images : ['/images/products/tortoise-claw-1.svg'];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div 
+      role="dialog"
+      aria-modal="true"
+      aria-label="Product Quick View"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4"
+    >
       {/* Backdrop */}
       <div 
-        className="fixed inset-0 bg-charcoal/50 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-charcoal/50 backdrop-blur-xs transition-opacity"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Modal Box */}
-      <div className="relative bg-white rounded-3xl max-w-3xl w-full p-6 sm:p-8 shadow-2xl border border-gold-border z-10 max-h-[90vh] overflow-y-auto">
+      <div className="relative bg-white rounded-3xl max-w-3xl w-full p-5 sm:p-8 shadow-2xl border border-gold-border z-10 max-h-[90dvh] overflow-y-auto">
         <button
           type="button"
           onClick={onClose}
