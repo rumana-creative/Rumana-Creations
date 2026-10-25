@@ -165,13 +165,13 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
       )}
 
       {/* 5. Pricing & Stock status */}
-      <div className="mt-auto pt-2 flex items-center justify-between border-t border-cream-200">
-        <div className="flex items-baseline gap-2">
-          <span className="font-serif text-lg sm:text-xl font-bold text-burgundy">
+      <div className="mt-auto pt-2 flex flex-wrap items-center justify-between gap-1.5 border-t border-cream-200">
+        <div className="flex items-baseline gap-1.5">
+          <span className="font-serif text-base sm:text-xl font-bold text-burgundy">
             {defaultStoreSettings.currencySymbol}{product.price}
           </span>
           {product.originalPrice && (
-            <span className="text-xs text-charcoal-muted line-through">
+            <span className="text-[11px] sm:text-xs text-charcoal-muted line-through">
               {defaultStoreSettings.currencySymbol}{product.originalPrice}
             </span>
           )}
@@ -182,7 +182,7 @@ export default function ProductCard({ product, onQuickView }: ProductCardProps) 
           type="button"
           onClick={handleAddToCart}
           disabled={product.stock <= 0}
-          className={`py-1.5 px-3 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs ${
+          className={`py-1.5 px-2.5 sm:px-3 rounded-lg text-[11px] sm:text-xs font-semibold flex items-center gap-1 transition-all shadow-xs shrink-0 ${
             product.stock <= 0
               ? 'bg-cream-200 text-charcoal-muted cursor-not-allowed'
               : 'bg-burgundy hover:bg-burgundy-800 text-white active:scale-95'
