@@ -23,15 +23,15 @@ export default function Hero() {
           <div className="lg:col-span-7 text-center lg:text-left space-y-6">
             
             {/* Boutique Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cream-200/80 border border-gold-border shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-burgundy animate-ping" />
-              <span className="text-xs font-semibold uppercase tracking-widest text-burgundy">
+            <div className="inline-flex items-center justify-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-cream-200/80 border border-gold-border shadow-xs max-w-full">
+              <span className="w-2 h-2 rounded-full bg-burgundy animate-ping shrink-0" />
+              <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-widest text-burgundy text-center">
                 Handcrafted Hair Luxury & Fashion Jewellery • 2026 Collection
               </span>
             </div>
 
             {/* Editorial Headline */}
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-burgundy leading-[1.15] tracking-tight">
+            <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl font-bold text-burgundy leading-[1.15] tracking-tight">
               Everyday Beauty, <br className="hidden sm:inline" />
               <span className="text-charcoal italic font-normal">Beautifully Accessorised</span>
             </h1>
