@@ -87,6 +87,29 @@ export default function AdminPage() {
       .finally(() => setCheckingAuth(false));
   }, []);
 
+  // Lock body scroll and handle Escape key when any modal is open
+  useEffect(() => {
+    const isAnyModalOpen = isProductModalOpen || isCategoryModalOpen || Boolean(selectedOrder);
+    if (isAnyModalOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') {
+          setIsProductModalOpen(false);
+          setIsCategoryModalOpen(false);
+          setSelectedOrder(null);
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isProductModalOpen, isCategoryModalOpen, selectedOrder]);
+
   // Fetch all admin data
   const fetchData = async () => {
     setLoading(true);
