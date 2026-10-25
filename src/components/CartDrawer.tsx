@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { 
@@ -40,6 +40,24 @@ export default function CartDrawer() {
   const [couponError, setCouponError] = useState<string | null>(null);
   const [isApplyingCoupon, setIsApplyingCoupon] = useState(false);
 
+  // Lock body scroll and listen for Escape key when cart drawer is open
+  useEffect(() => {
+    if (isCartDrawerOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Escape') closeCartDrawer();
+      };
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [isCartDrawerOpen, closeCartDrawer]);
+
   if (!isCartDrawerOpen) return null;
 
   const handleApplyCoupon = async (e: React.FormEvent) => {
@@ -69,16 +87,23 @@ export default function CartDrawer() {
   );
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div 
+      id="shopping-cart-drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Your Shopping Bag"
+      className="fixed inset-0 z-50 overflow-hidden"
+    >
       {/* Backdrop */}
       <div 
         className="fixed inset-0 bg-charcoal/50 backdrop-blur-xs transition-opacity duration-300"
         onClick={closeCartDrawer}
+        aria-hidden="true"
       />
 
       {/* Drawer Panel */}
-      <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <div className="w-screen max-w-md bg-ivory-50 border-l border-gold-border shadow-2xl flex flex-col">
+      <div className="fixed inset-y-0 right-0 max-w-full flex pl-6 sm:pl-10">
+        <div className="w-screen max-w-md bg-ivory-50 border-l border-gold-border shadow-2xl flex flex-col h-full h-[100dvh]">
           
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-5 border-b border-gold-border bg-cream-100">
@@ -217,7 +242,7 @@ export default function CartDrawer() {
 
           {/* Footer & Checkout Area */}
           {items.length > 0 && (
-            <div className="p-6 border-t border-gold-border bg-cream-100 space-y-3.5">
+            <div className="p-6 border-t border-gold-border bg-cream-100 space-y-3.5 shrink-0 pb-[max(1.25rem,env(safe-area-inset-bottom))]">
               
               {/* Coupon Form */}
               <div>
